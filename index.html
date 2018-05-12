@@ -1,0 +1,665 @@
+﻿<!DOCTYPE HTML>
+<!--
+    Helios by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        var $ = jQuery.noConflict();
+        $(document).ready(function () {
+            init();
+            var showing_projects = true;
+            var showing_hacks = true;
+            var showing_games = true;
+
+
+
+            $('#ProjectButton').click(function () {
+                if (showing_projects === true) {
+                    showing_projects = false;
+                    $("#ProjectButton").prop('value', 'See Projects');
+                    // $("#ProjectButton").toggleClass('fa-ban fa-check');
+                }
+                else {
+                    showing_projects = true;
+                    $("#ProjectButton").prop('value', 'Hide Projects');
+                }
+                $('.Project').toggle('fast', function () {
+                });
+            });
+            $('#HackButton').click(function () {
+                if (showing_hacks === true) {
+                    showing_hacks = false;
+                    $("#HackButton").prop('value', 'See Hacks');
+                }
+                else {
+                    showing_hacks = true;
+                    $("#HackButton").prop('value', 'Hide Hacks');
+                }
+                $('.Hack').toggle('fast', function () {
+                });
+            });
+            $('#GameButton').click(function () {
+                if (showing_games === true) {
+                    showing_games = false;
+                    $("#GameButton").prop('value', 'See Games');
+                }
+                else {
+                    showing_games = true;
+                    $("#GameButton").prop('value', 'Hide Games');
+                }
+                $('.Game').toggle('fast', function () {
+                });
+            });
+        });
+        function init() {
+        }
+    </script>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+
+    <title>※ Brian Hungerman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+<body class="homepage">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header">
+
+            <!-- Inner -->
+            <div class="inner">
+                <header>
+                    <h1>※ Brian Hungerman</h1>
+                    <hr />
+                    <p>
+                        a software engineer with a desire to achieve and a passion for tutoring, <br />
+                        Brian’s personable flair and can-do attitude allow him to tackle any challenge.
+                    </p>
+                </header>
+                <footer>
+                    <a href="#banner" class="circled scrolly"><div><p><br /><br /><br /><br /><br /></p></div><div class="icon fa-angle-double-down"></div> </a>
+
+                </footer>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li>
+                        About Me
+                        <ul>
+                            <li><a href="#banner" class="scrolly">Portfolio</a></li>
+                            <li><a href="#main" class="scrolly">Experience</a></li>
+                            <li><a href="#education" class="scrolly">Education</a></li>
+                            <li><a href="#features" class="scrolly">Leadership</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="http://testing.brianhungerman.com">Testing</a></li>
+                    <li><a href="/Resume.pdf">Resume</a></li>
+                    <li><a href="#footer" class="scrolly">Contact Me</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- Banner -->
+        <section id="banner">
+            <header>
+                <h2>Here's my Portfolio</h2>
+                <p>
+                    Clicking on a project will provide more information. Also check out my <a href="https://github.com/Mutilar">GitHub</a> repositories and <a href="https://devpost.com/BrianHungerman">DevPost</a> projects!
+                    <br />
+                    <br />
+                </p>
+
+
+                <!--<button id="ProjectButton">
+                                <i class="fa fa-ban"></i>
+                            </button>
+                            <!--<input  type="button" name="answer" value="Projects" class="fa-angle-double-down" />&nbsp;&nbsp;&nbsp;
+                -->
+                <input style="background:#5B485B; font-weight:500" id="ProjectButton" type="button" name="answer" value="Projects" />&nbsp;&nbsp;&nbsp;
+                <input style="background:#5B485B; font-weight:500" id="HackButton" type="button" name="answer" value="Hacks" />&nbsp;&nbsp;&nbsp;
+                <input style="background:#5B485B; font-weight:500" id="GameButton" type="button" name="answer" value="Games" />
+            </header>
+        </section>
+
+        <!-- Carousel -->
+        <section class="carousel">
+            <div class="reel">
+
+                <article class="Project">
+                    <a href="iterate.html" class="image featured"><img src="images/iterate.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="iterate.html">Iterate</a></h3>
+                    </header>
+                    <p>A multilingual C# intepreter teaching aid visualized by Unity3D, <br />winning CITRIS' <strong>Mobile App Challenge</strong></p>
+                </article>
+                <article class="Project">
+                    <a href="ozone.html" class="image featured"><img src="images/ozone.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="ozone.html">Ozone</a></h3>
+                    </header>
+                    <p>Utilizing GIS and Big Data to promote sustainability initiatives,<br /> hopefully winning <strong>Innovate to Grow</strong></p>
+                </article>
+                <article class="Hack">
+                    <a href="gist.html" class="image featured"><img src="images/gist.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="gist.html">GISt</a></h3>
+                    </header>
+                    <p>Getting the GISt of our food: using AR to fill the missing link from farm to table,<br /> winning <strong>HackDavis</strong></p>
+                </article>
+                <article class="Hack">
+                    <a href="lucas.html" class="image featured"><img src="images/lucas.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="lucas.html">L.U.C.A.S</a></h3>
+                    </header>
+                    <p>Logarithmic Ultrasonic Collision Avoidance System,<br /> winning $1000 at <strong>Citrus Hack</strong></p>
+                </article>
+
+                <article class="Game">
+                    <a href="spaceninjas.html" class="image featured"><img src="images/space-ninjas.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="spaceninjas.html">Space Ninjas</a></h3>
+                    </header>
+                    <p>A short platformer game, used to teach middle schoolers how to make their own 2D games</p>
+                </article>
+                <article class="Hack">
+                    <a href="digestquest.html" class="image featured"><img src="images/digestquest.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="digestquest.html">DigestQuest</a></h3>
+                    </header>
+                    <p>FitBit for your stomach: a heuristic image processing web application,<br /> winning <strong>HackMerced</strong></p>
+                </article>
+                <article class="Project">
+                    <a class="image featured">
+                        <video style="vertical-align:middle; width:100%; height:100%" controls>
+                            <source src="AMAX.mp4" type="video/mp4">
+                        </video>
+                        <p>&nbsp;</p>
+                    </a>
+                    <header>
+                        <h3>AMAX ESD Detection System</h3>
+                    </header>
+                    <p>Haptic security measure to ensure AMAX employees are grounded, a corporate-sponsored project</p>
+                </article>
+                <article class="Hack">
+                    <a href="dogpark.html" class="image featured"><img src="images/dogpark.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="dogpark.html">DogPark</a></h3>
+                    </header>
+                    <p>Tinder for pet adoption: humanizing the adoption process,<br /> finalist pitch in TESUM's <strong>PitchFest</strong></p>
+                </article>
+                <article class="Game">
+                    <a href="#" class="image featured"><img src="images/seerauber.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="#">Seerauber</a></h3>
+                    </header>
+                    <p>Polygonal Pirates Prowling the Pacific: <br />a distributed-AI pirate game,<br /> my current side project</p>
+                </article>
+                <article class="Project">
+                    <a href="#" class="image featured"><img src="images/firmi.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="#">Firmi</a></h3>
+                    </header>
+                    <p>Getting a grasp of your Fermi Surfaces: a solid-state physics research fellowship project through MACES</p>
+                </article>
+                <article class="Hack">
+                    <a href="#" class="image featured"><img src="images/smartank.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="#">SMARTank</a></h3>
+                    </header>
+                    <p>A fully autonomous agricultural irrigation-monitoring robot,<br /> winning <strong>HackFresno</strong></p>
+                </article>
+                <article class="Hack">
+                    <a href="sriracha.html" class="image featured"><img src="images/sriracha.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="sriracha.html">SRIRACHA</a></h3>
+                    </header>
+                    <p>A fully autonomous room-mapping robot for first responders,<br />hopefully winning <strong>SDHacks</strong></p>
+                </article>
+                <article class="Hack">
+                    <a href="#" class="image featured"><img src="images/breeze.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="#">Breeze</a></h3>
+                    </header>
+                    <p>Air quality sensing phone module for asthma and air quality awareness,<br />hopefully winning <strong>something</strong></p>
+                </article>
+                <article class="Hack">
+                    <a href="#" class="image featured"><img src="images/motorskills.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="#">Motor Skills</a></h3>
+                    </header>
+                    <p>Industrial IOT electric motor machine learning monitoring system,<br /> hopefully winning <strong>something</strong></p>
+                </article>
+                <!--        <article class="Hack">
+        <a href="#" class="image featured"><img src="images/motorskills.jpg" alt="" /></a>
+        <header>
+            <h3><a href="#">Eleat</a></h3>
+        </header>
+        <p>An app to help you eat healthy on a budget,<br /> hopefully winning <strong>something</strong></p>
+    </article>
+    <article class="Hack">
+        <a href="#" class="image featured"><img src="images/motorskills.jpg" alt="" /></a>
+        <header>
+            <h3><a href="#">Twiddle</a></h3>
+        </header>
+        <p>Health monitoring appliance to notify caretakers in emergencies,<br /> hopefully winning <strong>something</strong></p>
+    </article>-->
+
+
+                <article class="Game">
+                    <a href="voodoo.html" class="image featured"><img src="images/voodoo.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="voodoo.html">Voodoo</a></h3>
+                    </header>
+                    <p>A minion-swarming game,<br /> my first fullly polished 2D game written in C# via Unity3D</p>
+                </article>
+                <article class="Game">
+                    <a href="#" class="image featured"><img src="images/galconq.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="#">Galactic Conquest</a></h3>
+                    </header>
+                    <p>A seed-generated, object-oriented galaxy exploration game written in Java and Swing GUI Framework</p>
+                </article>
+                <article class="Game">
+                    <a href="#" class="image featured"><img src="images/graviton.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="#">Graviton</a></h3>
+                    </header>
+                    <p>A complete retro sci-fi tower defense game designed and coded in 36 hours at HackMerced 2016</p>
+                </article>
+
+
+                <article class="Project">
+                    <a href="websites.html" class="image featured"><img src="images/websites.jpg" alt="" /></a>
+                    <header>
+                        <h3><a href="websites.html">Various Websites</a></h3>
+                    </header>
+                    <p>Live websites I have developed for various organizations, mostly via the Drupal CMS</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Main -->
+        <!--<div class="wrapper style2">
+            <article id="awards" class="container special">
+                <!--<div id='map' style='width: 100%; height: 476px;'></div>
+                <div id='map' style='width: 100%; height: 476px;'></div>
+
+                <div class='map-overlay-container'>
+                    <div class='map-overlay'>
+                        <h2 style="text-align:center;" id='location-title'></h2>
+                        <p style="text-align:center; font-size:1.5em; line-height:1.5em" id='location-description'></p>
+                    </div>
+                </div>
+                <script src="map.js" type="text/javascript"></script>
+                <header></header>
+                <p>
+
+                    <!--      Academically and professionally, I have been bestowed great honors for my hard work and perseverance.
+                  My competitive nature and compulsive personality result in me pushing myself to achieve things I at one time never thought possible.
+                  Here's a (mostly) complete list of the awards I've racked up over the years:
+                  <br /><br />
+                  <a href="http://engineeringservicelearning.ucmerced.edu/team-sustainablesites"><img src="images/hackmerced.png" alt="" /></a>
+                  <a href="http://engineeringservicelearning.ucmerced.edu/team-sustainablesites"><img src="images/hackdavis.png" alt="" /></a>
+                  <a href="http://engineeringservicelearning.ucmerced.edu/team-sustainablesites"><img src="images/citrushack.png" alt="" /></a>
+                  <a href="http://engineeringservicelearning.ucmerced.edu/team-sustainablesites"><img src="images/pitchfest.jpg" alt="" /></a>
+                  <a href="http://engineeringservicelearning.ucmerced.edu/team-sustainablesites"><img src="images/ucmerced_seal.png" alt="" /></a>
+
+                </p>
+                <footer>
+                    <!--   <a href="right-sidebar.html" class="button">Full map</a>
+                </footer>
+
+            </article>
+        </div>-->
+
+        <div class="wrapper style2">
+
+            <article id="main" class="container special">
+                <img style="width:100%" src="images/work.jpg" alt="" />
+                <header>
+                    <h2>Here's my Work Experience</h2>
+                    <p>
+                        I've worked as a software engineer, web developer, and computational researcher.<br />
+                        <i>References available upon request.</i>
+                        <!-- Colleen McCormick cmccormick3 @ ucmerced . edu; Joshua Viers jviers @ ucmerced . edu; Stefano Foresti sforesti @ ucmerced . edu; David Strubbe dstrubbe @ ucmerced . edu; Karen Andersen kanderson4 @ ucmerced . edu; Leigh Bernacci lbernacchi? -->
+                    </p>
+                </header>
+                <p>
+                    <center>
+                        <a href="http://ventana.com">
+                            <img style="vertical-align:middle" src="images/Ventana_Roche.jpg" alt="" />  <br />
+                        </a><strong>Platform Software Engineering Intern</strong> @ <a href="http://ventana.com"><strong>Roche Tissue Diagonistics (Ventana)</strong></a><br />
+                        May 2018 - August 2018
+                    </center>
+                    <ul style="list-style-type: disc">
+                        <li>Implementing Java microservices to replace tradition Drupal CMS.</li>
+                        <li>More to come as I begin this internship</li>
+                    </ul>
+                    <br />
+                    <center>
+                        <a href="http://citris.ucmerced.edu">
+                            <img style="vertical-align:middle" src="images/CITRIS_UCM.png" alt="" />  <br />
+                        </a><strong>Web Developer</strong> @ <a href="http://citris.ucmerced.edu"><strong>Center for Information Technology Research in the Interest of Society (CITRIS)</strong></a><br />
+                        May 2017 - Present
+                    </center>
+                    <ul style="list-style-type: disc">
+                        <li>Responsible for modernizing and maintaining CITRIS’ online presence.</li>
+                        <li>Streamlined new hire onboarding practices to address CITRIS’ high turnover rate, improving internal continuity.</li>
+                        <li>Built multiple sites utilizing the Drupal CMS and Acquia Dev Desktop, emphasizing on the readability and maintainability of systems.</li>
+                        <li>Collaborated with numerous organizations, including UC Water, UC Merced Sustainability, UASRegs, VICE Lab, etc.</li>
+                    </ul>
+                    <br />
+                    <center>
+                        <a href="http://maces.ucmerced.edu">
+                            <img style="vertical-align:middle" src="images/MACES_UCM.png" alt="" />  <br />
+                        </a><strong>Research Assistant</strong> @ <a href="http://maces.ucmerced.edu/"><strong>Merced nAnomaterials Center for Research and Sensing (MACES)</strong></a><br />
+                        October 2017 - May 2018
+                    </center>
+
+                    <ul style="list-style-type: disc">
+                        <li>Developed computational solid-state physics algorithms to derive and print Fermi surfaces, helping visualize and corporealize abstract 3D models.</li>
+                        <li>Utilized Marching Cubes algorithm and 3D printing via Fortran to interpolate band structure files into an approximate polygonal isosurface.</li>
+                        <li>Presented research at an annual symposium, part of the NASA's Minority University Research and Education Project (MUREP)</li>
+                        <li>Worked under Professor David Strubbe, generalizing his program, <a href="http://faculty.ucmerced.edu/dstrubbe/Firmi/"><strong>Firmi</strong></a>, to work for more band structure files and edge cases. </li>
+                    </ul>
+                    <br />
+                </p>
+                <!--<footer>
+                    <a href="right-sidebar.html" class="button">Continue Reading</a>
+                </footer>-->
+            </article>
+        </div>
+        <div class="wrapper style2">
+            <article id="education" class="container special">
+                <img style="width:100%" src="images/merced.jpg" alt="" />
+                <header>
+                    <h2>I also have an Education</h2>
+                    <p>
+                        I'm a Computer Science & Engineering undergraduate at the University of Califorina, Merced.
+                        <br />
+                        <i>Official transcript available upon request.</i>
+                    </p>
+                </header>
+                <p>
+                    Studying in Merced, the Gateway to Yosemite, has proven fruitful.
+                    In addition to my stellar academics (GPA: 3.98), I've been a part of
+                    numerous on-campus organizations and departments, including
+                    in the <strong>School of Engineering's Innovate to Grow Planning Committee</strong> and as the computer science ambassador
+                    through the <strong>Center for Career and Professional Advancement</strong>. I also served as
+                    the Community Outreach Officer for the <strong>Association for Computing Machinery</strong>, the
+                    largest computer science club on campus.
+                    <br /><br />
+
+                    <!-- <table>
+                        <tr>
+                            <td style="float:left;width: 40%">
+                                <table>
+                                    <caption>Classes:</caption>
+
+                                    <tr>
+                                        <td><strong>Computer Science & Engineering</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>AP Computer Science A</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Data Structures</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Computer Organization</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Discrete Mathematics</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Algorithms</td>
+                                        <td>IP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Database Systems</td>
+                                        <td>IP</td>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                    <tr>
+                                        <td><strong>Engineering</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Statics and Dynamics</td>
+                                        <td>A-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Engineering Service Learning</td>
+                                        <td>A+</td>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                    <tr>
+                                        <td><strong>Sciences</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Introductory Physics I</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Introductory Physics II</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Biology Today</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                    <tr>
+                                        <td><strong>Mathematics</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Calculus I (Engineering)</td>
+                                        <td>A+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Calculus II (Engineering)</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vector Calculus</td>
+                                        <td>IP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Linear Algebra & Differential Equations</td>
+                                        <td>IP</td>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                    <tr>
+                                        <td><strong>General Education</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Intro to American Politics</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>College Reading & Composition</td>
+                                        <td>A+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>The World at Home</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spanish I</td>
+                                        <td>A</td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                            <td style="float:right;width: 59%">
+                                <img src="images/tall_brian.png" alt="" />
+                            </td>
+                        </tr>
+
+                    </table>-->
+
+                </p>
+                <!--<footer>
+                    <a href="right-sidebar.html" class="button">Continue Reading</a>
+                </footer>-->
+            </article>
+
+        </div>
+
+
+
+
+        <!-- Features -->
+        <div class="wrapper style1">
+
+            <section id="features" class="container special">
+                <header>
+                    <h2>Here's some of my Leadership Experience</h2>
+                    <p>Project management holds its own challenges I'm eager to tackle!</p>
+                </header>
+                <div class="row">
+                    <article class="4u 12u(mobile) special">
+                        <a href="http://engineeringservicelearning.ucmerced.edu/team-sustainablesites" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+                        <header>
+                            <h3><strong><a href="#">Sustainable Sites</a></strong></h3>
+                            <h5>Project Manager</h5>
+                        </header>
+                        <p>
+                            As part of the School of Engineering's Engineering Service Learning program, I am managing a team of twelve to design, build, and publish
+                            a geotracking web application for the Department of Sustainability to help users better understand sustainability projects on campus.
+                        </p>
+                    </article>
+                    <article class="4u 12u(mobile) special">
+                        <a href="http://learnbeat.org" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+                        <header>
+                            <h3><strong><a href="#">LearnBEAT</a></strong></h3>
+                            <h5>Project Manager</h5>
+                        </header>
+                        <p>
+                            Working with an entrepreneurial UC Merced alumnus, we are developing novel teaching techniques and curriculum to revolutionize K-12 STEM education
+                            via project-based learning. I develop and teach <i>From Bits to Scripts</i> lesson plans on microprocessors, software-hardware interactions and coding.
+                        </p>
+                    </article>
+                    <article class="4u 12u(mobile) special">
+                        <a href="http://summerofgamedesign.webs.com" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+                        <header>
+                            <h3><strong><a href="#">Summer of Game Design</a></strong></h3>
+                            <h5>Founder</h5>
+                        </header>
+                        <p>
+                            Working my high school computer science professor, we started and ran a two-week-long game design and programming summer camp.
+                            I wrote and taught curriculum on basic C# programming via Unity3D, and helped the non-profit program raise $25,000 for new computers for the school's computer lab.
+                        </p>
+                    </article>
+                </div>
+                <div class="row">
+
+                    <article class="4u 12u(mobile) special">
+                        <a href="https://www.redties1458.com/" class="image featured"><img src="images/redtie.jpg" alt="" /></a>
+                        <header>
+                            <h3><strong><a href="#">Red Tie Robotics</a></strong></h3>
+                            <h5>Electrical Team Lead, Treasurer</h5>
+                        </header>
+                        <p>
+                            Competing in FRC (For Inspiration & Recognition of Science & Technology Robotics Competition), I worked designing and integrating Team 1458's electrical systems.
+                            This involved installing sensors and motor controllers, supplying power via a power distribution board, managing batteries, and overseeing a team of five.
+                        </p>
+                    </article>
+
+                    <article class="4u 12u(mobile) special">
+                        <a href="http://ucm.acm.org/" class="image featured"><img src="images/acmucm.jpg" alt="" /></a>
+                        <header>
+                            <h3><strong><a href="#">Assocation for Computing Machinery</a></strong></h3>
+                            <h5>Community Outreach Officer</h5>
+                        </header>
+                        <p>
+                            As part of the Association for Computing Machinery's UC Merced chapter, I fostered community engagement via workshops, seminars, and tours. I also helped to host
+                            ACM's LAN parties, and hosted seminars targeted towards professional and social development for computer science students.
+                        </p>
+                    </article>
+                    <article class="4u 12u(mobile) special">
+                        <a href="https://engineeringservicelearning.ucmerced.edu/get-set" class="image featured"><img src="images/getset.jpg" alt="" /></a>
+                        <header>
+                            <h3><strong><a href="#">Get S.E.T.</a></strong></h3>
+                            <h5>Communications Officer</h5>
+                        </header>
+                        <p>
+                            As part of the School of Engineering's Engineering Service Learning program, I oversaw external and internal modes of communication for a team of fourteen. I set up
+                            Slack channels, sent weekly status updates to our community partners and academic advisors, and attended client meetings to understand the scope and purpose of our project.
+
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="12u">
+
+                        <!-- Contact -->
+                        <section class="contact">
+                            <header>
+                                <h3>Want to meet up?</h3>
+                            </header>
+                            <p>Reach me at any time via any of the programs linked below!</p>
+                            <ul class="icons">
+                                <li><a href="https://www.linkedin.com/in/brian-hungerman/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                <li><a href="https://www.facebook.com/BrianMHungerman" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                                <li><a href="https://github.com/Mutilar" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                                <li><a href="mailto:brianhungerman@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+                                <li><a href="tel:12094468256" class="icon fa-phone"><span class="label">Phone</span></a></li>
+                            </ul>
+                        </section>
+
+                        <!-- Copyright -->
+                        <hr />
+                        <div class="copyright">
+                            <ul class="menu">
+                                <li>&copy; Brian Hungerman. All rights reserved.</li>
+                                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.onvisible.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
