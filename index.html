@@ -8,6 +8,7 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+ 
 </head>
 <body class="homepage">
     <div style="position:fixed;width:500px;height:40px;left:-100px;top:60px; transform: rotate(-45deg);z-index:10000;background-color:lightcoral;"><h2 style="color:white;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Site under construction!</h2></div>
@@ -22,71 +23,17 @@
             </div>
         </header>
 
+        <!-- Nav: Controlled by HTML snippet in snippets/navigation.html-->
         <!-- Nav -->
-        <nav id="nav">
-            <a href="index.html"><img style="position:absolute; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px" class="image featured" src="images/logo.png" /></a>
-            <ul>
-                <li>
-                    <a href="about.html">About</a>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li>
-                            <a href="initiatives.html">Initiatives</a>
-                            <ul>
-                                <li><a href="initiatives/sustainable-infrastructures.html">Infrastructure</a></li>
-                                <li><a href="initiatives/connected-communities">Connected Communities</a></li>
-                                <li><a href="initiatives/people-and-robots.html">People and Robots</a></li>
-                                <li><a href="initiatives/health.html">Health</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="activities.html">Activities</a>
-                            <ul>
-                                <li><a href="activities/mac.html">Mobile App Challenge</a></li>
-                                <li><a href="activities/atd.html">Ag Tech Day</a></li>
-                                <li><a href="activities/fit.html">Frontiers in Technology</a></li>
-                                <li><a href="activities/cad.html">Cyber Aware Day</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="people.html">People</a>
-                            <ul>
-                                <li><a href="people.html#leadership">Leadership & Staff</a></li>
-                                <li><a href="people.html#advisory">Faculty Advisory Board</a></li>
-                                <li><a href="people.html#students">Student Employees</a></li>
-                                <li><a href="people.html#faculty">Affiliated Faculty</a></li>
-                                <li><a href="people.html#alumni">Alumni</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="news.html">News</a></li>
-                <li>
-                    <a href="events.html">Events</a>
-                    <ul>
-                        <li><a href="events.html">Upcoming Events</a></li>
-                        <li><a href="events/archive.html">Archived Events</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="research.html">Research</a>
-                    <ul>
-                        <li><a href="seed-grants.html">Seed Grants</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                    </ul>
-                </li>
-                <li><a href="aviation.html">Aviation</a></li>
-                <li><a href="donate.html">Donate</a></li>
-            </ul>
-        </nav>
+        <div id="navigationtest"></div>
 
         <!-- Banner -->
         <div id="banner-wrapper">
             <section id="banner">
                 <h2 style="font-size:150%;">
                     CITRIS and the Banatao Institute create information technology solutions for society’s most pressing challenges.
-                </h2>  <a href="#" class="button">Register for Cyber Aware Day!</a>
-
+                </h2>  
+                <a href="#" class="button">Register for Cyber Aware Day!</a>
             </section>
         </div>
 
@@ -96,265 +43,34 @@
                 <div class="row 200%">
                     <div class="12u">
 
-                        <!-- Highlight -->
-                        <section class="box highlight">
-                            <header>
-                                <h2>Who We Are</h2>
-                                <p></p>
-                            </header>
-                            <p>
-                                The Center for Information Technology Research in the Interest of Society (CITRIS) is a fully-functioning research unit with the University of California, Merced
-                                and is recognized as one of the four CITRIS campuses:
-                                <a href="http://citris.ucmerced.edu/about">UC Merced</a>,
-                                <a href="http://citris-uc.org/campus/uc-berkeley/">UC Berkeley</a>,
-                                <a href="http://citris-uc.org/campus/uc-davis/">UC Davis</a>, and
-                                <a href="http://citris-uc.org/campus/uc-santa-cruz/">UC Santa Cruz</a>.
-                                CITRIS develops synergistic partnerships with academic institutions and corporate collaborators worldwide
-                                to collectively produce innovative solutions to challenges in four primary sectors.
-                            </p>
-                            <img class="image featured" src="images/images/team.jpg" alt="" />
-                            <p>CITRIS at UC Merced addresses California’s most pressing societal and environmental problems by leveraging cutting-edge technologies and incorporating a convergence of <a href="http://citris.ucmerced.edu/projects">student-driven initiatives</a>, <a href="http://citris.ucmerced.edu/seed-grants">seed grants &amp; faculty research</a>, and corporate partnerships.</p>
-                        </section>
-
+                        <!-- Who We Are: Controlled by HTML snippet in snippets/who-we-are.html -->
+                        <div id="who-we-are"></div>
+                        
                     </div>
                 </div>
                 <div class="row 200%">
                     <div class="12u">
-                        <section class="box features">
-                            <div>
-                                <div class="row">
-                                    <div class="3u 12u(mobile)">
-                                        <section class="box feature">
-                                            <a href="#"><img class="image featured" src="images/icons/sustainable-infrastructures.png" alt="" /></a>
-                                            <h3><a href="#">Sustainable Infrastructure</a></h3>
-                                            <div>
-                                                The CITRIS Sustainable Infrastructures Initiative pursues information technology research in energy, water, and transportation as parts of the cyber-infrastructure of a sustainable society.
-                                            </div>
-                                        </section>
-                                    </div>
-                                    <div class="3u 12u(mobile)">
-                                        <section class="box feature">
-                                            <a href="#"><img class="image featured" src="images/icons/connected-communities.png" alt="" /></a>
-                                            <h3><a href="#">Connected Communities</a></h3>
-                                            <div>
-                                                The CITRIS Connected Communities Initiative supports collaborative discovery, design, and governance through new technologies that enhance education, creative work, and public engagement.
-                                            </div>
-                                        </section>
-                                    </div>
-                                    <div class="3u 12u(mobile)">
-                                        <section class="box feature">
-                                            <a href="#"><img class="image featured" src="images/icons/people-and-robots.png" alt="" /></a>
-                                            <h3><a href="#">People and Robots</a></h3>
-                                            <div>
-                                                The CITRIS People and Robots Initiative focuses on new theory, benchmarks, software, and approaches that address challenges the interest of society via Cloud Robotics, and Human-Centric Automation.
-                                            </div>
-                                        </section>
-                                    </div>
-                                    <div class="3u 12u(mobile)">
-                                        <section class="box feature">
-                                            <a href="#"><img class="image featured" src="images/icons/health.png" alt="" /></a>
-                                            <h3><a href="#">Health</a></h3>
-                                            <div>
-                                                The CITRIS Health Initiative improves access to cost-effective care through the development and integration of innovative technology in telehealth, sensors, analytics and mobile devices.
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
 
-                        <!-- Features -->
-                        <section class="box features">
-                            <h2 class="major"><span>CITRIS' Programs</span></h2>
-                            <div>
-                                <div class="row">
-                                    <div class="3u 12u(mobile)">
-
-                                        <!-- Feature -->
-                                        <section class="box feature">
-                                            <h3><a href="#">Tech For Social Good</a></h3>
-                                            <div id="spoiler-sustainable" style="display:none">
-                                                The CITRIS Sustainable Infrastructures Initiative pursues information technology research in energy, water, and transportation as parts of the cyber-infrastructure of a sustainable society.
-                                                <br />
-                                                <button title="Read more" type="button">Continue Reading</button>
-                                                <br />
-                                            </div>
-                                            <button title="Click to show/hide content" type="button" onclick="if(document.getElementById('spoiler-sustainable') .style.display=='none') {document.getElementById('spoiler-sustainable') .style.display=''}else{document.getElementById('spoiler-sustainable') .style.display='none'}">Show/hide</button>
-
-                                        </section>
-
-                                    </div>
-                                    <div class="3u 12u(mobile)">
-
-                                        <!-- Feature -->
-                                        <section class="box feature">
-                                            <h3><a href="#">Student Success Internships</a></h3>
-                                            <div id="spoiler-connected" style="display:none">
-                                                The CITRIS Connected Communities Initiative supports collaborative discovery, design, and governance through new technologies that enhance education, creative work, and public engagement.
-                                                <br />
-                                                <button title="Read more" type="button">Continue Reading</button>
-                                                <br />
-                                            </div>
-                                            <button title="Click to show/hide content" type="button" onclick="if(document.getElementById('spoiler-connected') .style.display=='none') {document.getElementById('spoiler-connected') .style.display=''}else{document.getElementById('spoiler-connected') .style.display='none'}">Show/hide</button>
-
-                                        </section>
-
-                                    </div>
-                                    <div class="3u 12u(mobile)">
-
-                                        <!-- Feature -->
-                                        <section class="box feature">
-                                            <h3><a href="#">Seed Funding</a></h3>
-                                            <div id="spoiler-people" style="display:none">
-                                                The CITRIS People and Robots Initiative focuses on new theory, benchmarks, software, and approaches that address challenges the interest of society via Cloud Robotics, and Human-Centric Automation.
-                                                <br />
-                                                <button title="Read more" type="button">Continue Reading</button>
-                                                <br />
-                                            </div>
-                                            <button title="Click to show/hide content" type="button" onclick="if(document.getElementById('spoiler-people') .style.display=='none') {document.getElementById('spoiler-people') .style.display=''}else{document.getElementById('spoiler-people') .style.display='none'}">Show/hide</button>
-
-                                        </section>
-
-                                    </div>
-                                    <div class="3u 12u(mobile)">
-
-                                        <!-- Feature -->
-                                        <section class="box feature">
-                                            <h3><a href="#">Anything else?</a></h3>
-                                            <div id="spoiler-health" style="display:none">
-                                                The CITRIS Health Initiative improves access to cost-effective care through the development and integration of innovative technology in telehealth, sensors, analytics and mobile devices.
-                                                <br />
-                                                <button title="Read more" type="button">Continue Reading</button>
-                                                <br />
-                                            </div>
-                                            <button title="Click to show/hide content" type="button" onclick="if(document.getElementById('spoiler-health') .style.display=='none') {document.getElementById('spoiler-health') .style.display=''}else{document.getElementById('spoiler-health') .style.display='none'}">Show/hide</button>
-
-                                        </section>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                        <!-- Initiatives: Controlled by HTML snippet in snippets/initiatives.html -->
+                        <div id="initiatives"></div>
+                        <br/>
+                        <!-- Programs: Controlled by HTML snippet in snippets/programs.html -->
+                        <div id="programs"></div>
 
                     </div>
                 </div>
                 <div class="row 200%">
                     <div class="12u">
 
-                        <!-- Blog -->
-                        <section class="box blog">
-                            <h2 class="major"><span>Recent News</span></h2>
-                            <div>
-                                <div class="row">
-                                    <div class="9u 12u(mobile)">
-                                        <div class="content content-left">
+                        <!-- Recent News: Controlled by HTML snippet in snippets/recent-news.html -->
+                        <div id="recent-news"></div>
 
-                                            <!-- Featured Post -->
-                                            <article class="box post">
-                                                <header>
-                                                    <h3><a href="#">Agriculture Technology Day 2018</a></h3>
-                                                    <p>A collaborative research exchange focused on innovation in AgTech</p>
-                                                    <ul class="meta">
-                                                        <li class="icon fa-clock-o">May 4th, 2018</li>
-                                                    </ul>
-                                                </header>
-                                                <a href="#" class="image featured"><img src="images/images/agtech.jpg" alt="" /></a>
-                                                <p>AgTech Day at the University of California, Merced aims to showcase emerging technologies in argiculture, backed by cutting-edge research and entrepreneurial innovation in automation and people-robot interactions, transforming the San Joaquin Valley region and beyond.</p>
-
-                                                <a href="#" class="button">Continue Reading</a>
-                                            </article>
-                                        </div>
-                                    </div>
-                                    <div class="3u 12u(mobile)">
-                                        <div class="sidebar">
-
-                                            <!-- Archives -->
-                                            <ul class="divided">
-                                                <li>
-                                                    <article class="box post-summary">
-                                                        <h3><a href="#">Mobile App Challenge Finals</a></h3>
-                                                        <a p style="margin-bottom: 1em" href="#" class="image featured"><img src="images/images/mac.jpg" alt="" /></a>
-                                                        <p style="margin-bottom: 1em">See the teams who competed this year at Innovate to Grow, and who took home the $4,000 grand prize!</p>
-                                                        <ul class="meta">
-                                                            <li class="icon fa-clock-o">May 10th, 2018</li>
-                                                        </ul>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article class="box post-summary">
-                                                        <h3><a href="#">Cyberaware Day 2017</a></h3>
-                                                        <a style="margin-bottom: 1em" href="#" class="image featured"><img src="images/images/cyberaware.jpg" alt="" /></a>
-                                                        <p style="margin-bottom: 1em">Check out our research exchange on the new frontiers in cyber security, and the opportunities they hold!</p>
-
-                                                        <ul class="meta">
-                                                            <li class="icon fa-clock-o">December 2017</li>
-                                                        </ul>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article class="box post-summary">
-                                                        <h3><a href="#">Robots to Help California's Grape Growers Conserve Water</a></h3>
-                                                        <ul class="meta">
-                                                            <li class="icon fa-clock-o">April 2018</li>
-                                                        </ul>
-                                                    </article>
-                                                </li>
-                                            </ul>
-                                            <a href="#" class="button alt">Browse Archives</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer id="footer" class="container">
-            <div class="row 200%">
-                <div class="12u">
-
-                    <!-- About -->
-                    <section>
-                        <h2 class="major"><span>Donate to CITRIS</span></h2>
-                        <p>Whether you're looking to support our ongoing projects or become a sponsor of the Mobile App Challenge, we're always looking for your support.</p>
-                        <a href="https://securelb.imodules.com/s/1650/index.aspx?sid=1650&gid=1&pgid=474&dids=166&bledit=1" style="color:white;" class="button">Donate</a> <a href="donate.html" class="button alt">Learn More</a>
-                        <p><br />Contact CITRIS (<a href="mailto:citris@ucmerced.edu">citris@ucmerced.edu</a>) with comments or requests for clarification.</p>
-                    </section>
-                </div>
-            </div>
-            <div class="row 200%">
-                <div class="12u">
-
-                    <!-- Contact -->
-                    <section>
-                        <h2 class="major"><span>Get in touch</span></h2>
-                        <ul class="contact">
-                            <li><a class="icon fa-facebook" href="http://www.facebook.com/CITRISUCMerced"><span class="label">Facebook</span></a></li>
-                            <li><a class="icon fa-twitter" href="http://twitter.com/citrisnews/"><span class="label">Twitter</span></a></li>
-                            <li><a class="icon fa-instagram" href="http://www.instagram.com/citrisnews/?hl=en"><span class="label">Instagram</span></a></li>
-                            <li><a class="icon fa-vimeo" href="http://vimeo.com/citrismedia"><span class="label">Vimeo</span></a></li>
-                            <li><a class="icon fa-youtube" href="http://www.youtube.com/user/citrisuc"><span class="label">YouTube</span></a></li>
-                            <li><a class="icon fa-university" href="http://ucmerced.edu"><span class="label">UC Merced</span></a></li>
-                            <li><a class="icon fa-tint" href="http://ucwater.org"><span class="label">UC Water</span></a></li>
-                            <li><a class="icon fa-chevron-down" href="http://vicelab.ucmerced.edu"><span class="label">VICE Lab</span></a></li>
-                            <li><a class="icon fa-envelope" href="mailto:citris@ucmerced.edu"><span class="label">Mail</span></a></li>
-                        </ul>
-                    </section>
-
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div id="copyright">
-                <ul class="menu">
-                    <li>&copy; CITRIS 2018</li>
-                    <li><a href="mailto:citris@ucmerced.edu">Contact Us</a></li>
-                </ul>
-            </div>
-        </footer>
+        <!-- Footer: Controlled by HTML snippet in snippets/footer.html-->
+        <div id="footer"></div>
     </div>
 
     <!-- Scripts -->
@@ -365,6 +81,16 @@
     <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#navigationtest").load("navigation.html"); /*Navigation: Controlled by HTML snippet in snippets/navigation.html*/
+            $("#who-we-are").load("snippets/who-we-are.html"); /*Who We Are: Controlled by HTML snippet in snippets/who-we-are.html*/
+            $("#initiatives").load("snippets/initiatives.html"); /*Initiatives: Controlled by HTML snippet in snippets/initiatives.html*/
+            $("#programs").load("snippets/programs.html");/*Programs: Controlled by HTML snippet in snippets/programs.html*/
+            $("#recent-news").load("snippets/recent-news.html");/*Programs: Controlled by HTML snippet in snippets/recent-news.html*/
+            $("#footer").load("snippets/footer-extended.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+        });
+    </script>
 
 </body>
 </html>
