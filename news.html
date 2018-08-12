@@ -63,66 +63,17 @@
             <div id="main" class="container">
                 <div class="row">
                     <div class="12u">
-                        <div class="content">
+                        <div class="content"></div>
                             <p>
-                                CITRIS hosts many events throughout the year, bringing together faculty, students, and corporate leaders. Some of CITRIS's staple events are displayed below:
+                                To see how CITRIS is shaping the UC Merced campus, as well as California and the world, check out some of CITRIS @ UC Merced's recent news:
                             </p>
-
-                            <!-- ATF -->
+                            
                             <article class="box page-content">
-                                <header>
-                                    <h2 id="atf">ATF</h2>
-                                    <p>Agricultural Technology Fair</p>
-                                </header>
-                                <section>
-                                    <span class="image featured"><img src="images/atd-banner.jpg" alt="" /></span>
-                                    <p>
-                                        The Agricultural Technology Fair (ATF) aims to showcase emerging technologies in agriculture, backed by cutting-edge research and entrepreneurial innovation, transforming the region of San Joaquin Valley. CITRIS is focused on shortening the pipeline from idea to impact in the many sectors that affect the lives of all Californians by putting the San Joaquin Valley on the map for new ideas and transformative impact in the agricultural technology sector, in the areas of: health data analytics, to renewable energy and smart transportation, to breakthroughs in water information management.
-                                    </p>
-                                </section>
+                                <div id="recent-news"></div>
                             </article>
-                            <!-- MAC -->
-                            <article class="box page-content">
-                                <header>
-                                    <h2 id="mac">MAC</h2>
-                                    <p>Mobile App Challenge</p>
-                                </header>
-                                <section>
-                                    <span class="image featured"><img src="images/mac-banner.jpg" alt="" /></span>
-                                    <p>
-                                        Originating at UC Merced in 2011, the CITRIS Mobile App Challenge (MAC) is a semester-long competition that empowers undergraduate students to develop mobile apps for social impact while fostering innovation, community service, and career development. Guest speakers, industry mentors, and peer networking help students move rapidly from idea to prototype over the course of a semester.
-                                    </p>
-                                    <p>
-                                        At the start of the Spring 2017 semester, 25 teams and 69 students joined the Challenge to design, build, and pitch their ideas in the following categories of: Connected Communities & Civic Tech, Health & Wellness, People & Robots, Sustainability & the Environment.
-                                    </p>
-                                </section>
-                            </article>
-                            <!-- FIT -->
-                            <article class="box page-content">
-                                <header>
-                                    <h2 id="fit">FIT</h2>
-                                    <p>Frontiers in Technology</p>
-                                </header>
-                                <section>
-                                    <span class="image featured"><img src="images/fit-banner.jpg" alt="" /></span>
-                                    <p>
-                                        The Agricultural Technology Fair (ATF) aims to showcase emerging technologies in agriculture, backed by cutting-edge research and entrepreneurial innovation, transforming the region of San Joaquin Valley. CITRIS is focused on shortening the pipeline from idea to impact in the many sectors that affect the lives of all Californians by putting the San Joaquin Valley on the map for new ideas and transformative impact in the agricultural technology sector, in the areas of: health data analytics, to renewable energy and smart transportation, to breakthroughs in water information management.
-                                    </p>
-                                </section>
-                            </article>
-                            <!-- CAD -->
-                            <article class="box page-content">
-                                <header>
-                                    <h2 id="cad">CAD</h2>
-                                    <p>Cyber Aware Day</p>
-                                </header>
-                                <section>
-                                    <span class="image featured"><img src="images/cad-banner.jpg" alt="" /></span>
-                                    <p>
-                                        The aim of Cyber Aware Day is to educate students from all backgrounds on the rapidly-developing world of cyber security. Industry experts will convene to discuss what cyber security is, what its challenges are, and the landscape of job opportunities that this space presents for students.
-                                    </p>
-                                </section>
-                            </article>
+                               
+                                <h2 class="major"><span>More News</span></h2>
+                                <div id="news"></div>
                         </div>
                     </div>
                 </div>
@@ -144,6 +95,16 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+            $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
+           
+            $.get('news/items.txt', function(data) {
+                var lines = data.split("\n");
+                $.each(lines, function(n, elem) {
+                    jQuery.get("news/" + elem+ ".html").then(function(text, status, xhr){
+                        $("#news").append($.parseHTML(text.activeElement.innerHTML  +"<hr>"));
+                    });
+               });
+            }, "text");
         });
     </script>
 </body>
