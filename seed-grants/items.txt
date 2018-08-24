@@ -12,3 +12,17 @@ sensing-co2-domes-adaptive-management-urban-greenhouse-gas-emissions
 archaeo-pedia-3d-collaborative-research-cyber-archaeology
 virtual-reality-technologies-robotic-aided-first-response
 understanding-image-based-big-data-using-human-computation
+thermovote-participatory-sensing-efficient-building-hvac-conditioning
+automatic-wearable-speech-supplement-face-face-and-classroom-situations
+solar-irradiance-mapping-initiative-simi-citris-center-forecasting-solar-power-availability
+probablistic-clinical-support-system-for-sepsis
+canary-chip-biomimetic-lung-based-biosensor-rapid-detection-airborne-pollutants
+center-for-sierra-nevada-water-information-system
+smart-transdermal-drug-delivery-patch
+magnetically-actuated-mems-power-conditioning-circuits-energy-scavenging-smartgrid
+efficient-strategies-condition-monitoring-and-fault-detection-hvac-systems-energy-efficient
+economic-value-improved-water-operations-enabled-sensor-based-information-technologies
+robotic-and-virtual-assistive-agents-for-establishing-the-center-on-autonomous-and-interactive-systems
+indianadrones-smart-cave-drones-robotic-co-archaeologists
+integrating-electrically-conducting-membranes-as-in-situ-sensors-in-autonomous-water-treatment-systems
+enabling-robots-to-express-emotions-based-on-human-demonstrations
