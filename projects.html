@@ -8,6 +8,12 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <style type="text/css">
+        td, th {
+          vertical-align: top;
+          padding:2px;
+        }
+    </style>
 </head>
 <body class="homepage">
     <div id="page-wrapper">
@@ -67,6 +73,7 @@
                             <p>
                                     CITRIS strives to provide undergraduate students with an opportunity for self-directed learning, and professional development within a higher education institutional context. These activities serve to develop awareness about professional development options in order for students to develop career pathways and set goals.                            
                             </p>
+                                <div id="projects"></div>
                         </div>
                     </div>
                 </div>
@@ -88,6 +95,15 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+     
+            $.get('projects/items.txt', function(data) {
+                var lines = data.split("\n");
+                $.each(lines, function(n, elem) {
+                    jQuery.get("projects/" + elem+ ".html").then(function(text, status, xhr){
+                        $("#projects").append($.parseHTML(text.activeElement.innerHTML  +"<hr>"));
+                    });
+               });
+            }, "text");
         });
     </script>
 </body>
