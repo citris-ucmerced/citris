@@ -26,3 +26,7 @@ robotic-and-virtual-assistive-agents-for-establishing-the-center-on-autonomous-a
 indianadrones-smart-cave-drones-robotic-co-archaeologists
 integrating-electrically-conducting-membranes-as-in-situ-sensors-in-autonomous-water-treatment-systems
 enabling-robots-to-express-emotions-based-on-human-demonstrations
+climate-feedback
+mobile-remote-sensing-platform-precision-agriculture
+genome-linked-antibiotic-resistance-database
+new-piezoelectric-transducer-material-platform-technological-innovation
