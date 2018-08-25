@@ -99,17 +99,10 @@
                     <div class="12u">
                         <div class="content"></div>
                         <p>
-                            Events
+                            CITRIS hosts many collaborative events through the year, including seminars, research exchanges, and workshops. See upcoming events here:
                         </p>
-
-                        <article class="box page-content">
-                            <div id="recent-news"></div>
-                        </article>
-
-                        <h2 class="major">
-                            <span>More News</span>
-                        </h2>
-                        <div id="news"></div>
+                        <div id = "upcoming-events"></div>
+                        <center><a href="archive.html" class="button">See our previously held events!</a></center>
                     </div>
                 </div>
             </div>
@@ -133,11 +126,11 @@
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
             $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
 
-            $.get('news/items.txt', function (data) {
+            $.get('upcoming-events/items.txt', function (data) {
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
-                    jQuery.get("news/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#news").append($.parseHTML(text.activeElement.innerHTML + "<hr>"));
+                    jQuery.get("upcoming-events/" + elem + ".html").then(function (text, status, xhr) {
+                        $("#upcoming-events").append($.parseHTML(text.activeElement.innerHTML + "<hr>"));
                     });
                 });
             }, "text");
