@@ -1656,7 +1656,7 @@
 
 	#banner {
 		position: relative;
-		background-color: rgba(21, 28, 23, 0.85);
+		background-color: rgba(21, 28, 23, 0.7);
 		background-image: url("images/overlay.png"), url("images/highlight.png");
 		background-position: top left, center center;
 		background-size: auto, 100% 250%;
@@ -1682,21 +1682,21 @@
 			-webkit-transition: border-color .2s ease-in-out, color .2s ease-in-out;
 			-ms-transition: border-color .2s ease-in-out, color .2s ease-in-out;
 			transition: border-color .2s ease-in-out, color .2s ease-in-out;
-			color: #b4b7b5;
+			color: #dadada;
 			background: transparent !important;
-			border: solid 4px #575d59;
-			border-color: rgba(87, 93, 89, 0.35);
+			border: solid 4px #dadada;
+			border-color: rgba(255, 255, 255);
 			border-radius: 16px;
 		}
 
 			#banner .button:hover {
-				color: #e4e7e5;
-				border-color: rgba(87, 93, 89, 0.75);
+				color: #ffffff;
+				border-color: rgba(77,130,183, 1);
 			}
 
 			#banner .button:active {
-				color: #fff;
-				border-color: #616763;
+				color: #4D82B7;
+				border-color: #ffffff;
 			}
 
 /* Footer */

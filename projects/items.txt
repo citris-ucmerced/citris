@@ -5,5 +5,5 @@ mobile-app-challenge
 pirelli-project
 catflux
 future-of-ownership
-nexttech
+nextech
 ozone
