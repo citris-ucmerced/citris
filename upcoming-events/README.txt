@@ -1,3 +1,11 @@
+TO ARCHIVE EVENTS:
+
+Move .html from "upcoming-events/" to "events" folder
+
+Move reference of event from "upcoming-events/items.txt" to "events/items.txt"
+
+Optional: Remove any links for registration/time specific information
+
 TO ADD EVENTS:
 
 Make a new HTML file in this folder with the name of the URL of the article you are writing.
