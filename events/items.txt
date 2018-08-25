@@ -9,5 +9,17 @@ data-analytics-in-energy
 frontiers-information-technology-speaker-series-james-gosling
 citris-research-exchange-seminar-series
 research-in-computer-vision-and-robotics
+frontiers-information-technology-speaker-series-david-merrill
 yosemite-forum
 womens-entrepreneurship-conference
+agtech-day-2017
+entrepreneurship-and-climate-change-sue-carter
+windows-brain-guillermo-aguilar
+mobile-app-challenge-2016
+international-petition-against-autonomous-weapons-stuart-russell
+tale-two-lakes-interaction-science-society-and-development-environmental-policy
+paul-scerri-sense-platypus
+mechanical-computing-redux-internet-things
+future-travel-demand-susan-handy
+dale-dougherty-make
+combating-cybercrime-parisa-tabriz
