@@ -77,8 +77,9 @@
                                     <h2 id="leadership">Leadership & Staff</h3>
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/josh-viers.jpg" alt="" /><center><h3>Josh Viers</h3><p>Director</p></center></div>
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/stefano-foresti.jpg" alt="" /><center><h3>Stefano Foresti</h3><p>Assistant Director</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/stefano-foresti.jpg" alt="" /><center><h3>KareKare</h3><p>Position</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/stefano-foresti.jpg" alt="" /><center><h3>NewPerson</h3><p>Position</p></center></div>
+                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/vanessa-azevedo.jpg" alt="" /><center><h3>Vanessa Azevedo</h3><p>Research Administrator</p></center></div>                                  
+                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/bizet-rodriguez.jpg" alt="" /><center><h3>Karen</h3><p>Position</p></center></div>
+                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/bizet-rodriguez.jpg" alt="" /><center><h3>Andre</h3><p>Position</p></center></div>
                                     <br/><br/>
                                     <hr>
                                     <h2 id="advisory">Faculty Advisory Board</h3>
@@ -88,12 +89,12 @@
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/yangquan-chen.jpg" alt="" /><center><h3>YangQuan Chen</h3></center></div>
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured"  src="images/people/lisa-yeo.jpg" alt="" /><center><h3>Lisa Yeo</h3></center></div>
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/rudy-ortiz.jpg" alt="" /><center><h3>Rudy Ortiz</h3></center></div>
+                                    
                                     <br/><br/>
                                     <hr>
-                                    <h2 id="students">Student Employees</h3>
-
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/brian-hungerman.jpg" alt="" /><center><h3>Brian Hungerman</h3><p>Web Developer</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/akeilylah-dewitt.jpg" alt="" /><center><h3>Akeilylah Dewitt</h3><p>Program Lead</p></center></div>
+                                    <h2 >Student Employees</h3>
+                                    <div id="students"></div>
+                                                     
                                     <br/><br/>
                                     <hr>
                                     <h3>Affiliated Faculty</h3>
@@ -103,12 +104,6 @@
                                     <hr>
                                     <h3>Alumni</h3>
                                     <div id="alumni"></div>
-                                                                          
-                                    
-                                   
-                                   
-                                   
-                                 
 
                                 </section>
                             </article>
@@ -133,6 +128,15 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+
+            $.get('people/student-employees/items.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    jQuery.get("people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
+                        $("#students").append($.parseHTML(text.activeElement.innerHTML));
+                    });
+                });
+            }, "text");
 
             $.get('people/affiliated-faculty/items.txt', function (data) {
                 var lines = data.split("\n");
