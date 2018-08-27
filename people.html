@@ -108,36 +108,14 @@
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
                                     <br/><br/>
                                     <hr>
-                                    <h2 id="alumni">Alumni</h3>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/matthew-bucci.jpg" alt="" /><center><h3>Matthew Bucci</h3><p>Web Developer</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/michael-brooks.jpg" alt="" /><center><h3>Michael Brooks</h3><p>Web Developer</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/mark-santiago.jpg" alt="" /><center><h3>Mark Renzo Santiago</h3><p>Web Developer</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/kian-bradley.jpg" alt="" /><center><h3>Kian Bradley</h3><p>Web Developer</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/brian-bamsch.jpg" alt="" /><center><h3>Brian Bamsch</h3><p>Web Developer</p></center></div>
-                                   
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/myka-alejandre.jpg" alt="" /><center><h3>Myka Alejandre</h3><p>Mobile App Challenge Coordinator</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/nick-fong.jpg" alt="" /><center><h3>Nick Fong</h3><p>Mobile App Challenge Coordinator</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/deo-halili.jpg" alt="" /><center><h3>Deo Halili</h3><p>Mobile App Challenge Coordinator</p></center></div>
-                                   
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/erin-sun.jpg" alt="" /><center><h3>Erin Sun</h3><p>Outreach Coordinator</p></center></div>
-
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/sweta-yonjan.png" alt="" /><center><h3>Sweta Yonjan</h3><p>Graphic Design Intern</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/shon-shabari.jpg" alt="" /><center><h3>Shon Shabari</h3><p>Graphic Design Intern</p></center></div>
-                                
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/alexus-garcia.jpg" alt="" /><center><h3>Alexus Garcia</h3><p>Student Assistant</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/daniel-sabzehzar.jpg" alt="" /><center><h3>Daniel Sabzehzar</h3><p>Student Assistant</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/eric-chu.jpg" alt="" /><center><h3>Eric Chu</h3><p>Student Assistant</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/luke-kostrikin.png" alt="" /><center><h3>Luke Kostrikin</h3><p>Student Assistant</p></center></div>
-
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/adriana-gomez.jpg" alt="" /><center><h3>Adriana Gomez</h3><p>UC Sprouts Intern</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/johnathan-deas.jpg" alt="" /><center><h3>Johnathan Deas</h3><p>Solar-powered Kiosk Intern</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/sophie-vo.jpg" alt="" /><center><h3>Sophie Vo</h3><p>Technology & Innovation Intern</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/steven-dinh.jpg" alt="" /><center><h3>Steven Dinh</h3><p>Information Security Awareness Intern</p></center></div>
-
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/winnie-chen.jpg" alt="" /><center><h3>Winnie Chen</h3><p>Digital Data Ownership Intern</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/hoaithi-dang.jpg" alt="" /><center><h3>Hoaithi Dang</h3><p>Digital Data Ownership Intern</p></center></div>
+                                    <h3>Alumni</h3>
+                                    <div id="alumni"></div>
+                                                                          
                                     
-
+                                   
+                                   
+                                   
+                                 
 
                                 </section>
                             </article>
@@ -162,6 +140,14 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+            $.get('people/alumni/items.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    jQuery.get("people/alumni/" + elem + ".html").then(function (text, status, xhr) {
+                        $("#alumni").append($.parseHTML(text.activeElement.innerHTML));
+                    });
+                });
+            }, "text");
         });
     </script>
 </body>
