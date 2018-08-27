@@ -86,7 +86,7 @@
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/reza-ehsani.jpg" alt="" /><center><h3>Reza Ehsani</h3></center></div>
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/stefano-carpin.jpg" alt="" /><center><h3>Stefano Carpin</h3></center></div>
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/yangquan-chen.jpg" alt="" /><center><h3>YangQuan Chen</h3></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img style="height:270px" class="image featured" src="images/people/lisa-yeo.jpg" alt="" /><center><h3>Lisa Yeo</h3></center></div>
+                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured"  src="images/people/lisa-yeo.jpg" alt="" /><center><h3>Lisa Yeo</h3></center></div>
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/rudy-ortiz.jpg" alt="" /><center><h3>Rudy Ortiz</h3></center></div>
                                     <br/><br/>
                                     <hr>
@@ -96,16 +96,9 @@
                                     <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/akeilylah-dewitt.jpg" alt="" /><center><h3>Akeilylah Dewitt</h3><p>Program Lead</p></center></div>
                                     <br/><br/>
                                     <hr>
-                                    <h2 id="faculty">Affiliated Faculty</h3>
+                                    <h3>Affiliated Faculty</h3>
+                                    <div id="faculty"></div>
 
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
-                                    <div style="display:inline-block;width:15.4em;height:200px;"><img class="image featured" src="images/people/ala-qattawi.jpg" alt="" /><center><h3>Ala Qattawi</h3><p>Assistant Professor, School of Engineering</p></center></div>
                                     <br/><br/>
                                     <hr>
                                     <h3>Alumni</h3>
@@ -140,6 +133,16 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+
+            $.get('people/affiliated-faculty/items.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    jQuery.get("people/affiliated-faculty/" + elem + ".html").then(function (text, status, xhr) {
+                        $("#faculty").append($.parseHTML(text.activeElement.innerHTML));
+                    });
+                });
+            }, "text");
+
             $.get('people/alumni/items.txt', function (data) {
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
