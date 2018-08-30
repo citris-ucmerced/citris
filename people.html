@@ -133,7 +133,7 @@
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
                     jQuery.get("people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#students").append($.parseHTML(text.activeElement.innerHTML));
+                        $("#students").append($.parseHTML(text));
                     });
                 });
             }, "text");
@@ -142,7 +142,7 @@
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
                     jQuery.get("people/affiliated-faculty/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#faculty").append($.parseHTML(text.activeElement.innerHTML));
+                        $("#faculty").append($.parseHTML(text));
                     });
                 });
             }, "text");
@@ -151,7 +151,7 @@
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
                     jQuery.get("people/alumni/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#alumni").append($.parseHTML(text.activeElement.innerHTML));
+                        $("#alumni").append($.parseHTML(text));
                     });
                 });
             }, "text");

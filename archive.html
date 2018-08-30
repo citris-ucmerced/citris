@@ -129,7 +129,7 @@
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
                     jQuery.get("events/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#events").append($.parseHTML(text.activeElement.innerHTML + "<hr>"));
+                        $("#events").append($.parseHTML(text + "<hr>"));
                     });
                 });
             }, "text");

@@ -130,7 +130,7 @@
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
                     jQuery.get("upcoming-events/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#upcoming-events").append($.parseHTML(text.activeElement.innerHTML + "<hr>"));
+                        $("#upcoming-events").append($.parseHTML(text + "<hr>"));
                     });
                 });
             }, "text");
