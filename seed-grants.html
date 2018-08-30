@@ -136,7 +136,7 @@
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
                     jQuery.get("seed-grants/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#seed-grants").append($.parseHTML(text.activeElement.innerHTML + "<hr>"));
+                        $("#seed-grants").append($.parseHTML(text + "<hr>"));
                     });
                 });
             }, "text");
