@@ -6,4 +6,3 @@ pirelli-project
 catflux
 future-of-ownership
 nextech
-ozone
