@@ -160,28 +160,28 @@
         $(function () {
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
 
-            $.get('people/student-employees/items.txt', function (data) {
+            $.get('../people/student-employees/items.txt', function (data) {
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
-                    jQuery.get("people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
+                    jQuery.get("/people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
                         $("#students").append($.parseHTML(text));
                     });
                 });
             }, "text");
 
-            $.get('people/affiliated-faculty/items.txt', function (data) {
+            $.get('/people/affiliated-faculty/items.txt', function (data) {
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
-                    jQuery.get("people/affiliated-faculty/" + elem + ".html").then(function (text, status, xhr) {
+                    jQuery.get("/people/affiliated-faculty/" + elem + ".html").then(function (text, status, xhr) {
                         $("#faculty").append($.parseHTML(text));
                     });
                 });
             }, "text");
 
-            $.get('people/alumni/items.txt', function (data) {
+            $.get('/people/alumni/items.txt', function (data) {
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
-                    jQuery.get("people/alumni/" + elem + ".html").then(function (text, status, xhr) {
+                    jQuery.get("/people/alumni/" + elem + ".html").then(function (text, status, xhr) {
                         $("#alumni").append($.parseHTML(text));
                     });
                 });
