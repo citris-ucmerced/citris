@@ -133,6 +133,11 @@
 
                                     <br/><br/>
                                     <hr>
+                                    <h2>Affiliated Researchers</h2>
+                                    <div id="researchers"></div>
+
+                                    <br/><br/>
+                                    <hr>
                                     <h2>Alumni</h2>
                                     <div id="alumni"></div>
 
@@ -174,6 +179,15 @@
                 $.each(lines, function (n, elem) {
                     jQuery.get("/people/affiliated-faculty/" + elem + ".html").then(function (text, status, xhr) {
                         $("#faculty").append($.parseHTML(text));
+                    });
+                });
+            }, "text");
+
+            $.get('/people/affiliated-researchers/items.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    jQuery.get("/people/affiliated-researchers/" + elem + ".html").then(function (text, status, xhr) {
+                        $("#researchers").append($.parseHTML(text));
                     });
                 });
             }, "text");

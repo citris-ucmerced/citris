@@ -1,12 +1,9 @@
 ala-qattawi
-alan-cai
 alberto-cerpa
 aleksandr-noy
 alexander-peterson
-andreas-anderson
 anna-fryjoff-hung
 anne-kelly
-brandon-stark
 erik-rolland
 florin-rusu
 german-gavilan
@@ -16,7 +13,6 @@ jeffrey-jenkins
 jian-qiao-sun
 josue-medellin-azuara
 kurt-schnier
-leigh-bernacchi
 lilian-davila
 lorenzo-booth
 marcelo-kallmann
