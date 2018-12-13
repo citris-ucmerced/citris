@@ -2,7 +2,6 @@ ala-qattawi
 alberto-cerpa
 aleksandr-noy
 alexander-peterson
-anna-fryjoff-hung
 anne-kelly
 erik-rolland
 florin-rusu
@@ -14,7 +13,6 @@ jian-qiao-sun
 josue-medellin-azuara
 kurt-schnier
 lilian-davila
-lorenzo-booth
 marcelo-kallmann
 mark-matsumoto
 martha-conklin
@@ -34,6 +32,5 @@ steve-shackelton
 teenie-matlock
 tom-peterson
 venkattraman-ayyaswamy
-vicky-espinoza
 yanbao-ma
 yangquan-chen
