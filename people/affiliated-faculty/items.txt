@@ -3,9 +3,7 @@ alberto-cerpa
 aleksandr-noy
 alexander-peterson
 anne-kelly
-erik-rolland
 florin-rusu
-german-gavilan
 harish-bhat
 holley-moyes
 jeffrey-jenkins
@@ -14,7 +12,6 @@ josue-medellin-azuara
 kurt-schnier
 lilian-davila
 marcelo-kallmann
-mark-matsumoto
 martha-conklin
 ming-hsuan-yang
 miriam-barlow
@@ -25,12 +22,10 @@ paul-smaldino
 peter-schuerman
 po-ya-abel-chang
 roger-bales
-roseanna-barron
 sam-traina
 stefano-carpin
 steve-shackelton
 teenie-matlock
-tom-peterson
 venkattraman-ayyaswamy
 yanbao-ma
 yangquan-chen

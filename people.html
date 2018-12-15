@@ -125,7 +125,12 @@
                                     <hr>
                                     <h2 >Student Employees</h3>
                                     <div id="students"></div>
-                                                     
+                                              
+                                    <br/><br/>
+                                    <hr>
+                                    <h2>Affiliated Administrators</h2>
+                                    <div id="administrators"></div>
+
                                     <br/><br/>
                                     <hr>
                                     <h2>Affiliated Faculty</h2>
@@ -140,7 +145,6 @@
                                     <hr>
                                     <h2>Alumni</h2>
                                     <div id="alumni"></div>
-
                                 </section>
                             </article>
                         </div>
@@ -170,6 +174,15 @@
                 $.each(lines, function (n, elem) {
                     jQuery.get("/people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
                         $("#students").append($.parseHTML(text));
+                    });
+                });
+            }, "text");
+
+            $.get('/people/affiliated-administrators/items.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    jQuery.get("/people/affiliated-administrators/" + elem + ".html").then(function (text, status, xhr) {
+                        $("#administrators").append($.parseHTML(text));
                     });
                 });
             }, "text");
