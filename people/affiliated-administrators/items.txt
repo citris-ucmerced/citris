@@ -2,4 +2,6 @@ erik-rolland
 german-gavilan
 mark-matsumoto
 roseanna-barron
+sam-traina
+teenie-matlock
 tom-peterson

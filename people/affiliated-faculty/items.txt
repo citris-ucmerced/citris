@@ -22,10 +22,8 @@ paul-smaldino
 peter-schuerman
 po-ya-abel-chang
 roger-bales
-sam-traina
 stefano-carpin
 steve-shackelton
-teenie-matlock
 venkattraman-ayyaswamy
 yanbao-ma
 yangquan-chen
