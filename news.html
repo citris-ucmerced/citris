@@ -144,39 +144,6 @@
                 });
             }, "text");
         });
-
-        $(function() {  /* Read More: Helps show more on paragraphs */
-            var $el, $ps, $up, totalHeight;
-
-            $(".sidebar-box .button").click(function() {
-                console.log("Clicked!");
-
-                totalHeight = 0
-
-                $el = $(this);
-                $p  = $el.parent();
-                $up = $p.parent();
-                $ps = $up.find("p:not('.read-more')");
-
-                $ps.each(function() {
-                    totalHeight += $(this).outerHeight();
-                });
-
-                $up
-                    .css({
-                        "height": $up.height(),
-                        "max-height": 9999
-                    })
-                    .animate({
-                        "height": totalHeight
-                    });
-                $p.fadeOut();
-
-                return false;
-
-            });
-
-        });
     </script>
 </body>
 
