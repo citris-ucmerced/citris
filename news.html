@@ -122,6 +122,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
@@ -142,6 +143,39 @@
                     });
                 });
             }, "text");
+        });
+
+        $(function() {  /* Read More: Helps show more on paragraphs */
+            var $el, $ps, $up, totalHeight;
+
+            $(".sidebar-box .button").click(function() {
+                console.log("Clicked!");
+
+                totalHeight = 0
+
+                $el = $(this);
+                $p  = $el.parent();
+                $up = $p.parent();
+                $ps = $up.find("p:not('.read-more')");
+
+                $ps.each(function() {
+                    totalHeight += $(this).outerHeight();
+                });
+
+                $up
+                    .css({
+                        "height": $up.height(),
+                        "max-height": 9999
+                    })
+                    .animate({
+                        "height": totalHeight
+                    });
+                $p.fadeOut();
+
+                return false;
+
+            });
+
         });
     </script>
 </body>
