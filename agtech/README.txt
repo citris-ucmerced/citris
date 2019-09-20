@@ -1,1 +1,0 @@
-CITRIS @ UC Merced's Cyber Aware Day
