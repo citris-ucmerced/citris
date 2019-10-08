@@ -144,8 +144,20 @@
                                     
                                     <br/><br/>
                                     <hr>
-                                    <h2 >Student Employees</h3>
-                                    <div id="students"></div>
+                                    <h2>Student Employees</h3>
+                                    <div style="display:inline-block;width:12.8em;height:200px;"><img class="image featured" src="images/people/malia-bowman.jpg" alt="" /><center><h3 style="margin-top: -20px;">Malia Bowman</h3><p>Events & Outreach Intern</p></center></div>
+                                    <div style="display:inline-block;width:12.8em;height:200px;"><img class="image featured" src="images/people/miriam-martinez.jpg" alt="" /><center><h3 style="margin-top: -20px;">Miriam Martinez</h3><p>Graphics & Media Intern</p></center></div>
+                                    <div style="display:inline-block;width:12.8em;height:200px;"><img class="image featured" src="images/people/valerie-moss.jpg" alt="" /><center><h3 style="margin-top: -20px;">Valerie Moss</h3><p>Student Intern Lead</p></center></div>
+                                    <div style="display:inline-block;width:12.8em;height:200px;"><img class="image featured" src="images/people/ivy-nguyen.jpg" alt="" /><center><h3 style="margin-top: -20px;">Ivy Nguyen</h3><p>NexTech Educator Intern</p></center></div>
+                                    <br></br>
+                                    <div style="display:inline-block;width:12.8em;height:200px;"><img class="image featured" src="images/people/karishma-singh.jpg"" /><center><h3 style="margin-top: -20px;">Karishma Singh</h3><p>NexTech Educator Intern</p></center></div>
+                                    <div style="display:inline-block;width:12.8em;height:200px;"><img class="image featured" src="images/people/denis-vashchenko.jpg" alt="" /><center><h3 style="margin-top: -20px;">Denis Vashchenko</h3><p>Web Developer Intern</p></center></div>
+                                    <div style="display:inline-block;width:12.8em;height:200px;"><img class="image featured" src="images/people/ryan-xayarath.jpg" alt="" /><center><h3 style="margin-top: -20px;">Ryan Xayarath</h3><p>Videography Intern</p></center></div>
+
+
+
+
+
                                               
                                     <br/><br/>
                                     <hr>
@@ -195,14 +207,14 @@
         $(function () {
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
 
-            $.get('../people/student-employees/items.txt', function (data) {
-                var lines = data.split("\n");
-                $.each(lines, function (n, elem) {
-                    jQuery.get("/people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#students").append($.parseHTML(text));
-                    });
-                });
-            }, "text");
+            // $.get('../people/student-employees/items.txt', function (data) {
+            //     var lines = data.split("\n");
+            //     $.each(lines, function (n, elem) {
+            //         jQuery.get("/people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
+            //             $("#students").append($.parseHTML(text));
+            //         });
+            //     });
+            // }, "text");
 
             $.get('/people/affiliated-administrators/items.txt', function (data) {
                 var lines = data.split("\n");
