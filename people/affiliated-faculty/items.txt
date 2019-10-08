@@ -18,7 +18,6 @@ holley-moyes
 aleksandr-noy
 alexander-petersen
 florin-rusu
-steve-shackelton
 kurt-schnier
 peter-schuerman
 mukesh-singhalm
