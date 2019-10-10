@@ -1,8 +1,7 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 
 <head>
-    <!-- Comment in head -->
     <title>CITRIS @ UC Merced</title>
     <link rel="icon" href="images/favicon.png">
     <meta charset="utf-8" />
@@ -10,27 +9,9 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-
 </head>
 
 <body class="homepage">
-
-    <!-- 
-        #########################################################################################
-        # Are you a web developer for CITRIS? Looking to make modifications to this site?       #
-        #                                                                                       #
-        # Contact Brian Hungerman (brianhungerman@gmail.com) if you have any questions/concerns #
-        #                                                                                       #  
-        # This site is built with jQuery that functions as a very light-weight CMS.             #
-        # Try to follow conventions in naming schemes and content organization.                 #
-        #########################################################################################
-    -->
-
-    <!-- IF SITE IS UNDER CONSTRUCTION, UNCOMMENT THE FOLLOWING DIV -->
-    <!-- <div style="position:fixed;width:500px;height:40px;left:-100px;top:60px; transform: rotate(-45deg);z-index:10000;background-color:lightcoral;">
-        <h2 style="color:white;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Site under construction!</h2>
-    </div> -->
-
     <!-- THIS HELPS GET ANALYTICS USING GOOGLE ANALYTICS -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131216214-1"></script>
@@ -47,7 +28,7 @@
         <header id="header">
             <div class="logo container">
                 <div>
-                    <h1 id="logo">CITRIS @ UC Merced</h1>
+                    <h1 id="logo">Women In Technology</h1>
                 </div>
             </div>
         </header>
@@ -108,16 +89,7 @@
                             <a href="projects">Programs</a>
                             <ul>
                                 <li>
-                                    <a href="ag-food-tech">Ag Food Tech</a>
-                                </li>
-                                <li>
-                                    <a href="witi">WITI</a>
-                                </li>
-                                <li>
-                                    <a href="sust-inf">Sustainable Infrastructures</a>
-                                </li>
-                                <li>
-                                    <a href="tech-for-social-good">Tech For Social Good</a>
+                                    <a href="ag-food-tech">Ag-Food-Tech</a>
                                 </li>
                             </ul>
                         </li>
@@ -142,58 +114,28 @@
             </ul>
         </nav>
 
-        <!-- Banner -->
-        <div id="banner-wrapper">
-            <section id="banner">
-                <h2 style="font-size:150%;">
-                    Check out this year's Mobile App Challenge (MAC) teams!
-                </h2>
-
-                <!-- 
-                    THIS LINE CONTROLS THE "CURRENT EVENT BUTTON" BLURB
-                    CHANGE THE HREF AND TEXT FOR THE EVENT BEING ADVERTISED
-                -->
-                <a href="https://innovatetogrow.ucmerced.edu/teams/cse-mac-spring2019" class="button">Innovate To
-                    Grow!</a>
-            </section>
-        </div>
-
         <!-- Main -->
         <div id="main-wrapper">
             <div id="main" class="container">
-                <div class="row 200%">
+                <div class="row">
                     <div class="12u">
-                        <!-- Who We Are: Controlled by HTML snippet in snippets/who-we-are.html -->
-                        <div id="who-we-are"></div>
-                    </div>
-                </div>
-                <div class="row 200%">
-                    <div class="12u">
-                        <h2 class="major">
-                            <span>CITRIS Initiatives</span>
-                        </h2>
-                        <!-- Initiatives: Controlled by HTML snippet in snippets/initiatives.html -->
-                        <div id="initiatives"></div>
-                        <br />
-                        <!-- Programs: Controlled by HTML snippet in snippets/programs.html -->
-                        <!-- <div id="programs"></div> -->
-
-                    </div>
-                </div>
-                <div class="row 200%">
-                    <div class="12u">
-
-                        <!-- Recent News: Controlled by HTML snippet in snippets/recent-news.html -->
-                        <h2 class="major">
-                            <span>Recent News</span>
-                        </h2>
-
-                        <div id="recent-news"></div>
-
+                        <div class="content">
+                            <article class="box page-content">
+                                <section>
+                                    <center>
+                                        <p>
+                                            Check back later for Women In Technology
+                                            details.
+                                        </p>
+                                    </center>
+                                </section>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Footer: Controlled by HTML snippet in snippets/footer.html-->
         <div id="footer"></div>
     </div>
@@ -214,20 +156,6 @@
             $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
             $("#footer").load("snippets/footer-extended.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
         });
-    </script>
-    <script>
-        var lines = "banner";
-        var slide_count = 0;
-        $.get('images/banners/items.txt', function (data) {
-            lines = data.split("\n");
-            for (var i = 0; i < lines.length; i++) {
-                lines[i] = lines[i].split("\r")[0];
-            }
-            setInterval(function () {
-                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + lines[slide_count++] + ".jpg')";
-                if (slide_count >= lines.length) slide_count = 0;
-            }, 5000);
-        }, "text");
     </script>
 </body>
 
