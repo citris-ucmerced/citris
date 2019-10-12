@@ -24,7 +24,6 @@
     -->
 
     <!-- IF SITE IS UNDER CONSTRUCTION, UNCOMMENT THE FOLLOWING DIV -->
-    
         <div style="position:fixed;width:500px;height:40px;left:-100px;top:60px; transform: rotate(-45deg);z-index:10000;background-color:lightcoral;">
             <h2 style="color:white;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Site under construction!</h2>
         </div>
@@ -44,8 +43,66 @@
                     class="image featured" src="images/logo.png" />
             </a>
 
-            <!-- NAVIGATION: Controlled by HTML snippet in snippets/navigation.html -->
-            <ul id="navigation_top">
+            <!-- NAVIGATION: Controlled manually per page. If making changes, make changes on all .html pages -->
+            <ul>
+                <li>
+                    <a href="about">About</a>
+                    <ul>
+                        <li>
+                            <a href="people">People</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="events">Events</a>
+                    <ul>
+                        <li>
+                            <a href="events">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="archive">Archived Events</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="projects">Programs</a>
+                    <ul>
+                        <li>
+                            <a href="ag-food-tech">Ag Food Tech</a>
+                        </li>
+                        <li>
+                            <a href="witi">WITI</a>
+                        </li>
+                        <li>
+                            <a href="sust-inf">Sustainable Infrastructures</a>
+                        </li>
+                        <li>
+                            <a href="tech-for-social-good">Tech For Social Good</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="research">Research</a>
+                    <ul>
+                        <li>
+                            <a href="https://www.dewtrade.net/">Dewtrade</a>
+                        </li>
+                        <li>
+                            <a href="seed-grants">Seed Grants</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="citris-extension">CITRIS Extension</a>
+                    <ul>
+                        <li>
+                            <a href="aviation">Aviation</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="donate">Donate</a>
+                </li>
             </ul>
         </nav>
 
@@ -113,7 +170,6 @@
     <script src="assets/js/main.js"></script>
     <script>
         $(function () {
-            $("#navigation_top").load("snippets/navigation.html"); /*Navigation: Controlled by HTML snippet in snippets/navigation.html*/
             $("#who-we-are").load("snippets/who-we-are.html"); /*Who We Are: Controlled by HTML snippet in snippets/who-we-are.html*/
             $("#initiatives").load("snippets/initiatives.html"); /*Initiatives: Controlled by HTML snippet in snippets/initiatives.html*/
             $("#programs").load("snippets/programs.html");/*Programs: Controlled by HTML snippet in snippets/programs.html*/
