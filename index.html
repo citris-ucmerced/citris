@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <!-- Comment in head -->
     <title>CITRIS @ UC Merced</title>
     <link rel="icon" href="images/favicon.png">
     <meta charset="utf-8" />
@@ -10,7 +9,6 @@
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-
 </head>
 
 <body class="homepage">
@@ -20,30 +18,19 @@
         # Are you a web developer for CITRIS? Looking to make modifications to this site?       #
         #                                                                                       #
         # Contact Brian Hungerman (brianhungerman@gmail.com) if you have any questions/concerns #
-        #                                                                                       #  
-        # This site is built with jQuery that functions as a very light-weight CMS.             #
-        # Try to follow conventions in naming schemes and content organization.                 #
+        #                                                                                       #
+        # Please read README before making additions                                            #
         #########################################################################################
     -->
 
     <!-- IF SITE IS UNDER CONSTRUCTION, UNCOMMENT THE FOLLOWING DIV -->
-    <!-- <div style="position:fixed;width:500px;height:40px;left:-100px;top:60px; transform: rotate(-45deg);z-index:10000;background-color:lightcoral;">
-        <h2 style="color:white;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Site under construction!</h2>
-    </div> -->
-
-    <!-- THIS HELPS GET ANALYTICS USING GOOGLE ANALYTICS -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131216214-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-131216214-1');
-    </script>
+    
+        <div style="position:fixed;width:500px;height:40px;left:-100px;top:60px; transform: rotate(-45deg);z-index:10000;background-color:lightcoral;">
+            <h2 style="color:white;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Site under construction!</h2>
+        </div>
+   
 
     <div id="page-wrapper">
-
-        <!-- Header -->
         <header id="header">
             <div class="logo container">
                 <div>
@@ -51,103 +38,22 @@
                 </div>
             </div>
         </header>
-
-        <!-- Nav -->
         <nav id="nav">
             <a href="index">
                 <img style="position:absolute; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
                     class="image featured" src="images/logo.png" />
             </a>
-            <ul>
-                <li>
-                    <a href="about">About</a>
-                    <ul>
-                        <!-- <li>
-                            <a href="initiatives">Initiatives</a>
-                        <li> -->
-                        <li>
-                            <!-- <a href="activities">Activities</a>
-                                    <ul>
-                                        <li>
-                                            <a href="activities#mac">Mobile App Challenge</a>
-                                        </li>
-                                        <li>
-                                            <a href="activities#atd">Ag Tech Day</a>
-                                        </li>
-                                        <li>
-                                            <a href="activities#fit">Frontiers in Technology</a>
-                                        </li>
-                                        <li>
-                                            <a href="activities#cad">Cyber Aware Day</a>
-                                        </li>
-                                    </ul> -->
-                        </li>
-                        <li>
-                            <a href="people">People</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="events">Events</a>
-                    <ul>
-                        <li>
-                            <a href="events">Upcoming Events</a>
-                        </li>
-                        <li>
-                            <a href="archive">Archived Events</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="projects">Programs</a>
-                    <ul>
-                        <li>
-                            <a href="ag-food-tech">Ag Food Tech</a>
-                        </li>
-                        <li>
-                            <a href="witi">WITI</a>
-                        </li>
-                        <li>
-                            <a href="sust-inf">Sustainable Infrastructures</a>
-                        </li>
-                        <li>
-                            <a href="tech-for-social-good">Tech For Social Good</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="research">Research</a>
-                    <ul>
-                        <li>
-                            <a href="https://www.dewtrade.net/">Dewtrade</a>
-                        </li>
-                        <li>
-                            <a href="seed-grants">Seed Grants</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
 
-                </li>
-                <li>
-                    <a href="citris-extension">CITRIS Extension</a>
-                    <ul>
-                        <li>
-                            <a href="aviation">Aviation</a>
-                        </li>
-                    </ul>
-                <li>
-
-                </li>
-                <li>
-                    <a href="donate">Donate</a>
-                </li>
+            <!-- NAVIGATION: Controlled by HTML snippet in snippets/navigation.html -->
+            <ul id="navigation_top">
             </ul>
         </nav>
 
         <!-- Banner -->
         <div id="banner-wrapper">
             <section id="banner">
+
+                <!-- Brian's Todo note to self: generalize + dynamic-ize this -->
                 <h2 style="font-size:150%;">
                     Check out this year's Mobile App Challenge (MAC) teams!
                 </h2>
@@ -158,15 +64,15 @@
                 -->
                 <a href="https://innovatetogrow.ucmerced.edu/teams/cse-mac-spring2019" class="button">Innovate To
                     Grow!</a>
+
             </section>
         </div>
-
-        <!-- Main -->
         <div id="main-wrapper">
             <div id="main" class="container">
                 <div class="row 200%">
                     <div class="12u">
-                        <!-- Who We Are: Controlled by HTML snippet in snippets/who-we-are.html -->
+
+                        <!-- WHO WE ARE: Controlled by HTML snippet in snippets/who-we-are.html -->
                         <div id="who-we-are"></div>
                     </div>
                 </div>
@@ -175,29 +81,25 @@
                         <h2 class="major">
                             <span>CITRIS Initiatives</span>
                         </h2>
-                        <!-- Initiatives: Controlled by HTML snippet in snippets/initiatives.html -->
-                        <div id="initiatives"></div>
-                        <br />
-                        <!-- Programs: Controlled by HTML snippet in snippets/programs.html -->
-                        <!-- <div id="programs"></div> -->
 
+                        <!-- INITIATIVES: Controlled by HTML snippet in snippets/initiatives.html -->
+                        <div id="initiatives"></div>
                     </div>
                 </div>
                 <div class="row 200%">
                     <div class="12u">
 
-                        <!-- Recent News: Controlled by HTML snippet in snippets/recent-news.html -->
+                        <!-- RECENT NEWS: Controlled by HTML snippet in snippets/recent-news.html -->
                         <h2 class="major">
                             <span>Recent News</span>
                         </h2>
-
                         <div id="recent-news"></div>
-
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer: Controlled by HTML snippet in snippets/footer.html-->
+
+        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
         <div id="footer"></div>
     </div>
 
@@ -211,6 +113,9 @@
     <script src="assets/js/main.js"></script>
     <script>
         $(function () {
+            jQuery.get("snippets/navigation.html").then(function (text, status, xhr) {
+				$("#navigation_top").append($.parseHTML(text)); /*Navigation: Controlled by HTML snippet in snippets/navigation.html*/
+			});
             $("#who-we-are").load("snippets/who-we-are.html"); /*Who We Are: Controlled by HTML snippet in snippets/who-we-are.html*/
             $("#initiatives").load("snippets/initiatives.html"); /*Initiatives: Controlled by HTML snippet in snippets/initiatives.html*/
             $("#programs").load("snippets/programs.html");/*Programs: Controlled by HTML snippet in snippets/programs.html*/
