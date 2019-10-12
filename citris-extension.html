@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CITRIS @ UC Merced</title>
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body class="homepage">
+    <!-- THIS HELPS GET ANALYTICS USING GOOGLE ANALYTICS -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131216214-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-131216214-1');
+    </script>
+
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="logo container">
+                <div>
+                    <h1 id="logo">CITRIS Extension</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <a href="index">
+                <img style="position:absolute; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
+                    class="image featured" src="images/logo.png" />
+            </a>
+            <ul>
+                <li>
+                    <a href="about">About</a>
+                    <ul>
+                        <!-- <li>
+                            <a href="initiatives">Initiatives</a>
+                        <li> -->
+                        <li>
+                            <!-- <a href="activities">Activities</a>
+                                    <ul>
+                                        <li>
+                                            <a href="activities#mac">Mobile App Challenge</a>
+                                        </li>
+                                        <li>
+                                            <a href="activities#atd">Ag Tech Day</a>
+                                        </li>
+                                        <li>
+                                            <a href="activities#fit">Frontiers in Technology</a>
+                                        </li>
+                                        <li>
+                                            <a href="activities#cad">Cyber Aware Day</a>
+                                        </li>
+                                    </ul> -->
+                        </li>
+                        <li>
+                            <a href="people">People</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="events">Events</a>
+                    <ul>
+                        <li>
+                            <a href="events">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="archive">Archived Events</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="projects">Programs</a>
+                    <ul>
+                        <li>
+                            <a href="ag-food-tech">Ag Food Tech</a>
+                        </li>
+                        <li>
+                            <a href="witi">WITI</a>
+                        </li>
+                        <li>
+                            <a href="sust-inf">Sustainable Infrastructures</a>
+                        </li>
+                        <li>
+                            <a href="tech-for-social-good">Tech For Social Good</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="research">Research</a>
+                    <ul>
+                        <li>
+                            <a href="https://www.dewtrade.net/">Dewtrade</a>
+                        </li>
+                        <li>
+                            <a href="seed-grants">Seed Grants</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                </li>
+                <li>
+                    <a href="citris-extension">CITRIS Extension</a>
+                    <ul>
+                        <li>
+                            <a href="aviation">Aviation</a>
+                        </li>
+                    </ul>
+                <li>
+
+                </li>
+                <li>
+                    <a href="donate">Donate</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div id="main" class="container">
+                <div class="row">
+                    <div class="12u">
+                        <div class="content">
+                            <article class="box page-content">
+                                <section>
+                                    <center>
+                                        <p>
+                                            Check back later for CITRIS Extension
+                                            details.
+                                        </p>
+                                        <p>
+                                        </p>
+                                    </center>
+                                </section>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer: Controlled by HTML snippet in snippets/footer.html-->
+        <div id="footer"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/skel-viewport.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#who-we-are").load("snippets/who-we-are.html"); /*Who We Are: Controlled by HTML snippet in snippets/who-we-are.html*/
+            $("#initiatives").load("snippets/initiatives.html"); /*Initiatives: Controlled by HTML snippet in snippets/initiatives.html*/
+            $("#programs").load("snippets/programs.html");/*Programs: Controlled by HTML snippet in snippets/programs.html*/
+            $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
+            $("#footer").load("snippets/footer-extended.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+        });
+    </script>
+</body>
+
+</html>
