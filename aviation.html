@@ -12,19 +12,7 @@
 </head>
 
 <body class="homepage">
-    <!-- THIS HELPS GET ANALYTICS USING GOOGLE ANALYTICS -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131216214-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-131216214-1');
-    </script>
-
     <div id="page-wrapper">
-
-        <!-- Header -->
         <header id="header">
             <div class="logo container">
                 <div>
@@ -32,37 +20,17 @@
                 </div>
             </div>
         </header>
-
-        <!-- Nav -->
         <nav id="nav">
             <a href="index">
                 <img style="position:absolute; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
                     class="image featured" src="images/logo.png" />
             </a>
+
+            <!-- NAVIGATION: Controlled manually per page. If making changes, make changes on all .html pages -->
             <ul>
                 <li>
                     <a href="about">About</a>
                     <ul>
-                        <!-- <li>
-                            <a href="initiatives">Initiatives</a>
-                        <li> -->
-                        <li>
-                            <!-- <a href="activities">Activities</a>
-                                    <ul>
-                                        <li>
-                                            <a href="activities#mac">Mobile App Challenge</a>
-                                        </li>
-                                        <li>
-                                            <a href="activities#atd">Ag Tech Day</a>
-                                        </li>
-                                        <li>
-                                            <a href="activities#fit">Frontiers in Technology</a>
-                                        </li>
-                                        <li>
-                                            <a href="activities#cad">Cyber Aware Day</a>
-                                        </li>
-                                    </ul> -->
-                        </li>
                         <li>
                             <a href="people">People</a>
                         </li>
@@ -108,16 +76,13 @@
                     </ul>
                 </li>
                 <li>
-
-                </li>
-                <li>
                     <a href="citris-extension">CITRIS Extension</a>
                     <ul>
                         <li>
                             <a href="aviation">Aviation</a>
                         </li>
                     </ul>
-                <li>
+                </li>
                 <li>
                     <a href="donate">Donate</a>
                 </li>
@@ -245,7 +210,7 @@
             </div>
         </div>
 
-        <!-- Footer: Controlled by HTML snippet in snippets/footer.html-->
+        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
         <div id="footer"></div>
     </div>
 
@@ -259,7 +224,7 @@
     <script src="assets/js/main.js"></script>
     <script>
         $(function () {
-            $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
+            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
         });
     </script>
 </body>
