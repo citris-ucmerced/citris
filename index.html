@@ -113,9 +113,7 @@
     <script src="assets/js/main.js"></script>
     <script>
         $(function () {
-            jQuery.get("snippets/navigation.html").then(function (text, status, xhr) {
-				$("#navigation_top").append($.parseHTML(text)); /*Navigation: Controlled by HTML snippet in snippets/navigation.html*/
-			});
+            $("#navigation_top").load("snippets/navigation.html"); /*Navigation: Controlled by HTML snippet in snippets/navigation.html*/
             $("#who-we-are").load("snippets/who-we-are.html"); /*Who We Are: Controlled by HTML snippet in snippets/who-we-are.html*/
             $("#initiatives").load("snippets/initiatives.html"); /*Initiatives: Controlled by HTML snippet in snippets/initiatives.html*/
             $("#programs").load("snippets/programs.html");/*Programs: Controlled by HTML snippet in snippets/programs.html*/
