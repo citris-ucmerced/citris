@@ -148,6 +148,16 @@
 
                         <!-- RECENT NEWS: Controlled by HTML snippet in snippets/recent-news.html -->
                         <h2 class="major">
+                            <span>Upcoming Events</span>
+                        </h2>
+                        <section id="events"></section>
+                    </div>
+                </div>
+                <div class="row 200%">
+                    <div class="12u">
+
+                        <!-- RECENT NEWS: Controlled by HTML snippet in snippets/recent-news.html -->
+                        <h2 class="major">
                             <span>Recent News</span>
                         </h2>
                         <section id="news"></section>
@@ -175,7 +185,30 @@
             $("#initiatives").load("snippets/initiatives.html"); /*INITIATIVES: Controlled by HTML snippet in snippets/initiatives.html*/
             $("#recent-news").load("snippets/recent-news.html");/*RECENT NEWS: Controlled by HTML snippet in snippets/recent-news.html*/
             $("#footer").load("snippets/footer-extended.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-
+            $.get("events.csv").then(function (text, status, xhr) {
+				var data = $.csv.toObjects(text);
+				for (var i = 0; i < data.length; i++) {
+					switch (data[i].ID) {
+						default:
+							$("#events").append(
+								$.parseHTML(
+									'<section class="box features">' +
+                                        '<header>' +
+                                            '<h2>' +
+                                                data[i].TITLE +
+                                            '</h2>' + 
+                                        '</header>' + 
+                                        '<div style="display: block; overflow: auto">' +
+                                            '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
+                                        '</div>' +
+                                        '<a class="button" href="' + data[i].LINK + '">Learn More</a>' +
+                                    '</section>'
+								));
+							break;
+					}
+				}
+            });
             $.get("/news.csv").then(function (text, status, xhr) {
 				var data = $.csv.toObjects(text);
 				for (var i = 0; i < data.length; i++) {
