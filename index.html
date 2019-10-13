@@ -150,7 +150,7 @@
                         <h2 class="major">
                             <span>Recent News</span>
                         </h2>
-                        <div id="recent-news"></div>
+                        <section id="news"></section>
                     </div>
                 </div>
             </div>
@@ -174,6 +174,39 @@
             $("#initiatives").load("snippets/initiatives.html"); /*INITIATIVES: Controlled by HTML snippet in snippets/initiatives.html*/
             $("#recent-news").load("snippets/recent-news.html");/*RECENT NEWS: Controlled by HTML snippet in snippets/recent-news.html*/
             $("#footer").load("snippets/footer-extended.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+
+            $.get("/news.csv").then(function (text, status, xhr) {
+				var data = $.csv.toObjects(text);
+				for (var i = 0; i < data.length; i++) {
+					switch (data[i].ID) {
+						default:
+							$("#news").append(
+								$.parseHTML(
+                                    '<article class="box post">' +
+                                        '<header>' +
+                                            '<h3>' +
+                                                '<a href="' + data[i].LINK + '">' +
+                                                    data[i].TITLE +
+                                                '</a>' +
+                                            '</h3>' +
+                                            '<ul class="meta">' +
+                                                '<li class="icon fa-clock-o">' +
+                                                    data[i].DATE +
+                                                '</li>' +
+                                            '</ul>' +
+                                        '</header>' +
+                                        '<a href="' + data[i].LINK + '" class="image featured">' +
+                                            '<img src="images/news/' + data[i].ID + '.jpg" alt="" />' +
+                                        '</a>' +
+                                        '<p>' +
+                                            data[i].DESCRIPTION +
+                                        '</p>' +
+                                    '</article>' 
+								));
+							break;
+					}
+				}
+			});
         });
     </script>
     <script>
