@@ -123,10 +123,16 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+            only_recent_events = true;
+            finished_recent_events = false;
             $.get("events.csv").then(function (text, status, xhr) {
 				var data = $.csv.toObjects(text);
 				for (var i = 0; i < data.length; i++) {
+                    if (only_recent_events && finished_recent_events) break;
 					switch (data[i].ID) {
+                        case "OLD":
+                            finished_recent_events = true;
+                            break;
 						default:
 							$("#events").append(
 								$.parseHTML(
