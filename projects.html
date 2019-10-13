@@ -118,6 +118,7 @@
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.csv.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
@@ -126,14 +127,60 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-            $.get('projects/items.txt', function (data) {
-                var lines = data.split("\n");
-                $.each(lines, function (n, elem) {
-                    jQuery.get("projects/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#projects").append($.parseHTML(text + "<hr>"));
-                    });
-                });
-            }, "text");
+            $.get("/projects.csv").then(function (text, status, xhr) {
+				var data = $.csv.toObjects(text);
+				for (var i = 0; i < data.length; i++) {
+					switch (data[i].AUTHOR_ID) {
+                        case "":
+                        $("#projects").append(
+								$.parseHTML(
+									'<section class="box features">' +
+                                        '<header>' +
+                                            '<h2>' +
+                                                data[i].TITLE +
+                                            '</h2>' + 
+                                        '</header>' + 
+                                        '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" />' +
+                                        '<p style="text-align: justify; text-justify: inter-word;">' +
+                                            data[i].TEXT +
+                                        '</p>' +
+                                    '</section>'
+								));
+                            break;
+						default:
+							$("#projects").append(
+								$.parseHTML(
+									'<section class="box features">' +
+                                        '<header>' +
+                                            '<h2>' +
+                                                data[i].TITLE +
+                                            '</h2>' + 
+                                        '</header>' + 
+                                        '<table>' +
+                                            '<tr>' +
+                                                '<th style="width:74.5%">' +
+                                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" />' +
+                                                    '<p style="text-align: justify; text-justify: inter-word;">' +
+                                                        data[i].TEXT +
+                                                    '</p>' +
+                                                '</th>' +
+                                                '<th style="width:25.5%">' +
+                                                    '<img style="float:top" class="image featured" src="images/people/' + data[i].AUTHOR_ID + '.jpg" alt="" />' +
+                                                    '<p style="margin:0;">' +
+                                                        data[i].AUTHOR +
+                                                    '</p>' +
+                                                    '<p>' +
+                                                        data[i].TITLE +
+                                                    '</p>' +
+                                                '</th>' +
+                                            '</tr>' +
+                                        '</table>' +
+                                    '</section>'
+								));
+							break;
+					}
+				}
+            });
         });
     </script>
 </body>
