@@ -99,7 +99,7 @@
                             CITRIS hosts many collaborative events throughout the year, including seminars, research
                             exchanges, and workshops. See upcoming events here:
                         </p>
-                        <div id="upcoming-events"></div>
+                        <div id="events"></div>
                         <center><a href="archive" class="button">See our previously held events!</a></center>
                     </div>
                 </div>
@@ -122,14 +122,44 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-            $.get('upcoming-events/items.txt', function (data) {
-                var lines = data.split("\n");
-                $.each(lines, function (n, elem) {
-                    jQuery.get("upcoming-events/" + elem + ".html").then(function (text, status, xhr) {
-                        $("#upcoming-events").append($.parseHTML(text + "<hr>"));
-                    });
-                });
-            }, "text");
+
+
+            <section class="box features">
+    <header>
+        <h2></h2>
+    </header>
+    <img class="image featured" src="/images/events/research-exchange.jpg" alt="" />
+    <p>
+        
+    </p>
+    <div style="text-align: center;">
+        <a class="button" href="/">Learn More</a>
+    </div>
+</section>
+            $.get("events.csv").then(function (text, status, xhr) {
+				var data = $.csv.toObjects(text);
+				for (var i = 0; i < data.length; i++) {
+					switch (data[i].ID) {
+						default:
+							$("#events").append(
+								$.parseHTML(
+									'<section class="box features">' +
+                                        '<header>' +
+                                            '<h2>' +
+                                                data[i].TITLE +
+                                            '</h2>' + 
+                                        '</header>' + 
+                                        '<div style="display: block; overflow: auto">' +
+                                            '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/projects/' + data[i].ID + '.jpg" alt="" />' +
+											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
+                                        '</div>' +
+                                        '<a class="button" href="' + data[i].LINK + '">Learn More</a>' +
+                                    '</section>'
+								));
+							break;
+					}
+				}
+            });
         });
     </script>
 </body>
