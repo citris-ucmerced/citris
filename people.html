@@ -142,7 +142,7 @@
 							$("#people").append(
 								$.parseHTML(
                                     '<div style="display:inline-block;width:15.4em;height:200px;">' +
-                                        '<a href="' + data[i].LINK + '">' +
+                                        '<a href="' + data[i].LINK + '" style="text-decoration: none">' +
                                             '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="" />' +
                                             '<center>' +
                                                 '<h3 style="margin-top: -20px;">' +
@@ -153,66 +153,12 @@
                                                 '</p>'+
                                             '</center>' +
                                         '</a>' +
-                                    '</div>'
+                                    '</div>&nbsp;'
 								));
 							break;
 					}
 				}
 			});
-
-            // $.get('../people/student-employees/items.txt', function (data) {
-            //     var lines = data.split("\n");
-            //     $.each(lines, function (n, elem) {
-            //         jQuery.get("/people/student-employees/" + elem + ".html").then(function (text, status, xhr) {
-            //             $("#students").append($.parseHTML(text));
-            //         });
-            //     });
-            // }, "text");
-
-            // $.get('/people/affiliated-administrators/items.txt', function (data) {
-            //     var lines = data.split("\n");
-            //     $.each(lines, function (n, elem) {
-            //         jQuery.get("/people/affiliated-administrators/" + elem + ".html").then(function (text, status, xhr) {
-            //             $("#administrators").append($.parseHTML(text));
-            //         });
-            //     });
-            // }, "text");
-
-            // $.get('/people/affiliated-faculty/items.txt', function (data) {
-            //     var lines = data.split("\n");
-            //     $.each(lines, function (n, elem) {
-            //         jQuery.get("/people/affiliated-faculty/" + elem + ".html").then(function (text, status, xhr) {
-            //             $("#faculty").append($.parseHTML(text));
-            //         });
-            //     });
-            // }, "text");
-
-            // $.get('/people/affiliated-staff/items.txt', function (data) {
-            //     var lines = data.split("\n");
-            //     $.each(lines, function (n, elem) {
-            //         jQuery.get("/people/affiliated-staff/" + elem + ".html").then(function (text, status, xhr) {
-            //             $("#staff").append($.parseHTML(text));
-            //         });
-            //     });
-            // }, "text");
-
-            // $.get('/people/affiliated-researchers/items.txt', function (data) {
-            //     var lines = data.split("\n");
-            //     $.each(lines, function (n, elem) {
-            //         jQuery.get("/people/affiliated-researchers/" + elem + ".html").then(function (text, status, xhr) {
-            //             $("#researchers").append($.parseHTML(text));
-            //         });
-            //     });
-            // }, "text");
-
-            // $.get('/people/alumni/items.txt', function (data) {
-            //     var lines = data.split("\n");
-            //     $.each(lines, function (n, elem) {
-            //         jQuery.get("/people/alumni/" + elem + ".html").then(function (text, status, xhr) {
-            //             $("#alumni").append($.parseHTML(text));
-            //         });
-            //     });
-            // }, "text");
         });
     </script>
 </body>
