@@ -123,20 +123,6 @@
     <script>
         $(function () {
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-
-
-            <section class="box features">
-    <header>
-        <h2></h2>
-    </header>
-    <img class="image featured" src="/images/events/research-exchange.jpg" alt="" />
-    <p>
-        
-    </p>
-    <div style="text-align: center;">
-        <a class="button" href="/">Learn More</a>
-    </div>
-</section>
             $.get("events.csv").then(function (text, status, xhr) {
 				var data = $.csv.toObjects(text);
 				for (var i = 0; i < data.length; i++) {
