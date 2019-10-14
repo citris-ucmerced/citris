@@ -29,7 +29,7 @@
         <h2 style="color:white;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Site under construction!</h2>
     </div> 
     -->
-   
+
 
     <div id="page-wrapper">
         <header id="header">
@@ -74,6 +74,11 @@
                         </li>
                         <li>
                             <a href="witi">WITI</a>
+                            <ul>
+                                <li>
+                                    <a href="explorecsr">exploreCSR</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="sust-inf">Sustainable Infrastructures</a>
@@ -175,7 +180,7 @@
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="/assets/js/jquery.csv.min.js"></script>
+    <script src="/assets/js/jquery.csv.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
@@ -190,65 +195,65 @@
             only_recent_events = true;
             finished_recent_events = false;
             $.get("events.csv").then(function (text, status, xhr) {
-				var data = $.csv.toObjects(text);
-				for (var i = 0; i < data.length; i++) {
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
                     if (only_recent_events && finished_recent_events) break;
-					switch (data[i].ID) {
+                    switch (data[i].ID) {
                         case "OLD":
                             finished_recent_events = true;
                             break;
-						default:
-							$("#events").append(
-								$.parseHTML(
-									'<section class="box features">' +
-                                        '<header>' +
-                                            '<h2>' +
-                                                data[i].TITLE +
-                                            '</h2>' + 
-                                        '</header>' + 
-                                        '<div style="display: block; overflow: auto">' +
-                                            '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
-											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
-                                        '</div>' +
-                                        '<a class="button" href="' + data[i].LINK + '">Learn More</a>' +
+                        default:
+                            $("#events").append(
+                                $.parseHTML(
+                                    '<section class="box features">' +
+                                    '<header>' +
+                                    '<h2>' +
+                                    data[i].TITLE +
+                                    '</h2>' +
+                                    '</header>' +
+                                    '<div style="display: block; overflow: auto">' +
+                                    '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    '<p style="margin:0;">' + data[i].TEXT + '</p>' +
+                                    '</div>' +
+                                    '<a class="button" href="' + data[i].LINK + '">Learn More</a>' +
                                     '</section>'
-								));
-							break;
-					}
-				}
+                                ));
+                            break;
+                    }
+                }
             });
             $.get("/news.csv").then(function (text, status, xhr) {
-				var data = $.csv.toObjects(text);
-				for (var i = 0; i < data.length; i++) {
-					switch (data[i].ID) {
-						default:
-							$("#news").append(
-								$.parseHTML(
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
+                    switch (data[i].ID) {
+                        default:
+                            $("#news").append(
+                                $.parseHTML(
                                     '<article class="box post">' +
-                                        '<header>' +
-                                            '<h3>' +
-                                                '<a href="' + data[i].LINK + '">' +
-                                                    data[i].TITLE +
-                                                '</a>' +
-                                            '</h3>' +
-                                            '<ul class="meta">' +
-                                                '<li class="icon fa-clock-o">' +
-                                                    data[i].DATE +
-                                                '</li>' +
-                                            '</ul>' +
-                                        '</header>' +
-                                        '<a href="' + data[i].LINK + '" class="image featured">' +
-                                            '<img src="images/news/' + data[i].ID + '.jpg" alt="" />' +
-                                        '</a>' +
-                                        '<p>' +
-                                            data[i].DESCRIPTION +
-                                        '</p>' +
-                                    '</article>' 
-								));
-							break;
-					}
-				}
-			});
+                                    '<header>' +
+                                    '<h3>' +
+                                    '<a href="' + data[i].LINK + '">' +
+                                    data[i].TITLE +
+                                    '</a>' +
+                                    '</h3>' +
+                                    '<ul class="meta">' +
+                                    '<li class="icon fa-clock-o">' +
+                                    data[i].DATE +
+                                    '</li>' +
+                                    '</ul>' +
+                                    '</header>' +
+                                    '<a href="' + data[i].LINK + '" class="image featured">' +
+                                    '<img src="images/news/' + data[i].ID + '.jpg" alt="" />' +
+                                    '</a>' +
+                                    '<p>' +
+                                    data[i].DESCRIPTION +
+                                    '</p>' +
+                                    '</article>'
+                                ));
+                            break;
+                    }
+                }
+            });
         });
     </script>
     <script>
