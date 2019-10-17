@@ -61,7 +61,7 @@
           // end: '2019-10-02'
         })
         events_injected.push({
-          title: fields[0] + " " + fields[1] + " Final Review",//,
+          title: fields[0] + " " + fields[1] + " Final Review by " + fields[4],//,
           start: final_review_date,
           end: due_date,
           color: 'brown'
@@ -75,7 +75,7 @@
           // end: '2019-10-02'
         })
         events_injected.push({
-          title: fields[0] + " " + fields[1] + " Initial Review",//,
+          title: fields[0] + " " + fields[1] + " Initial Review by " + fields[4],//,
           start: init_review_date,
           end: end_review_date,
           color: 'blue'
@@ -201,12 +201,12 @@
   <a onclick="run()" style = "left: 30px; top:30px; width: 160px; position:absolute" class="button">Run</a>
   <a onclick="alert('Prototype scheduling tool for visualizing overlapping conflicts between research administrators grants\nCSV format: Professor,Agency,Date,Value,Staff ')" style = "left: 210px; top:30px; width: 160px; position:absolute" class="button">Info</a>
   <textarea name="message" id="message" rows="25" style = "left: 30px; width: 340px; top:100px; position:absolute">
-      Carpin,SoE,2019-10-01,200000,Admin1
-      Cerpa,SoE,2019-10-08,200000,Admin1
-      Chen,SoE,2019-10-10,200000,Admin1
-      Hestir,SoE,2019-10-16,200000,Admin1
-      Ortiz,SoE,2019-10-17,200000,Admin1
-      Yeo,SoE,2019-10-25,200000,Admin1
+      Carpin,SoE,2019-10-01,200000,Vanessa
+      Cerpa,SoE,2019-10-08,600000,Wendy
+      Chen,SoE,2019-10-10,200000,Vanessa
+      Hestir,SoE,2019-10-16,1000000,Wendy
+      Ortiz,SoE,2019-10-17,200000,Wendy
+      Yeo,SoE,2019-10-25,800000,Vanessa
   </textarea>
 
   <script>
