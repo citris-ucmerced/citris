@@ -24,5 +24,5 @@ When in doubt, base any sizes off of pre-existing images to ensure consistency.
 # Acknowledgements 
 
 Website created by Brian Hungerman, Web Developer at CITRIS.
+Website maintained by Denis Vashchenko, Web Developer at CITRIS.
 Website template by HTML5UP.
-
