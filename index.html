@@ -270,7 +270,7 @@
         $.get('images/banners/items.txt', function (data) {
             lines = data.split("\n");
             for (var i = 0; i < lines.length; i++) {
-                image_id[i] = lines[i].split(";")[0];
+                image_id[i] = lines[i].split("\r")[0];
                 //line_text[i] = lines[i].split(";")[1];
             }
             setInterval(function () {
