@@ -1,2 +1,2 @@
 banner
-valle-de-exploracion-banner
+vde-banner
