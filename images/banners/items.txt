@@ -1,6 +1,6 @@
-banner
-atd-banner
-aviation-banner
-campus-banner
-fit-banner
-mac-banner
+banner;Click here <a href=""> on me </a>
+atd-banner;Click here <a href=""> on me </a>
+aviation-banner;Click here <a href=""> on me </a>
+campus-banner;Click here <a href=""> on me </a>
+fit-banner;Click here <a href=""> on me </a>
+mac-banner;Click here <a href=""> on me </a>

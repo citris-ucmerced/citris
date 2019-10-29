@@ -99,7 +99,7 @@
                         </li>
                     </ul>
                 </li>
-                 <li>
+                <li>
                     <a href="citris-extension">CITRIS Extension</a>
                 </li>
                 <li>
@@ -252,18 +252,30 @@
         });
     </script>
     <script>
-
-        // TODO:: To be redone...
-
+        // var lines = "banner";
+        // var slide_count = 0;
+        // $.get('images/banners/items.txt', function (data) {
+        //     lines = data.split("\n");
+        //     for (var i = 0; i < lines.length; i++) {
+        //         lines[i] = lines[i].split("\r")[0];
+        //     }
+        //     setInterval(function () {
+        //         document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + lines[slide_count++] + ".jpg')";
+        //         if (slide_count >= lines.length) slide_count = 0;
+        //     }, 5000);
+        // }, "text");
         var lines = "banner";
+        var line_text = [];
         var slide_count = 0;
         $.get('images/banners/items.txt', function (data) {
             lines = data.split("\n");
             for (var i = 0; i < lines.length; i++) {
-                lines[i] = lines[i].split("\r")[0];
+                image_id[i] = lines[i].split(";")[0];
+                line_text[i] = lines[i].split(";")[1];
             }
             setInterval(function () {
-                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + lines[slide_count++] + ".jpg')";
+                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + image_id[slide_count++] + ".jpg')";
+                document.getElementById("text-element").innerText = line_text[slide_count++] + ".jpg')";
                 if (slide_count >= lines.length) slide_count = 0;
             }, 5000);
         }, "text");
