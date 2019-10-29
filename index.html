@@ -271,12 +271,12 @@
             image_id = data.split("\n");
             for (var i = 0; i < image_id.length; i++) {
                 image_id[i] = lines[i].split(";")[0];
-                //line_text[i] = lines[i].split(";")[1];
+                line_text[i] = lines[i].split(";")[1];
             }
             setInterval(function () {
                 document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + image_id[slide_count++] + ".jpg')";
-                //document.getElementById("text-element").innerText = line_text[slide_count++] + ".jpg')";
-                if (slide_count >= lines.length) slide_count = 0;
+                document.getElementById("text-element").innerText = line_text[slide_count++] + ".jpg')";
+                if (slide_count >= image_id.length) slide_count = 0;
             }, 5000);
         }, "text");
     </script>
