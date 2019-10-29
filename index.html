@@ -256,7 +256,7 @@
         $.get('images/banners/items.txt', function (data) {
             lines = data.split("\n");
             for (var i = 0; i < lines.length; i++) {
-                lines[i] = lines[i].split("\r")[0];
+                lines[i] = lines[i].split(";")[0];
             }
             setInterval(function () {
                 document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/banners/" + lines[slide_count++] + ".jpg')";

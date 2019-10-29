@@ -1,1 +1,2 @@
-vde-banner
+vde-banner;
+banner;
