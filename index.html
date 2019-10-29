@@ -113,15 +113,15 @@
             <section id="banner">
 
                 <!-- Brian's Todo note to self: generalize + dynamic-ize this -->
-                <h2 style="font-size:150%;">
-                    ¡Valle De Exploracion!
+                <h2 id="banner-title" style="font-size:150%;">
+
                 </h2>
 
                 <!-- 
                     THIS LINE CONTROLS THE "CURRENT EVENT BUTTON" BLURB
                     CHANGE THE HREF AND TEXT FOR THE EVENT BEING ADVERTISED
                 -->
-                <a href="https://citris.ucmerced.edu/techcareer" class="button">Apply today</a>
+                <a id="banner-link" href="" class="button"></a>
 
             </section>
         </div>
@@ -252,14 +252,19 @@
     </script>
     <script>
         var lines = "banner";
+        var line_text = [];
         var slide_count = 0;
         $.get('images/banners/items.txt', function (data) {
             lines = data.split("\n");
             for (var i = 0; i < lines.length; i++) {
                 lines[i] = lines[i].split(";")[0];
+                line_text[i] = lines[i].split(";")[1]
+                line_link[i] = lines[i].split(";")[2]
             }
             setInterval(function () {
                 document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/banners/" + lines[slide_count++] + ".jpg')";
+                document.getElementById("banner-title").innerText = line_text[slide_count++];
+                document.getElementById("banner-link").href = line_link[slide_count++];
                 if (slide_count >= lines.length) slide_count = 0;
             }, 5000);
         }, "text");

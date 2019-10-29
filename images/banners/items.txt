@@ -1,2 +1,2 @@
-vde-banner;
+vde-banner;¡Valle De Exploracion!;https://citris.ucmerced.edu/techcareer;
 banner;
