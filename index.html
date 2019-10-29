@@ -114,15 +114,14 @@
 
                 <!-- Brian's Todo note to self: generalize + dynamic-ize this -->
                 <h2 style="font-size:150%;">
-                    Check out this year's Mobile App Challenge (MAC) teams!
+                    ¡Valle De Exploracion!
                 </h2>
 
                 <!-- 
                     THIS LINE CONTROLS THE "CURRENT EVENT BUTTON" BLURB
                     CHANGE THE HREF AND TEXT FOR THE EVENT BEING ADVERTISED
                 -->
-                <a href="https://innovatetogrow.ucmerced.edu/teams/cse-mac-spring2019" class="button">Innovate To
-                    Grow!</a>
+                <a href="https://citris.ucmerced.edu/techcareer" class="button">Apply today</a>
 
             </section>
         </div>
@@ -252,33 +251,33 @@
         });
     </script>
     <script>
-        // var lines = "banner";
-        // var slide_count = 0;
-        // $.get('images/banners/items.txt', function (data) {
-        //     lines = data.split("\n");
-        //     for (var i = 0; i < lines.length; i++) {
-        //         lines[i] = lines[i].split("\r")[0];
-        //     }
-        //     setInterval(function () {
-        //         document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + lines[slide_count++] + ".jpg')";
-        //         if (slide_count >= lines.length) slide_count = 0;
-        //     }, 5000);
-        // }, "text");
-        var image_id = "banner";
-        var line_text = [];
+        var lines = "banner";
         var slide_count = 0;
         $.get('images/banners/items.txt', function (data) {
             lines = data.split("\n");
             for (var i = 0; i < lines.length; i++) {
-                image_id[i] = lines[i].split(";")[0];
-                line_text[i] = lines[i].split(";")[1];
+                lines[i] = lines[i].split("\r")[0];
             }
             setInterval(function () {
-                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + image_id[slide_count++] + ".jpg')";
-                document.getElementById("text-element").innerText = line_text[slide_count++];
+                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + lines[slide_count++] + ".jpg')";
                 if (slide_count >= lines.length) slide_count = 0;
             }, 5000);
         }, "text");
+        // var image_id = "valle-de-exploracion-";
+        // var line_text = [];
+        // var slide_count = 0;
+        // $.get('images/banners/items.txt', function (data) {
+        //     lines = data.split("\n");
+        //     for (var i = 0; i < lines.length; i++) {
+        //         image_id[i] = lines[i].split(";")[0];
+        //         line_text[i] = lines[i].split(";")[1];
+        //     }
+        //     setInterval(function () {
+        //         document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + image_id[slide_count++] + ".jpg')";
+        //         document.getElementById("text-element").innerText = line_text[slide_count++];
+        //         if (slide_count >= lines.length) slide_count = 0;
+        //     }, 5000);
+        // }, "text");
     </script>
 </body>
 
