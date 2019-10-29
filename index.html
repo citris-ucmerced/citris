@@ -114,7 +114,6 @@
 
                 <!-- Brian's Todo note to self: generalize + dynamic-ize this -->
                 <h2 id="banner-title" style="font-size:150%;">
-
                 </h2>
 
                 <!-- 
@@ -252,8 +251,8 @@
     </script>
     <script>
         var lines = "banner";
-        var line_text = [];
-        var line_link = [];
+        var line_text = "";
+        var line_link = "";
         var slide_count = 0;
         $.get('images/banners/items.txt', function (data) {
             lines = data.split("\n");
