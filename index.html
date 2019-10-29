@@ -264,12 +264,12 @@
         //         if (slide_count >= lines.length) slide_count = 0;
         //     }, 5000);
         // }, "text");
-        var lines = "banner";
+        var image_id = "banner";
         var line_text = [];
         var slide_count = 0;
         $.get('images/banners/items.txt', function (data) {
-            lines = data.split("\n");
-            for (var i = 0; i < lines.length; i++) {
+            image_id = data.split("\n");
+            for (var i = 0; i < image_id.length; i++) {
                 image_id[i] = lines[i].split(";")[0];
                 //line_text[i] = lines[i].split(";")[1];
             }
