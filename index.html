@@ -259,7 +259,7 @@
                 lines[i] = lines[i].split("\r")[0];
             }
             setInterval(function () {
-                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/" + lines[slide_count++] + ".jpg')";
+                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/banners" + lines[slide_count++] + ".jpg')";
                 if (slide_count >= lines.length) slide_count = 0;
             }, 5000);
         }, "text");
