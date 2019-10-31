@@ -260,9 +260,10 @@
                 line_link[i] = lines[i].split(";")[2]
             }
             setInterval(function () {
-                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/banners/" + line_image[slide_count++] + ".jpg')";
-                document.getElementById("banner-title").innerText = line_text[slide_count++];
-                document.getElementById("banner-link").href = line_link[slide_count++];
+                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/banners/" + line_image[slide_count] + ".jpg')";
+                document.getElementById("banner-title").innerText = line_text[slide_count];
+                document.getElementById("banner-link").href = line_link[slide_count];
+                slide_count++;
                 if (slide_count >= lines.length) slide_count = 0;
             }, 5000);
         }, "text");
