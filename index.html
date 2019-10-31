@@ -25,10 +25,10 @@
 
     <!-- IF SITE IS UNDER CONSTRUCTION, UNCOMMENT THE FOLLOWING DIV -->
 
-    <!-- <div
+    <div
         style="position:fixed;width:500px;height:40px;left:-100px;top:60px; transform: rotate(-45deg);z-index:10000;background-color:lightcoral;">
         <h2 style="color:white;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;Site under construction!</h2>
-    </div> -->
+    </div>
 
 
 
@@ -115,14 +115,13 @@
 
                 <!-- Brian's Todo note to self: generalize + dynamic-ize this -->
                 <h2 id="banner-title" style="font-size:150%;">
-                    ¡Valle De Exploracion!
                 </h2>
 
                 <!-- 
                     THIS LINE CONTROLS THE "CURRENT EVENT BUTTON" BLURB
                     CHANGE THE HREF AND TEXT FOR THE EVENT BEING ADVERTISED
                 -->
-                <a id="banner-link" href="https://citris.ucmerced.edu/techcareer" class="button">Apply Today!</a>
+                <a id="banner-link" href="" class="button">Learn More</a>
 
             </section>
         </div>
@@ -248,17 +247,22 @@
         });
     </script>
     <script>
-        var lines = "banner";
+        var lines = "";
+        var line_image = [];
+        var line_text = [];
+        var line_link = [];
         var slide_count = 0;
         $.get('images/banners/items.txt', function (data) {
             lines = data.split("\n");
             for (var i = 0; i < lines.length; i++) {
-                lines[i] = lines[i].split(";")[0];
-                //line_text[i] = lines[i].split(";")[1]
-                //line_link[i] = lines[i].split(";")[2]
+                line_image[i] = lines[i].split(";")[0];
+                line_text[i] = lines[i].split(";")[1]
+                line_link[i] = lines[i].split(";")[2]
             }
             setInterval(function () {
-                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/banners/" + lines[slide_count++] + ".jpg')";
+                document.getElementById("banner-wrapper").style.backgroundImage = "url('assets/css/images/overlay.png'), url('assets/css/images/overlay.png'), url('images/banners/" + line_image[slide_count++] + ".jpg')";
+                document.getElementById("banner-title").innerText = line_text[slide_count++];
+                document.getElementById("banner-link").href = line_link[slide_count++];
                 if (slide_count >= lines.length) slide_count = 0;
             }, 5000);
         }, "text");
