@@ -1,3 +1,4 @@
+cyber-aware-2019-banner;CyberAware 2019!;http://www.sjsu.edu/cybersecurity/events/cyberaware/;
 vde-banner;¡Valle De Exploracion!;https://citris.ucmerced.edu/techcareer;
 biogas-banner;Biogas Workshop;https://citris.ucmerced.edu/sust-inf;
 banner;CITRIS @ UC MERCED;https://citris.ucmerced.edu/about;
