@@ -1,2 +1,3 @@
 vde-banner;¡Valle De Exploracion!;https://citris.ucmerced.edu/techcareer;
 biogas-banner;Biogas Workshop;https://citris.ucmerced.edu/sust-inf;
+banner;CITRIS @ UC MERCED;https://citris.ucmerced.edu/about;
