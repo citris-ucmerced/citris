@@ -1,0 +1,314 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CITRIS @ UC Merced</title>
+    <link rel="icon" href="../images/favicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <script src="../assets/chartjs/dist/Chart.min.js"></script>
+    <script src="../assets/chartjs/samples/utils.js"></script>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body class="homepage">
+    <div id="page-wrapper">
+        <header id="header">
+            <div class="logo container">
+                <div>
+                    <h1 id="logo">Proposal Dashboard</h1>
+                </div>
+            </div>
+        </header>
+        <nav id="nav">
+            <a href="index">
+                <img style="position:absolute; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
+                    class="image featured" src="../images/logo.png" />
+            </a>
+
+            <!-- NAVIGATION: Controlled manually per page. If making changes, make changes on all .html pages -->
+            <ul>
+                <li>
+                    <a href="about">About</a>
+                    <ul>
+                        <li>
+                            <a href="people">People</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="events">Events</a>
+                    <ul>
+                        <li>
+                            <a href="events">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="archive">Archived Events</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="projects">Programs</a>
+                    <ul>
+                        <li>
+                            <a href="ag-food-tech">Ag Food Tech</a>
+                        </li>
+                        <li>
+                            <a href="witi">Women In Technology</a>
+                            <ul>
+                                <li>
+                                    <a href="techcareer">Tech Career</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="sust-inf">Sustainable Infrastructures</a>
+                        </li>
+                        <li>
+                            <a href="tech-for-social-good">Tech For Social Good</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="research">Research</a>
+                    <ul>
+                        <li>
+                            <a href="https://www.dewtrade.net/">Dewtrade</a>
+                        </li>
+                        <li>
+                            <a href="seed-grants">Seed Grants</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="citris-extension">CITRIS Extension</a>
+                </li>
+                <li>
+                    <a href="donate">Donate</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div id="main" class="container">
+                <div class="row">
+                    <div class="12u">
+                        <div class="content">
+                            <article class="box page-content">
+                                <header>
+                                    <center>
+                                        <h2>School of Engineering Proposal Dashboard</h2>
+                                    </center>
+                                </header>
+                                <section>
+                                    <span class="image featured">
+                                        <canvas id="canvas"></canvas>
+                                        <!-- /<img src="../images/aviation-banner.jpg" alt="" /> -->
+                                    </span>
+                                    <center>
+                                        <button id="randomizeData">Randomize Data</button>
+                                        <button id="addDataset">Add Dataset</button>
+                                        <button id="removeDataset">Remove Dataset</button>
+                                        <button id="addData">Add Data</button>
+                                        <button id="removeData">Remove Data</button>
+                                    </center>
+                                    <br>
+                                    <p>
+                                        In development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development...
+                                    </p>
+
+                                </section>
+                            </article>
+                            <article class="box page-content">
+                                <header>
+                                    <center>
+                                        <h2>Interested in Submitting a Proposal?</h2>
+                                    </center>
+                                </header>
+                                <section>
+                                    <p>
+                                        In development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development... In development... In development... In
+                                        development... In development...
+                                    </p>
+                                    <center>
+                                        <a class="button" href="form.html">Proposal Submission Form</a>
+                                    </center>
+                                </section>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+        <div id="footer"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/skel-viewport.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#footer").load("../snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+        });
+    </script>
+    <script>
+        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var config = {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: '# Proposals Submitted',
+                    backgroundColor: window.chartColors.red,
+                    borderColor: window.chartColors.red,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                    fill: false,
+                }, {
+                    label: '$ Secured',
+                    fill: false,
+                    backgroundColor: window.chartColors.blue,
+                    borderColor: window.chartColors.blue,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: false,
+                    text: 'Proposal Tracking'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        }
+                    }]
+                }
+            }
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myLine = new Chart(ctx, config);
+        };
+
+        document.getElementById('randomizeData').addEventListener('click', function () {
+            config.data.datasets.forEach(function (dataset) {
+                dataset.data = dataset.data.map(function () {
+                    return randomScalingFactor();
+                });
+
+            });
+
+            window.myLine.update();
+        });
+
+        var colorNames = Object.keys(window.chartColors);
+        document.getElementById('addDataset').addEventListener('click', function () {
+            var colorName = colorNames[config.data.datasets.length % colorNames.length];
+            var newColor = window.chartColors[colorName];
+            var newDataset = {
+                label: 'Dataset ' + config.data.datasets.length,
+                backgroundColor: newColor,
+                borderColor: newColor,
+                data: [],
+                fill: false
+            };
+
+            for (var index = 0; index < config.data.labels.length; ++index) {
+                newDataset.data.push(randomScalingFactor());
+            }
+
+            config.data.datasets.push(newDataset);
+            window.myLine.update();
+        });
+
+        document.getElementById('addData').addEventListener('click', function () {
+            if (config.data.datasets.length > 0) {
+                var month = MONTHS[config.data.labels.length % MONTHS.length];
+                config.data.labels.push(month);
+
+                config.data.datasets.forEach(function (dataset) {
+                    dataset.data.push(randomScalingFactor());
+                });
+
+                window.myLine.update();
+            }
+        });
+
+        document.getElementById('removeDataset').addEventListener('click', function () {
+            config.data.datasets.splice(0, 1);
+            window.myLine.update();
+        });
+
+        document.getElementById('removeData').addEventListener('click', function () {
+            config.data.labels.splice(-1, 1); // remove the label first
+
+            config.data.datasets.forEach(function (dataset) {
+                dataset.data.pop();
+            });
+
+            window.myLine.update();
+        });
+    </script>
+</body>
+
+</html>
