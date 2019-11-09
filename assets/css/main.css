@@ -1506,6 +1506,7 @@
 
 /* Forms */
 
+
 	form label {
 		display: block;
 		margin: 0 0 1em 0;
@@ -1518,6 +1519,7 @@
 	form input[type="text"],
 	form input[type="email"],
 	form input[type="password"],
+	form input[type="date"],
 	form select,
 	form textarea {
 		-webkit-appearance: none;
@@ -1530,6 +1532,7 @@
 		form input[type="text"]:focus,
 		form input[type="email"]:focus,
 		form input[type="password"]:focus,
+		form input[type="date"]:focus,
 		form select:focus,
 		form textarea:focus {
 			border-color: #a1cd9b;
@@ -1538,6 +1541,7 @@
 	form input[type="text"],
 	form input[type="email"],
 	form input[type="password"],
+	form input[type="date"],
 	form select {
 		line-height: 3em;
 		padding: 0 1em;
@@ -1570,6 +1574,43 @@
 
 	form ::-moz-focus-inner {
 		border: 0;
+	}
+	form > .fields {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		width: calc(100% + 3rem);
+		margin: -1.5rem 0 2rem -1.5rem;
+	}
+
+	form > .fields > .field {
+		-moz-flex-grow: 0;
+		-webkit-flex-grow: 0;
+		-ms-flex-grow: 0;
+		flex-grow: 0;
+		-moz-flex-shrink: 0;
+		-webkit-flex-shrink: 0;
+		-ms-flex-shrink: 0;
+		flex-shrink: 0;
+		padding: 1.5rem 0 0 1.5rem;
+		width: calc(100% - 1.5rem);
+	}
+
+	form > .fields > .field.half {
+		width: calc(50% - 0.75rem);
+	}
+
+	form > .fields > .field.third {
+		width: calc(100%/3 - 0.5rem);
+	}
+
+	form > .fields > .field.quarter {
+		width: calc(25% - 0.375rem);
 	}
 
 /* Tables */
