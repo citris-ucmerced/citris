@@ -1,0 +1,286 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CITRIS @ UC Merced</title>
+    <link rel="icon" href="../images/favicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body class="homepage">
+    <div id="page-wrapper">
+        <header id="header">
+            <div class="logo container">
+                <div>
+                    <h1 id="logo">Proposal Request Form</h1>
+                </div>
+            </div>
+        </header>
+        <nav id="nav">
+            <a href="index">
+                <img style="position:absolute; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
+                    class="image featured" src="../images/logo.png" />
+            </a>
+
+            <!-- NAVIGATION: Controlled manually per page. If making changes, make changes on all .html pages -->
+            <ul>
+                <li>
+                    <a href="about">About</a>
+                    <ul>
+                        <li>
+                            <a href="people">People</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="events">Events</a>
+                    <ul>
+                        <li>
+                            <a href="events">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="archive">Archived Events</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="projects">Programs</a>
+                    <ul>
+                        <li>
+                            <a href="ag-food-tech">Ag Food Tech</a>
+                        </li>
+                        <li>
+                            <a href="witi">Women In Technology</a>
+                            <ul>
+                                <li>
+                                    <a href="techcareer">Tech Career</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="sust-inf">Sustainable Infrastructures</a>
+                        </li>
+                        <li>
+                            <a href="tech-for-social-good">Tech For Social Good</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="research">Research</a>
+                    <ul>
+                        <li>
+                            <a href="https://www.dewtrade.net/">Dewtrade</a>
+                        </li>
+                        <li>
+                            <a href="seed-grants">Seed Grants</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="citris-extension">CITRIS Extension</a>
+                </li>
+                <li>
+                    <a href="donate">Donate</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div id="main" class="container">
+                <div class="row">
+                    <div class="12u">
+                        <div class="content">
+                            <article class="box page-content">
+                                <header>
+                                    <center>
+                                        <!-- <h2>School of Engineering Proposal Request Form</h2> -->
+                                    </center>
+                                </header>
+                                <section>
+                                    <form method="post" action="#">
+                                        <div class="fields">
+                                            <!-- Deadline Date/Time (Saved as one datetime obj) -->
+                                            <div class="field">
+                                                <h3>Deadline Information</h3>
+                                            </div>
+                                            <div class="field half">
+                                                <label for="date">Proposal Deadline Date</label>
+                                                <input type="date" name="name" id="proposal-date" value="2019-05-22" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="proposal-time">Proposal Deadline Time</label>
+                                                <input type="text" name="proposal-time" id="proposal-time" value="5PM EST" />
+                                            </div>
+                                            <!-- PI Contact Information -->
+                                            <hr>
+                                            <div class="field">
+                                                <hr>
+                                                <h3>Principal Investigator (PI) Information</h3>
+                                            </div>
+                                            <div class="field half">
+                                                <label for="pi-name">PI Full Name</label>
+                                                <input type="text" name="pi-name" id="pi-name" value="" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="pi-email">PI Email</label>
+                                                <input type="email" name="pi-email" id="pi-email" value="" />
+                                            </div>
+                                            <!-- Project Details -->
+                                            <div class="field">
+                                                <hr>
+                                                <h3>Project Information</h3>
+                                            </div>
+                                            <div class="field">
+                                                <label for="project-title">Project Draft Title</label>
+                                                <input type="text" name="project-title" id="project-title" value="" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="sponsor-name">Sponsor Program Name</label>
+                                                <input type="text" name="sponsor-name" id="sponsor-name" value="" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="proposal-url">Proposal URL</label>
+                                                <input type="text" name="proposal-url" id="proposal-url" value="" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="preferred-submission">Preferred Submission Method</label>
+                                                <select name="preferred-submission" id="preferred-submission">
+                                                    <option value="">- Method -</option>
+                                                    <option value="1">Cayse 424</option>
+                                                    <option value="2">Website</option>
+                                                    <option value="3">Email</option>
+                                                    <option value="4">Fastlane</option>
+                                                    <option value="2">Grants.gov</option>
+                                                    <option value="3">NSPIRES</option>
+                                                    <option value="4">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="field half">
+                                                <label for="opportunity-number">Opportunity Number</label>
+                                                <input type="text" name="opportunity-number" id="opportunity-number"
+                                                    value="" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="nsf-proposal-number">NSF Proposal #</label>
+                                                <input type="text" name="nsf-proposal-number" id="nsf-proposal-number"
+                                                    value="" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="nsf-pin-number">NSF PIN #</label>
+                                                <input type="text" name="nsf-pin-number" id="nsf-pin-number" value="" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="project-start">Project Start Date</label>
+                                                <input type="date" name="project-start" id="project-start" value="2019-05-22" />
+                                            </div>
+                                            <div class="field half">
+                                                <label for="project-end">Project End Date</label>
+                                                <input type="date" name="project-end" id="project-end" value="2019-05-22" />
+                                            </div>
+                                            <!-- Project Details -->
+                                            <div class="field">
+                                                <hr>
+                                                <h3>Budget and Facilities Information</h3>
+                                            </div>
+                                            <div class="field">
+                                                <label for="estimated-budget">Estimated Budget</label>
+                                                <input type="text" name="estimated-budget" id="estimated-budget" value="" />
+                                            </div>
+                                            <div class="field">
+                                                <label for="budget-items">Preliminary Budget Items</label>
+                                                <textarea name="budget-items" id="budget-items" rows="2"></textarea>
+                                            </div>
+                                            <div class="field half">
+                                                <label for="extra-space">Will additional space and/or alteration of
+                                                    facilities be requested?</label>
+                                                <input type="checkbox" id="extra-space" name="extra-space" />
+                                            </div>
+                                            <div class="field">
+                                                <label for="budget-items">Details for Space and/or Alteration of
+                                                    Facilities</label>
+                                                <textarea name="budget-items" id="budget-items" rows="2"></textarea>
+                                            </div>
+                                            <div class="field half">
+                                                <label for="course-buyout">Do you require Faculty Protected Research
+                                                    Time (Course Buyout)?</label>
+                                                <input type="checkbox" id="course-buyout" name="course-buyout" />
+                                            </div>
+                                            <div class="field">
+                                                <label for="budget-items">Details for Faculty Protected Research Time</label>
+                                                <textarea name="budget-items" id="budget-items" rows="2"></textarea>
+                                            </div>
+
+                                            <!-- Misc Details -->
+                                            <div class="field">
+                                                <hr>
+                                                <h3>Miscellaneous Information</h3>
+                                            </div>
+                                            <div class="field">
+                                                <label for="role">What role do you have in the proposal?</label>
+                                                <select name="role" id="role">
+                                                    <option value="">- Role -</option>
+                                                    <option value="4">Lead PI</option>
+                                                    <option value="2">Receiving a Subaward</option>
+                                                    <option value="3">Direct Joint Collaborator </option>
+                                                    <option value="4">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="field">
+                                                <label for="additional-info">Additional Information</label>
+                                                <textarea name="additional-info" id="additional-info" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                        <ul class="actions">
+                                            <li><input type="submit" name="submit" id="submit" value="Submit Proposal" /></li>
+                                        </ul>
+                                    </form>
+                                </section>
+                            </article>
+
+                            <article class="box page-content">
+                                <header>
+                                    <center>
+                                        <h2>Interested in Seeing All Proposals?</h2>
+                                    </center>
+                                </header>
+                                <section>
+                                    <p>
+                                        In development... In development... In development... In development... In
+                                        development... In development... In development... In development...
+                                    </p>
+                                    <center>
+                                        <a class="button" href="dashboard.html">Proposal Dashboard</a>
+                                    </center>
+                                </section>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+        <div id="footer"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/skel-viewport.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#footer").load("../snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+        });
+    </script>
+</body>
+
+</html>
