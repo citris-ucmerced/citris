@@ -1,7 +1,7 @@
 CREATE TABLE forms
 (
     project_title VARCHAR(100),
-    deadline DATETIME,
+    deadline DATE,
     pi_name VARCHAR(100),
     pi_email VARCHAR(100),
     sponsor_name VARCHAR(100),
@@ -10,8 +10,8 @@ CREATE TABLE forms
     opportunity_number VARCHAR(100),
     nsf_proposal_number VARCHAR(100),
     nsf_pin_number VARCHAR(100),
-    project_start DATETIME,
-    project_end DATETIME,
+    project_start DATE,
+    project_end DATE,
     estimated_budget INT,
     budget_items VARCHAR(1000),
     extra_space BIT,
@@ -21,5 +21,3 @@ CREATE TABLE forms
     applicant_role VARCHAR(100),
     additional_info VARCHAR(1000)
 );
-    
-
