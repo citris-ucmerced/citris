@@ -1,5 +1,6 @@
 CREATE TABLE forms
 (
+    project_id VARCHAR(200),
     project_title VARCHAR(100),
     deadline DATE,
     pi_name VARCHAR(100),
@@ -21,3 +22,4 @@ CREATE TABLE forms
     applicant_role VARCHAR(100),
     additional_info VARCHAR(1000)
 );
+
