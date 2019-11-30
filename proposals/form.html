@@ -295,12 +295,11 @@
 
             //project id currently defined as: title name first 10 characters (5 characters max per word), sponsor, form deadline
             var project_id = document.getElementById("project-title").value.toLowerCase();
-            project_id = getUncommon(project_id, common);
-
-            var project_id_split = project_id.split(" ");
-            for (var i = 0; i < project_id_split.length && i < 5; i++) {
-                if (project_id_split[i].length > 6) project_id_split[i] = project_id_split[i].substring(0, 6); 
+            var project_id_split = getUncommon(project_id, common);
+            for (var i = 0; i < project_id_split.length && i < 4; i++) {
+                if (project_id_split[i].length > 4) project_id_split[i] = project_id_split[i].substring(0, 4); 
             }
+            project_id_split.push(document.getElementById("preferred-submission").value.toLowerCase());
             project_id_split.push(document.getElementById("proposal-date").value);
             project_id = project_id_split.join("-");
 
@@ -335,10 +334,8 @@
                     console.log(result);
                 }
             )
-
         }
        
-
         function getUncommon(sentence, common) {
             var wordArr = sentence.match(/\w+/g),
                 commonObj = {},
@@ -356,11 +353,8 @@
                     uncommonArr.push(word);
                 }
             }
-
             return uncommonArr;
         }
-
-        document.write(getUncommon(sentence, common));
     </script>
 </body>
 
