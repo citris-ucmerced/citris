@@ -297,7 +297,7 @@
             var project_id = document.getElementById("project-title").value.toLowerCase();
             var project_id_split = getUncommon(project_id, common);
             for (var i = 0; i < project_id_split.length && i < 4; i++) {
-                if (project_id_split[i].length > 4) project_id_split[i] = project_id_split[i].substring(0, 4); 
+                if (project_id_split[i].length > 4) project_id_split[i] = project_id_split[i].substring(0, 4);
             }
             project_id_split.push(document.getElementById("preferred-submission").value.toLowerCase());
             project_id_split.push(document.getElementById("proposal-date").value);
@@ -327,15 +327,18 @@
                 additional_info: document.getElementById("additional-info").value
             };
             console.log(data);
-            $.post(
-                "https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
-                data,
-                function (result) {
-                    console.log(result);
-                }
-            )
+            $.ajax({
+                url: 'https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm',
+                data: data,
+                type: 'POST',
+                crossDomain: true,
+                dataType: 'jsonp',
+                success: function () {  console.log(result); alert("Success"); },
+                error: function () { alert('Failed!'); },
+                beforeSend: setHeader
+            });
         }
-       
+
         function getUncommon(sentence, common) {
             var wordArr = sentence.match(/\w+/g),
                 commonObj = {},
