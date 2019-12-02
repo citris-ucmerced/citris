@@ -303,7 +303,7 @@
             project_id_split.push(document.getElementById("proposal-date").value);
             project_id = project_id_split.join("-");
 
-            var data = JSON.stringify({
+            var data = {
                 project_id: project_id,
                 project_title: document.getElementById("project-title").value,
                 deadline: document.getElementById("proposal-date").value,
@@ -325,7 +325,7 @@
                 buyout_details: document.getElementById("buyout-details").value,
                 applicant_role: document.getElementById("role").value,
                 additional_info: document.getElementById("additional-info").value
-            });
+            };
             console.log(data);
             $.post(
                 "https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
