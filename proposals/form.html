@@ -327,15 +327,22 @@
                 additional_info: document.getElementById("additional-info").value
             };
             console.log(data);
-            $.ajax({
-                url: 'https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm',
-                data: data,
-                type: 'POST',
-                crossDomain: true,
-                dataType: 'json',
-                success: function () {  console.log(result); alert("Success"); },
-                error: function () { alert('Failed!'); },
-                beforeSend: setHeader
+
+            var settings = {
+                'cache': false,
+                'dataType': "jsonp",
+                "async": true,
+                "crossDomain": true,
+                "url": "https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
+                "data": data,
+                "method": "POST",
+                "headers": {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            }
+            $.ajax(settings).done(function (response) {
+                console.log(response);
             });
         }
 
