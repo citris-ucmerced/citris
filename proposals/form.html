@@ -330,9 +330,12 @@
 
             $.ajax({
                 type: "POST",
-                url: "http://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
+                url: "https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
                 data: data,
-                success: function(result) {
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
+                },
+                success: function (result) {
                     console.log(result);
                 },
                 dataType: "json"
