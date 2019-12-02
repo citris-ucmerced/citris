@@ -329,15 +329,13 @@
             console.log(data);
 
             var settings = {
-                'cache': false,
-                'dataType': "jsonp",
+                'dataType': "json",
                 "async": true,
                 "crossDomain": true,
                 "url": "https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
                 "data": data,
                 "method": "POST",
                 "headers": {
-                    "accept": "application/json",
                     "Access-Control-Allow-Origin": "*"
                 }
             }
