@@ -331,15 +331,13 @@
             $.ajax({
                 type: "POST",
                 url: "https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
-                data: data,
+                data: JSON.stringify(data),
                 headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "json"
+                    "Content-Type": "text/plain"
                 },
                 success: function (result) {
                     console.log(result);
                 },
-                dataType: "json"
             });
         }
 
