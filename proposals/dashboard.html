@@ -105,29 +105,27 @@
                                 </header>
                                 <section>
                                     <span class="image featured">
-                                        <canvas id="canvas"></canvas>
+                                        <!-- <canvas id="canvas"></canvas> -->
                                         <!-- /<img src="../images/aviation-banner.jpg" alt="" /> -->
                                     </span>
                                     <center>
-                                        <button id="randomizeData">Randomize Data</button>
+                                        <!-- <button id="randomizeData">Randomize Data</button>
                                         <button id="addDataset">Add Dataset</button>
                                         <button id="removeDataset">Remove Dataset</button>
                                         <button id="addData">Add Data</button>
-                                        <button id="removeData">Remove Data</button>
+                                        <button id="removeData">Remove Data</button> -->
                                     </center>
                                     <br>
                                     <p>
-                                        In development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development...
+                                        Currently, you can view all proposals currently logged in the system. Future
+                                        developments could add visualization functionalities to better understand
+                                        trends of proposals.
                                     </p>
-
+                                    <center>
+                                        <a class="button" onclick="get()">Get Proposals</a>
+                                    </center>
+                                    <div id="proposals">
+                                    </div>
                                 </section>
                             </article>
                             <article class="box page-content">
@@ -138,15 +136,8 @@
                                 </header>
                                 <section>
                                     <p>
-                                        In development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development... In development... In development... In
-                                        development... In development...
+                                        Use our Proposal Submission Form to request the required fields and to generate
+                                        your unique proposal identifier.
                                     </p>
                                     <center>
                                         <a class="button" href="form.html">Proposal Submission Form</a>
@@ -175,6 +166,26 @@
         $(function () {
             $("#footer").load("../snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
         });
+    </script>
+    <script>
+        function get() {
+            $.ajax({
+                url: "https://48q0v3o8x2.execute-api.us-west-1.amazonaws.com/Prod/api/SoeForm",
+                success: function (result) {
+                    proposals = result.split('\n');
+                    $("#proposals").append($.parseHTML(`<table>`));
+                    for (var i = 0; i < proposals.length - 1; i++) {
+                        proposal_fields = proposals[i].split(',');
+                        $("#proposals").append($.parseHTML(`<tr>`));
+                        for (var j = 0; j < proposal_fields.length - 1; j++) {
+                            $("#proposals").append($.parseHTML(`<th>` + proposal_fields[j] + `</th>`));
+                        }
+                        $("#proposals").append($.parseHTML(`</tr>`));
+                    }
+                    $("#proposals").append($.parseHTML(`</table>`));
+                }
+            });
+        }
     </script>
     <script>
         var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -310,5 +321,6 @@
         });
     </script>
 </body>
+
 
 </html>
