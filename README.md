@@ -18,6 +18,7 @@ All images on the website are consistently sized to ensure rendering of the webs
 
 - Headshot images: 480x480px
 - Banners: 1170x398px
+- Events: 800x400px
 
 When in doubt, base any sizes off of pre-existing images to ensure consistency.
 
