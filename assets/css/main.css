@@ -1107,6 +1107,7 @@
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		text-decoration: none;
 		color: inherit;
+		line-height: 1em;
 	}
 
 	h2.major {

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -203,10 +203,10 @@
                                     '</h2>' +
                                     '</header>' +
                                     '<div style="display: block; overflow: auto">' +
-                                    '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
                                     '<p style="margin:0;">' + data[i].TEXT + '</p>' +
                                     '</div>' +
-                                    '<a class="button" href="' + data[i].LINK + '">Learn More</a>' +
+                                    (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<a class="button" href="' + data[i].LINK + '">Learn More</a>') +
                                     '</section>'
                                 ));
                             break;
