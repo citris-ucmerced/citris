@@ -1179,6 +1179,7 @@
 
 		section > :last-child, section:last-child, article > :last-child, article:last-child {
 			margin-bottom: 0;
+			text-align: center;
 		}
 
 	header > p {
