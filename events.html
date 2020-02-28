@@ -99,7 +99,8 @@
                             CITRIS hosts many collaborative events throughout the year, including seminars, research
                             exchanges, and workshops. See upcoming events here:
                         </p>
-                        <div id="events"></div>
+                        <div id="events"></div> 
+                        <br>
                         <center><a href="archive" class="button">See our previously held events!</a></center>
                     </div>
                 </div>
@@ -146,8 +147,9 @@
                                         '<div style="display: block; overflow: auto">' +
                                             '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
 											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
-                                        '</div>' +
-                                        (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '">Learn More</a> </center>' +'<br>') + 
+                                        '</div>' + '<br>' +
+                                        (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '">Learn More</a> '  ) + 
+                                        (((data[i].LINK1).toString() === 'NO_BUTTON') ? '' : ' <a class="button" href="' + data[i].LINK1 + '">Register</a> </center>' ) +
                                     '</section>'
                                 ));
                             
