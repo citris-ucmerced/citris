@@ -86,6 +86,46 @@
 		width: 960px;
 	}
 
+/* Calendar */
+.dropbtn {
+    background-color: white;
+    border: 1px solid #777;
+    color: #4c4c4c;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid lightgray;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color:#4c4c4c;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+
+
 	@media screen and (min-width: 737px) {
 
 		.container.\31 25\25 {
