@@ -1,2 +1,2 @@
 seedfundingprogram; SEED FUNDING 2020; https://citris-uc.org/core-seed-funding/;
-banner;Welcome to CITRIS at University of California, MERCED;https://citris.ucmerced.edu/about;
+ucmerced-banner;Welcome to CITRIS at University of California, MERCED;https://citris.ucmerced.edu/about;
