@@ -226,6 +226,8 @@
     ><![endif]-->
     <script src="assets/js/main.js"></script>
     <script>
+
+      //Calendar
       function toggleDropdown(ID) {
         document.getElementById(ID).classList.toggle("show");
       }
@@ -313,9 +315,9 @@
                         : "<br>" +
                           '<center> <a class="button" href="' +
                           data[i].LINK +
-                          '">Learn More</a>&nbsp;&nbsp;' +
-
-                         
+                          '">Learn More</a>&nbsp;&nbsp;') +
+                            
+                          '<center>'+
                           '<div class="dropdown">' +
                           `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
                           '<div id="' + data[i].ID + '" class="dropdown-content">' +
@@ -326,7 +328,7 @@
                          
                           "</div>" +
                           "</div>" +
-                          "</center>") +
+                          "</center>" +
                           // <!-- Button code -->
                           
 
