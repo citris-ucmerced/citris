@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script type="text/javascript" src="assets/js/ics.js"></script>
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 
@@ -128,6 +129,47 @@
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
     <script>
+
+        // Calendar
+         function toggleDropdown(ID) {
+        document.getElementById(ID).classList.toggle("show");
+      }
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches(".dropbtn")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (let i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+
+      function generateICSFile(title, description) {
+        let calEntry = icsFormatter();
+
+        let event = {
+          title, 
+          description,
+          location: "University of California, Merced"
+        }
+
+        var begin = Date.now();
+        var end = new Date(begin + 30 * 60000);
+
+        calEntry.addEvent(
+          event.title,
+          event.description,
+          event.location,
+          begin,
+          end
+        );
+        console.log(event);
+        calEntry.download((event.title).toString());
+      }
+
         $(function () {
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
             only_recent_events = true;
@@ -155,8 +197,23 @@
 											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
                                         '</div>' + '<br>' +
                                         (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '">Learn More</a> '  ) + 
-                                        (((data[i].LINK1).toString() === 'NO_BUTTON') ? '' : ' <a class="button" href="' + data[i].LINK1 + '">Register</a> </center>' ) +
+                                        // (((data[i].LINK1).toString() === 'NO_BUTTON') ? '' : ' <a class="button" href="' + data[i].LINK1 + '">Register</a> </center>' ) +
+
+
+                                        '<div class="dropdown">' +
+                                        `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
+                                        '<div id="' + data[i].ID + '" class="dropdown-content">' +
+                                        `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` + 
+                                        '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
+                                        `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
+                                        `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
+                                        
+                                        "</div>" +
+                                        "</div>" +
+                                        "</center>" +
+                                        // <!-- Button code -->
                                     '</section>'
+                    
                                 ));
                             
 							break;
