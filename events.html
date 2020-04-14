@@ -195,11 +195,11 @@
                                         '<div style="display: block; overflow: auto">' +
                                             '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
 											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
-                                        '</div>' + '<br>' +
+                                        '</div>' + '<br>' +  '<center>'+
                                         (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '">Learn More</a> '  ) + 
                                         // (((data[i].LINK1).toString() === 'NO_BUTTON') ? '' : ' <a class="button" href="' + data[i].LINK1 + '">Register</a> </center>' ) +
 
-                                        '<center>'+
+                                      
                                         '<div class="dropdown">' +
                                         `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
                                         '<div id="' + data[i].ID + '" class="dropdown-content">' +
