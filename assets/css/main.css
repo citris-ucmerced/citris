@@ -85,6 +85,34 @@
 	.container {
 		width: 960px;
 	}
+/* Initiatives */
+#initiatives
+
+{
+	margin: auto;
+	display: block;
+}
+
+/* Image Caption */
+
+figure {
+	display: table;
+  }
+  
+  figcaption {
+	display: table-caption;
+	caption-side: bottom;
+  }
+
+#img-wrapped{
+	float: left;
+	width: 210px;
+	margin: 0 10px 10px 10px;
+}
+img.photo {
+	float: right;margin-left: 10px;margin-bottom: 10px;border: 1px solid #666;
+}
+
 
 /* Calendar */
 .dropbtn {
