@@ -18,7 +18,7 @@
         <header id="header">
             <div class="logo container">
                 <div>
-                    <h1 id="logo">Recent News</h1>
+                    <h1 id="logo">Archived News</h1>
                 </div>
             </div>
         </header>
@@ -117,14 +117,6 @@
             <div id="main" class="container">
                 <div class="row">
                     <div class="12u">
-                        <div class="content"></div>
-                        <p style="text-align: center;">
-                            To see how CITRIS is shaping the UC Merced campus, as well as California and the world, check out some of CITRIS @ UC Merced's recent news:
-                        </p>
-
-                        <article class="box page-content">
-                            <div id="recent-news"></div>
-                        </article>
                         <div id="news"></div>
                     </div>
                 </div>
@@ -145,49 +137,15 @@
     <script src="assets/js/main.js"></script>
     
     <script>
-        $(function () {
-            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-            $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
-            $.get("/news.csv").then(function(text, status, xhr) {
-          var data = $.csv.toObjects(text);
-          for (var i = 0; i < data.length; i++) {
-            switch (data[i].ID) {
-              default:
-                $("#news").append(
-                  $.parseHTML(
-                    '<article class="box post">' +
-                      "<header>" +
-                      "<h3>" +
-                      '<a href="' +
-                      data[i].LINK +
-                      '">' +
-                      data[i].TITLE +
-                      "</a>" +
-                      "</h3>" +
-                      '<ul class="meta">' +
-                      '<li class="icon fa-clock-o">' +
-                      data[i].DATE +
-                      "</li>" +
-                      "</ul>" +
-                      "</header>" +
-                      '<a href="' +
-                      data[i].LINK +
-                      '" class="image featured">' +
-                      '<img src="images/news/' +
-                      data[i].ID +
-                      '.jpg" alt="" />' +
-                      "</a>" +
-                      "<p>" +
-                      data[i].DESCRIPTION +
-                      "</p>" +
-                      "</article>"
-                  )
-                );
-                break;
-            }
-          }
-        });
-    });
+    $.get('news/items.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    jQuery.get("news/" + elem + ".html").then(function (text, status, xhr) {
+                        $("#news").append($.parseHTML(text + "<hr>"));
+                    });
+                });
+            }, "text");
+
     </script>
 </body>
 
