@@ -1,3 +1,4 @@
+science-humanities
 i2g_spring_2020
 lumiata-hackathon
 FIT_Kimmelshue
@@ -9,5 +10,3 @@ FIT-melba-crawford
 hackmerced-2020
 aging-digital-world
 FITSpeaker_2020
-techforsocialgood
-wild-scenic-film-festival-2020
