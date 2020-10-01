@@ -23,7 +23,7 @@
             </div>
         </header>
 
-        <!-- Nav -->
+        
         <nav id="nav">
             <a href="index">
                 <img style="position:relative; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
@@ -43,8 +43,6 @@
                           </li>
                     </ul>
                 </li>
-
-                
                 <li>
                     <a href="events">Events</a>
                     <ul>
@@ -111,6 +109,8 @@
                 </li>
             </ul>
         </nav>
+
+
         <div id="main-wrapper">
             <div id="main" class="container">
                 <div class="row">
@@ -144,6 +144,7 @@
     
     <script>
         $(function () {
+            //$("#nav").load("snippets/nav.html"); /*NAVIGATION: Controlled by HTML snippet in snippets/nav.html*/
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
             $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
             $.get("/news.csv").then(function(text, status, xhr) {
