@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CITRIS and the Banatao Institute @ UC Merced</title>
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script type="text/javascript" src="assets/js/ics.js"></script>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body class="homepage">
+    <div id="page-wrapper">
+        <header id="header">
+            <div class="logo container">
+                <div>
+                    <h1 id="logo">Events</h1>
+                </div>
+            </div>
+        </header>
+        <nav id="nav">
+            <!-- <a href="index">
+                <img style="position:relative; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
+                    class="image featured" src="images/logo.png" />
+            </a>
+
+            <ul>
+                <li>
+                    <a href="about">About</a>
+                    <ul>
+                        <li>
+                            <a href="people">People</a>
+                        </li>
+                        <li>
+                            <a href="buildings">Buildings</a>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="events">Events</a>
+                    <ul>
+                        <li>
+                            <a href="events">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="archive-events">Archived Events</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news">News</a>
+                    <ul>
+                        <li>
+                            <a href="news">Recent News</a>
+                        </li>
+                        <li>
+                            <a href="archive-news">Archived News</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="projects">Programs</a>
+                    <ul>
+                        <li>
+                            <a href="ag-food-tech">Ag Food Tech</a>
+                        </li>
+                        <li>
+                            <a href="nextech">NexTech Robotics</a>
+                          </li>
+                        <li>
+                            <a href="witi">Women In Technology</a>
+                            <ul>
+                                <li>
+                                    <a href="techcareer">Tech Career</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="sust-inf">Sustainable Infrastructures</a>
+                        </li>
+                        <li>
+                            <a href="tech-for-social-good">Tech For Social Good</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="research">Research</a>
+                    <ul>
+                        <li>
+                            <a href="https://www.dewtrade.net/">Dewtrade</a>
+                        </li>
+                        <li>
+                            <a href="seed-grants">Seed Grants</a>
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="citris-extension">CITRIS Extension</a>
+                </li>
+                <li>
+                    <a href="donate">Donate</a>
+                </li>
+            </ul> -->
+        </nav>
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div id="main" class="container">
+                <div class="row">
+                    <div class="12u">
+                        <div class="content"></div>
+                        <p>
+                            CITRIS hosts many collaborative events throughout the year, including seminars, research
+                            exchanges, and workshops. See upcoming events here:
+                        </p>
+                        <div id="events"></div> 
+                        <br>
+                        <center><a href="archive-events" class="button">See our previously held events!</a></center>
+                        <br>
+                        <div class="container-video">
+                       <iframe class="responsive-iframe" src="https://outlook.office365.com/owa/calendar/052188e02f6a4028bf55e1278cdb368c@ucmerced.edu/d37c6eb522ce413b91f5b97efdcc3fc714692294540219387417/calendar.html"scrolling="no" width="100%" height="700px">
+                    </iframe>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+    <div id="footer"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.csv.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/skel-viewport.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+
+        // Calendar
+         function toggleDropdown(ID) {
+        document.getElementById(ID).classList.toggle("show");
+      }
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches(".dropbtn")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (let i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+
+      function generateICSFile(title, description) {
+        let calEntry = icsFormatter();
+
+        let event = {
+          title, 
+          description,
+          location: "University of California, Merced"
+        }
+
+        var begin = Date.now();
+        var end = new Date(begin + 30 * 60000);
+
+        calEntry.addEvent(
+          event.title,
+          event.description,
+          event.location,
+          begin,
+          end
+        );
+        console.log(event);
+        calEntry.download((event.title).toString());
+      }
+
+        $(function () {
+            $("#nav").load("snippets/nav.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+            only_recent_events = true;
+            finished_recent_events = false;
+            $.get("events.csv").then(function (text, status, xhr) {
+				var data = $.csv.toObjects(text);
+				for (var i = 0; i < data.length; i++) {
+                    // if (data[i].DATA > Date.now()){move to old}
+                    if (only_recent_events && finished_recent_events) break;
+					switch (data[i].ID) {
+                        case "OLD":
+                            finished_recent_events = true;
+                            break;
+						default:
+							$("#events").append(
+								$.parseHTML(
+									'<section class="box features">' +
+                                        '<header>' +
+                                            '<h2>' +
+                                                data[i].TITLE +
+                                            '</h2>' + 
+                                        '</header>' + 
+                                        '<div style="display: block; overflow: auto">' +
+                                            '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
+                                        '</div>' + '<br>' +  '<center>'+
+                                        (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '">Register</a> '  ) + 
+
+                                      
+                                        '<div class="dropdown">' +
+                                        `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
+                                        '<div id="' + data[i].ID + '" class="dropdown-content">' +
+                                        `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` + 
+                                        '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
+                                        `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
+                                        `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
+                                        
+                                        "</div>" +
+                                        "</div>" +
+                                        "</center>" +
+                                        // <!-- Button code -->
+                                    '</section>'
+                    
+                                ));
+                            
+							break;
+					}
+				}
+            });
+        });
+    </script>
+</body>
+
+</html>
