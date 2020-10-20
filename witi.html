@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CITRIS and the Banatao Insitute at UC Merced</title>
+    <title>CITRIS and the Banatao Institute at UC Merced</title>
     <link rel="icon" href="images/favicon.png">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,91 +20,9 @@
                 </div>
             </div>
         </header>
-        <nav id="nav">
-            <a href="index">
-                <img style="position:relative; z-index: 100000; margin: .5em 0em 0em .5em; float:left; height:36px; width:243px"
-                    class="image featured" src="images/logo.png" />
-            </a>
 
-            <!-- NAVIGATION: Controlled manually per page. If making changes, make changes on all .html pages -->
-            <ul>
-                <li>
-                    <a href="about">About</a>
-                    <ul>
-                        <li>
-                            <a href="people">People</a>
-                        </li>
-                        <li>
-                            <a href="buildings">Buildings</a>
-                          </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="events">Events</a>
-                    <ul>
-                        <li>
-                            <a href="events">Upcoming Events</a>
-                        </li>
-                        <li>
-                            <a href="archive-events">Archived Events</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="news">News</a>
-                    <ul>
-                        <li>
-                            <a href="news">Recent News</a>
-                        </li>
-                        <li>
-                            <a href="archive-news">Archived News</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="projects">Programs</a>
-                    <ul>
-                        <li>
-                            <a href="ag-food-tech">Ag Food Tech</a>
-                        </li>
-                        <li>
-                            <a href="nextech">NexTech Robotics</a>
-                          </li>
-                        <li>
-                            <a href="witi">Women In Technology</a>
-                            <ul>
-                                <li>
-                                    <a href="techcareer">Tech Career</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="sust-inf">Sustainable Infrastructures</a>
-                        </li>
-                        <li>
-                            <a href="tech-for-social-good">Tech For Social Good</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="research">Research</a>
-                    <ul>
-                        <li>
-                            <a href="https://www.dewtrade.net/">Dewtrade</a>
-                        </li>
-                        <li>
-                            <a href="seed-grants">Seed Grants</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="citris-extension">CITRIS Extension</a>
-                </li>
-                <li>
-                    <a href="donate">Donate</a>
-                </li>
-            </ul>
-        </nav>
+        <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+        <nav id="nav"></nav>
 
         <span class="image featured">
             <img src="images/banners/womenintechbanner.png">
@@ -158,7 +76,8 @@
     <script src="assets/js/main.js"></script>
     <script>
         $(function () {
-            $("#footer").load("snippets/footer-extended.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+            $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+            $("#footer").load("snippets/footer"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
         });
     </script>
 </body>
