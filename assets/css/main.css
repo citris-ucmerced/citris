@@ -1211,6 +1211,14 @@ img.photo {
 			display: inline-block;
 		}
 
+	h2.major2 {
+		text-align: center;
+		position: relative;
+		border-top: solid 5px #e7eae8;
+		padding: 10px;
+		border-bottom: solid 5px #e7eae8;
+	}
+
 	a {
 		color: #006376;
 		text-decoration: underline;
