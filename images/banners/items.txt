@@ -1,2 +1,4 @@
-seedfundingprogram; SEED FUNDING 2020; https://citris-uc.org/core-seed-funding/;
+valle-banner; Start your tech career with Valle; https://citris.ucmerced.edu/valle;
+facts-banner; Get the FACTS; https://citris.ucmerced.edu/facts;
+oxygen-banner; Apply for the Oxygen Fund; https://citris.ucmerced.edu/oxygen;
 ucmerced-extension-banner;Welcome to CITRIS at University of California, MERCED;https://citris.ucmerced.edu/about;
