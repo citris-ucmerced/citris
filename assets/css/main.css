@@ -124,7 +124,6 @@ figure {
 
 #img-wrapped{
 	float: left;
-	width: 210px;
 	margin: 0 20px 10px 10px;
 }
 
@@ -132,7 +131,15 @@ figure {
 	padding-left: 34%;
 }
 img.photo {
-	float: right;margin-left: 10px;margin-bottom: 10px;border: 1px solid #666;
+	width: 210px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #666;
+}
+img.logo {
+	width: 25%;
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
 
 
@@ -1322,6 +1329,10 @@ img.photo {
 		.image.fit {
 			display: block;
 			width: 100%;
+		}
+
+		.image.four {
+			width: 25%;
 		}
 
 		.image.featured {
