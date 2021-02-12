@@ -52,7 +52,7 @@
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.csv.min.js"></script>
+    <script src="assets/js/jquery.csv.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
@@ -65,38 +65,38 @@
             $("#footer").load("snippets/footer.html"); /*Footer: Controlled by HTML snippet in snippets/footer.html*/
 
             $.get("/people.csv").then(function (text, status, xhr) {
-				var data = $.csv.toObjects(text);
-				for (var i = 0; i < data.length; i++) {
-					switch (data[i].ID) {
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
+                    switch (data[i].ID) {
                         case "HEADER":
                             $("#people").append(
-								$.parseHTML(
+                                $.parseHTML(
                                     '<br><br><hr><h2>' +
-                                        data[i].NAME + 
+                                    data[i].NAME +
                                     '</h3>'
                                 ));
                             break;
-						default:
-							$("#people").append(
-								$.parseHTML(
+                        default:
+                            $("#people").append(
+                                $.parseHTML(
                                     '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">' +
-                                        '<a href="' + data[i].LINK + '" style="text-decoration: none">' +
-                                            '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="" />' +
-                                            '<center>' +
-                                                '<h3 style="margin-top: -20px;">' +
-                                                    data[i].NAME +
-                                                '</h3>' +
-                                                '<p>' +
-                                                    data[i].TITLE +
-                                                '</p>'+
-                                            '</center>' +
-                                        '</a>' +
+                                    '<a href="' + data[i].LINK + '" style="text-decoration: none">' +
+                                    '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="" />' +
+                                    '<center>' +
+                                    '<h3 style="margin-top: -20px;">' +
+                                    data[i].NAME +
+                                    '</h3>' +
+                                    '<p>' +
+                                    data[i].TITLE +
+                                    '</p>' +
+                                    '</center>' +
+                                    '</a>' +
                                     '</div>'
-								));
-							break;
-					}
-				}
-			});
+                                ));
+                            break;
+                    }
+                }
+            });
         });
     </script>
 </body>

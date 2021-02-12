@@ -57,26 +57,40 @@
                                 <h2>Thank you to our Sponsors for supporting CITRIS:</h2>
 
                                 <br>
-                                <a href=https://research.google target="_blank">
-                                    <img class="photo" id=img-wrapped src="/images/Sponsors/Google-Research.png" alt="">
-                                </a>
-
-                                <a href=https://www.nsf.gov target="_blank">
-                                    <img class="photo" id=img-wrapped src="/images/Sponsors/NSF_Logo.png" alt="">
-                                </a>
-                                <a href=https://www.siemens.com/global/en.html target="_blank">
-                                    <img class="photo" id=img-wrapped src="/images/Sponsors/siemens-logo.png" alt="">
-                                </a>
-
-                                <a href=https://www.topconpositioning.com target="_blank">
-                                    <img class="photo" id=img-wrapped src="/images/Sponsors/topcon.png" alt="">
-                                </a>
-
-                                <a href=https://www.usda.gov target="_blank">
-                                    <img class="photo" id=img-wrapped src="/images/Sponsors/USDA_logo.png" alt="">
-                                </a>
+                                <section id="sponsors">
+                                </section>
 
                             </article>
+
+                            <!-- <article class="box page-content">
+                            <div style="display:inline-block;width:20%;padding:4px;vertical-align:top;">
+                                <a href=https://research.google target="_blank">
+                                    <img class="image featured" src="/images/Sponsors/Google-Research.png" alt="">
+                                </a>
+                            </div>
+                            <div style="display:inline-block;width:20%;padding:4px;vertical-align:top;">
+                                <a href=https://www.nsf.gov target="_blank">
+                                    <img class="image featured" src="/images/Sponsors/NSF_Logo.png" alt="">
+                                </a>
+                            </div>
+                            <div style="display:inline-block;width:20%;padding:4px;vertical-align:top;">
+
+                                <a href=https://www.siemens.com/global/en.html target="_blank">
+                                    <img class="image featured" src="/images/Sponsors/siemens-logo.png" alt="">
+                                </a>
+                            </div>
+                            <div style="display:inline-block;width:20%;padding:4px;vertical-align:top;">
+
+                                <a href=https://www.topconpositioning.com target="_blank">
+                                    <img class="image featured" src="/images/Sponsors/topcon.png" alt="">
+                                </a>
+                            </div>
+                            <div style="display:inline-block;width:20%;padding:4px;vertical-align:top;">
+                                <a href=https://www.usda.gov target="_blank">
+                                    <img class="image featured" src="/images/Sponsors/USDA_logo.png" alt="">
+                                </a>
+                            </div>
+                        </article> -->
                         </div>
                     </div>
                 </div>
@@ -90,6 +104,7 @@
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/jquery.dropotron.min.js"></script>
         <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/jquery.csv.min.js"></script>
         <script src="assets/js/skel-viewport.min.js"></script>
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
@@ -98,6 +113,29 @@
             $(function () {
                 $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
                 $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+                $.get("/sponsors.csv").then(function (text, status, xhr) {
+                    var data = $.csv.toObjects(text);
+                    for (var i = 0; i < data.length; i++) {
+                        switch (data[i].ID) {
+                            case "HEADER":
+                                $("#sponsors").append(
+                                    $.parseHTML(
+                                        '<br><br><hr>'
+                                    ));
+                                break;
+                            default:
+                                $("#sponsors").append(
+                                    $.parseHTML(
+                                        '<div style="display:inline-block;width:20%;padding:4px;vertical-align:top;">' +
+                                        '<a href="' + data[i].LINK + '" style="text-decoration: none">' +
+                                        '<img class="image featured" src="images/Sponsors/' + data[i].ID + '.png" alt="" />' +
+                                        '</a>' +
+                                        '</div>'
+                                    ));
+                                break;
+                        }
+                    }
+                });
             });
         </script>
 </body>
