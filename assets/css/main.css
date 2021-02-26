@@ -136,6 +136,12 @@ img.photo {
 	margin-bottom: 10px;
 	border: 1px solid #666;
 }
+img.photo-big {
+	width: 250px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #666;
+}
 img.logo {
 	width: 25%;
 	margin-left: 10px;
