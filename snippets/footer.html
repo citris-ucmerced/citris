@@ -8,6 +8,11 @@
                 <h2 class="major"><span>Get in touch</span></h2>
                 <ul class="contact">
                     <li>
+                        <a class="icon fa-home" href="https://citris.ucmerced.edu/">
+                            <span class="label">Home</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="icon fa-facebook" href="http://www.facebook.com/CITRISUCMerced">
                             <span class="label">Facebook</span>
                         </a>
@@ -63,7 +68,10 @@
     <!-- Copyright -->
     <div id="copyright">
         <ul class="menu">
-            <li>&copy; CITRIS 2020</li>
+            <li>&copy; CITRIS <span id = year></li>
+                <script>
+                    document.getElementById("year").innerHTML = new Date().getFullYear();
+                </script>
             <li><a href="mailto:citris@ucmerced.edu">Contact Us</a></li>
         </ul>
     </div>
