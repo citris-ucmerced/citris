@@ -1347,6 +1347,49 @@ img.logo {
 			margin: 0 0 2em 0;
 		}
 
+		.banner.small{
+			display: block;
+			width: 75%;
+			background: #fff;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.banner img{
+			/* display: block; */
+			background: #fff;
+			width: 100%;
+			/* position: relative; */
+			margin-bottom: -9px;
+			/* padding-left: 400px; */
+		} 
+
+		/* .banner.small{
+			display: block;
+			width: 75%;
+			margin: 0 0 -10px 0;
+			background: #fff;
+			text-align: center;
+			position: relative;
+			display: inline-block;
+			border-radius: 8px;
+			display: block;
+			width: 100%;
+			border-radius: 8px;
+			display: block;
+			width: 100%;
+			margin: 0 0 2em 0;
+		}
+
+		.banner img{
+			display: block;
+			width: 100%;
+			border-radius: 8px;
+			text-align: center;
+			margin-bottom: -2.5%;
+		} 
+ */
+
 		.image.left {
 			float: left;
 			margin: 0 2em 2em 0;
@@ -2068,7 +2111,7 @@ img.logo {
 				font-family: 'Open Sans Condensed', sans-serif;
 				font-weight: 700;
 				text-transform: uppercase;
-				padding: 5em 0 2em 0;
+				padding: 3em 0 1px 0;
 				background: #fff;
 				margin: 0 auto;
 			}
