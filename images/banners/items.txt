@@ -1,4 +1,2 @@
-valle-banner; Start your tech career with Valle; https://citris.ucmerced.edu/valle;
-facts-banner; Get the FACTS; https://citris.ucmerced.edu/facts;
-oxygen-banner; Apply for the Oxygen Fund; https://citris.ucmerced.edu/oxygen;
+mentor-banner;Join the CITRIS EXPANDING DIVERSITY AND GENDER EQUITY IN STEM MENTORING PROGRAM;https://citris.ucmerced.edu/mentor-undergrad;
 ucmerced-extension-banner;Welcome to CITRIS at University of California, MERCED;https://citris.ucmerced.edu/about;
