@@ -66,7 +66,7 @@
             $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-            $.get("/projects.csv").then(function (text, status, xhr) {
+            $.get("/student-programs.csv").then(function (text, status, xhr) {
 				var data = $.csv.toObjects(text);
 				for (var i = 0; i < data.length; i++) {
 					switch (data[i].AUTHOR_ID) {
@@ -98,7 +98,8 @@
                                         '<table>' +
                                             '<tr>' +
                                                 '<th style="width:74.5%">' +
-                                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" />' +
+                                                    '<a href=/'+data[i].LINK+'>'+
+                                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" /></a>' +
                                                     '<p style="text-align: justify; text-justify: inter-word;">' +
                                                         data[i].TEXT +
                                                     '</p>' +
