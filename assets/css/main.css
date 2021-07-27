@@ -49,6 +49,9 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	address {
+		color: #9da9a2;
+	}
 /* Box Model */
 
 	*, *:before, *:after {
@@ -147,7 +150,18 @@ img.logo {
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
-
+img.logo2 {
+	width: 5em;
+	/* width: 3%; */
+	margin-left: 10px;
+	margin-bottom: -20px;
+}
+img.logo3 {
+	width: 1em;
+	/* width: 3%; */
+	margin-left: 10px;
+	margin-right: -10px;
+}
 
 /* Calendar */
 .dropbtn {
