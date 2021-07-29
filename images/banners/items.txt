@@ -1,2 +1,3 @@
 citris-foundry;Check out the CITRIS FOUNDRY INCUBATOR;https://citris.ucmerced.edu/news/CITRIS-Foundry-Incubator-Fall-2021-Application;
+agaid-banner;New Artificial Intelligence Institute awarded to UC Merced strengthens agricultural systems research and workforce capabilities;https://citris.ucmerced.edu/news/agaid;
 ucmerced-extension-banner;Welcome to CITRIS at University of California, MERCED;https://citris.ucmerced.edu/about;
