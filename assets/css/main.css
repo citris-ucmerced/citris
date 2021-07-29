@@ -119,11 +119,20 @@
 figure {
 	display: table;
   }
-  
+
   figcaption {
 	display: table-caption;
 	caption-side: bottom;
   }
+
+  figure.wrapped{
+	float: left;
+  }
+  figcaption.wrapped {
+	padding-left: 10px;
+	font-style: italic;
+  }
+
 
 #img-wrapped{
 	float: left;
