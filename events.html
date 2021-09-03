@@ -149,7 +149,11 @@
                                     "</li>" +
                                     "</ul>" +
                                     '<div style="display: block; overflow: auto">' +
+                                    '<a href="' +
+                                    data[i].LINK +
+                                    '" target="_blank">' +
                                     '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    "</a>" +
                                     '<p style="margin:0;">' + data[i].TEXT + '</p>' +
                                     '</div>' + '<br>' + '<center>' +
                                     (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '" target="_blank"> ' + data[i].BUTTON_TEXT + '</a> ') +
