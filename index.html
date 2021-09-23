@@ -252,19 +252,19 @@
                     : "<br>" +
                     '<center> <a class="button" href="' +
                     data[i].LINK +
-                    '">Learn More</a>&nbsp;&nbsp;') +
+                    '">'+data[i].BUTTON_TEXT+'</a>&nbsp;&nbsp;') +
 
 
-                  '<div class="dropdown">' +
-                  `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
-                  '<div id="' + data[i].ID + '" class="dropdown-content">' +
-                  `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` +
-                  '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
-                  `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
-                  `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
+                  // '<div class="dropdown">' +
+                  // `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
+                  // '<div id="' + data[i].ID + '" class="dropdown-content">' +
+                  // `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` +
+                  // '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
+                  // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
+                  // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
 
-                  "</div>" +
-                  "</div>" +
+                  // "</div>" +
+                  // "</div>" +
                   "</center>" +
                   // <!-- Button code -->
 
