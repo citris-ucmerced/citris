@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <title>CITRIS and the Banatao Institute at UC Merced</title>
     <link rel="icon" href="images/favicon.png">
@@ -21,26 +22,32 @@
                 </div>
             </div>
         </header>
-        
+
         <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
         <nav id="nav"></nav>
 
 
         <div id="main-wrapper">
             <div id="main" class="container">
-                    <p style="text-align: center;">
-                        <font size="+2">
-                            Keep in touch with CITRIS UC Merced.
-                            <br/>Sign up to our email list and never miss an event or update. 
-                        </font>
-                    </p>
+                <p style="text-align: center;">
+                    <font size="+2">
+                        Keep in touch with CITRIS UC Merced.
+                        <br />Sign up to our email list and never miss an event or update.
+                    </font>
+                    <iframe width="75%" height="640px"
+                        src="https://forms.office.com/Pages/ResponsePage.aspx?id=o-nf9HjKmEm3p-bQaS6s5qPoZls2hIJGn5oME5D05pRURUtIMTJaRks1MlVVTVhKNVg4QUJOTlE2OSQlQCN0PWcu&embed=true"
+                        frameborder="0" marginwidth="0" marginheight="0"
+                        style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen
+                        mozallowfullscreen msallowfullscreen> </iframe>
+                </p>
             </div>
+
         </div>
 
 
         <!-- MAILCHIMP SIGNUP FORM -->
         <!-- Begin Mailchimp Signup Form -->
-        <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+        <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
         <style type="text/css">
             #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
             /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
@@ -74,15 +81,15 @@
                 <div class="response" id="mce-error-response" style="display:none"></div>
                 <div class="response" id="mce-success-response" style="display:none"></div>
             </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0b2d1aa7475fba4aee57a3348_e877baef16" tabindex="-1" value=""></div>
+        <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0b2d1aa7475fba4aee57a3348_e877baef16" tabindex="-1" value=""></div>
             <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
             </div>
         </form>
         </div>
-        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[6]='DISCOVER';ftypes[6]='text';fnames[7]='FACTS';ftypes[7]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[6]='DISCOVER';ftypes[6]='text';fnames[7]='FACTS';ftypes[7]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script> -->
         <!--End mc_embed_signup-->
 
-<!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
         <div id="footer"></div>
     </div>
     <!-- Scripts -->
@@ -94,53 +101,53 @@
     <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
-    
+
     <script>
         $(function () {
             $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
             $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
-            $.get("/news.csv").then(function(text, status, xhr) {
-          var data = $.csv.toObjects(text);
-          for (var i = 0; i < data.length; i++) {
-            switch (data[i].ID) {
-              default:
-                $("#news").append(
-                  $.parseHTML(
-                    '<article class="box post">' +
-                      "<header>" +
-                      "<h3>" +
-                      '<a href="' +
-                      data[i].LINK +
-                      '">' +
-                      data[i].TITLE +
-                      "</a>" +
-                      "</h3>" +
-                      '<ul class="meta">' +
-                      '<li class="icon fa-clock-o">' +
-                      data[i].DATE +
-                      "</li>" +
-                      "</ul>" +
-                      "</header>" +
-                      '<a href="' +
-                      data[i].LINK +
-                      '" class="image featured">' +
-                      '<img src="images/news/' +
-                      data[i].ID +
-                      '.jpg" alt="" />' +
-                      "</a>" +
-                      "<p>" +
-                      data[i].DESCRIPTION +
-                      "</p>" +
-                      "</article>"
-                  )
-                );
-                break;
-            }
-          }
+            $.get("/news.csv").then(function (text, status, xhr) {
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
+                    switch (data[i].ID) {
+                        default:
+                            $("#news").append(
+                                $.parseHTML(
+                                    '<article class="box post">' +
+                                    "<header>" +
+                                    "<h3>" +
+                                    '<a href="' +
+                                    data[i].LINK +
+                                    '">' +
+                                    data[i].TITLE +
+                                    "</a>" +
+                                    "</h3>" +
+                                    '<ul class="meta">' +
+                                    '<li class="icon fa-clock-o">' +
+                                    data[i].DATE +
+                                    "</li>" +
+                                    "</ul>" +
+                                    "</header>" +
+                                    '<a href="' +
+                                    data[i].LINK +
+                                    '" class="image featured">' +
+                                    '<img src="images/news/' +
+                                    data[i].ID +
+                                    '.jpg" alt="" />' +
+                                    "</a>" +
+                                    "<p>" +
+                                    data[i].DESCRIPTION +
+                                    "</p>" +
+                                    "</article>"
+                                )
+                            );
+                            break;
+                    }
+                }
+            });
         });
-    });
     </script>
 </body>
 
