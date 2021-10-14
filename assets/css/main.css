@@ -1,4 +1,5 @@
-@import url("font-awesome.min.css");
+/* @import url("font-awesome.min.css"); */
+@import url("all.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Open+Sans+Condensed:700");
 
 /*
@@ -1555,6 +1556,7 @@ img.logo3 {
 				outline: 0;
 				background: #c1cac5;
 				text-align: center;
+				text-decoration: none;				
 			}
 
 				ul.contact li a:before {
@@ -1566,7 +1568,7 @@ img.logo3 {
 			ul.contact li:hover {
 				top: -5px;
 			}
-
+			
 				ul.contact li:hover a.fa-facebook {
 					background-color: #3C5A98;
 				}
@@ -1579,6 +1581,10 @@ img.logo3 {
 					background-color: #C4376B;
 				}
 
+				ul.contact li:hover a.fa-youtube {
+					background-color: #c43737;
+				}
+
 				ul.contact li:hover a.fa-linkedin {
 					background-color: #006599;
 				}
@@ -1589,6 +1595,10 @@ img.logo3 {
 
 				ul.contact li:hover a.fa-google-plus {
 					background-color: #DA2713;
+				}
+
+				ul.contact li:hover a.fa-tiktok {
+					background-color: #000000;
 				}
 
 			ul.contact li:active {
@@ -1858,7 +1868,7 @@ img.logo3 {
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: 'Font Awesome 5 Free';
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
