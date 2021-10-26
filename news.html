@@ -66,40 +66,41 @@
             $.get("/news.csv").then(function(text, status, xhr) {
           var data = $.csv.toObjects(text);
           for (var i = 0; i < data.length; i++) {
-            switch (data[i].ID) {
-              default:
-                $("#news").append(
-                  $.parseHTML(
-                    '<article class="box post">' +
-                      "<header>" +
-                      "<h3>" +
-                      '<a href="' +
-                      data[i].LINK +
-                      '" target="_blank">' +
-                      data[i].TITLE +
-                      "</a>" +
-                      "</h3>" +
-                      '<ul class="meta">' +
-                      '<li class="icon fa-clock-o">' +
-                      data[i].DATE +
-                      "</li>" +
-                      "</ul>" +
-                      "</header>" +
-                      '<a href="' +
-                      data[i].LINK +
-                      '" class="image featured" target="_blank">' +
-                      '<img src="images/news/' +
-                      data[i].ID +
-                      '.jpg" alt="" />' +
-                      "</a>" +
-                      "<p>" +
-                      data[i].DESCRIPTION +
-                      "</p>" +
-                      "</article>"
-                  )
-                );
-                break;
-            }
+            if(data[i].ID.substring(0,2) != "//")
+                switch (data[i].ID) {
+                default:
+                    $("#news").append(
+                    $.parseHTML(
+                        '<article class="box post">' +
+                        "<header>" +
+                        "<h3>" +
+                        '<a href="' +
+                        data[i].LINK +
+                        '" target="_blank">' +
+                        data[i].TITLE +
+                        "</a>" +
+                        "</h3>" +
+                        '<ul class="meta">' +
+                        '<li class="icon fa-clock-o">' +
+                        data[i].DATE +
+                        "</li>" +
+                        "</ul>" +
+                        "</header>" +
+                        '<a href="' +
+                        data[i].LINK +
+                        '" class="image featured" target="_blank">' +
+                        '<img src="images/news/' +
+                        data[i].ID +
+                        '.jpg" alt="" />' +
+                        "</a>" +
+                        "<p>" +
+                        data[i].DESCRIPTION +
+                        "</p>" +
+                        "</article>"
+                    )
+                    );
+                    break;
+                }
           }
         });
     });
