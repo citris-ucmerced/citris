@@ -278,7 +278,8 @@
       });
       $.get("/news.csv").then(function (text, status, xhr) {
         var data = $.csv.toObjects(text);
-        for (var i = 0; i < data.length; i++) {
+        // for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < 5; i++) {
           switch (data[i].ID) {
             default:
               $("#news").append(
