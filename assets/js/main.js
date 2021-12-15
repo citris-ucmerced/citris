@@ -52,9 +52,10 @@
 				mode: 'fade',
 				noOpenerFade: true,
 				speed: 0,
-				alignment: 'center'
+				alignment: 'center',
+				hideDelay: 10,
+				hoverDelay: 10
 			});
-
 		// Off-Canvas Navigation.
 
 			// Title Bar.
