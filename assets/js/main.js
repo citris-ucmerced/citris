@@ -53,7 +53,7 @@
 				noOpenerFade: true,
 				speed: 0,
 				alignment: 'center',
-				hideDelay: 10,
+				hideDelay: 100,
 				hoverDelay: 10
 			});
 		// Off-Canvas Navigation.
