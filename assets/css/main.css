@@ -133,7 +133,9 @@ figure {
 	padding-left: 10px;
 	font-style: italic;
   }
-
+  figure.center{
+	text-align: center;
+  }
 
 #img-wrapped{
 	float: left;
