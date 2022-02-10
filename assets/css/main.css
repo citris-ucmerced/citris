@@ -142,6 +142,11 @@ figure {
 	margin: 0 20px 10px 10px;
 }
 
+img.left{
+	float: left;
+	margin: 0 20px 10px 10px;
+}
+
 #paragraph{
 	padding-left: 34%;
 }
