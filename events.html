@@ -152,7 +152,7 @@
                                     '<a href="' +
                                     data[i].LINK +
                                     '" target="_blank">' +
-                                    '<img style="margin: 0 1em 1em 0;width: 75%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    '<img style="margin: 0 1em 1em 0;width: '+ ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
                                     // '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
                                     "</a>" +
                                     '<p style="margin:0;">' + data[i].TEXT + '</p>' +
