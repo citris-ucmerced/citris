@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CITRIS and the Banatao Institute at UC Merced</title>
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body class="homepage">
+    <div id="page-wrapper">
+        <header id="header">
+            <div class="logo container">
+                <div>
+                    <h1 id="logo">AgAid</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+        <nav id="nav"></nav>
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div id="main" class="container">
+                <div class="row">
+                    <div class="12u">
+                        <div class="content">
+                            <article class="box page-content">
+                                <header>
+                                    <h2>AgAid</h2>
+
+                                </header>
+                                <section>
+                                    <p>The AgAID Institute’s mission is to build and foster partnerships between AI and
+                                        Ag communities, and create a transdisciplinary ecosystem for technology
+                                        innovation and knowledge transfer.</p>
+                                    </p>
+                                    <div style="text-align: center;">
+                                        <a class="button" href="https://agaid.org/">See Full Site</a>
+                                    </div>
+                                </section>
+
+                                <a href="https://agaid.org/" target="_blank">
+                                    <iframe width="100%" height="1000" src="https://agaid.org/"
+                                        frameborder="0" allowfullscreen></iframe>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+        <div id="footer"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/skel-viewport.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+            $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+        });
+    </script>
+</body>
+
+</html>
