@@ -27,7 +27,6 @@
 		line-height: 1;
 	}
 
-
 	ol, ul {
 		list-style: none;
 	}
@@ -2024,6 +2023,8 @@ img.logo3 {
 				font-size: 1.25em;
 			}
 
+			
+
 		/* Button */
 
 			input[type="button"],
@@ -2369,7 +2370,7 @@ img.logo3 {
 	@media screen and (min-width: 737px) and (max-width: 1200px) {
 
 		/* Basic */
-
+			
 			body {
 				min-width: 960px;
 				font-size: 10.25pt;
