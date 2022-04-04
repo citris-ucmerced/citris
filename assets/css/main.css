@@ -182,6 +182,32 @@ img.logo3 {
 	margin-right: -10px;
 }
 
+/* FAQ page*/
+
+div#FAQ ol{
+	list-style-type: decimal;
+	padding-left: 1em;
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+div#FAQ ol li{
+	padding-left: .5em;
+	
+}
+
+div#FAQ ol ol{
+	list-style-type: lower-alpha;
+	padding-top: .5em;
+}
+
+div#FAQ ol ol li{
+	list-style-type: lower-alpha;
+	font-weight: normal;
+	font-size: 15pt;
+	line-height: 2em;
+}
+
 /* Calendar */
 .dropbtn {
     background-color: white;
