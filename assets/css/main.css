@@ -2849,7 +2849,7 @@ div#FAQ ol ol li{
 				overflow-y: auto;
 				position: fixed;
 				top: 0;
-				width: 280px;
+				width: 300px;
 				z-index: 10002;
 				background-color: #353c37;
 				background-image: url("images/overlay.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
