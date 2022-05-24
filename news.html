@@ -88,10 +88,10 @@
                         "</header>" +
                         '<a href="' +
                         data[i].LINK +
-                        '" class="image featured" target="_blank">' +
-                        '<img src="images/news/' +
+                        '" class="image featured" target="_blank"><div style="text-align:center;">' +
+                        '<img style="margin: 0 1em 1em 0;width:' + ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" src="images/news/' +
                         data[i].ID +
-                        '.jpg" alt="" />' +
+                        '.jpg" alt="" /></div>' +
                         "</a>" +
                         "<p>" +
                         data[i].DESCRIPTION +
