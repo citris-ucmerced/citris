@@ -16,6 +16,7 @@
     <div id="page-wrapper">
         <header id="header">
             <div class="logo container">
+            
                 <div>
                     <h1 id="logo">Events</h1>
                 </div>
@@ -32,10 +33,12 @@
                     <div class="12u">
                         <div class="content"></div>
                         
-                        <h2>
+                        <h2 style="text-transform:capitalize; color:rgb(72, 79, 83)">
                             CITRIS hosts many collaborative events throughout the year, including seminars, research
                             exchanges, and workshops. See upcoming events here
                         </h2>
+
+                    
                        
                         
                         <div id="events"></div>
@@ -129,6 +132,8 @@
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
             only_recent_events = true;
             finished_recent_events = false;
+    
+
             $.get("events.csv").then(function (text, status, xhr) {
                 var data = $.csv.toObjects(text);
                 for (var i = 0; i < data.length; i++) {
@@ -143,11 +148,11 @@
                                 $.parseHTML(
                                     '<section class="box features">' +
                                     '<header>' +
-                                    '<h2 style="font-size:300%;line-height:1em">' +
-                
+                                    '<h2 style="color:rgb(0 74 124);font-size:200%;line-height:1.2em;text-transform:capitalize">' +
+                                    
                                     data[i].TITLE +
                                     '</h2>' +
-                                    '<hr data-uw-styling-context="true">'+
+                                    //style color = "Black"<hr data-uw-styling-context="true">'+
                                     '</header>' +
                                     '<ul class="meta">' +
                                     '<li class="icon fa-clock-o">' +
@@ -158,11 +163,15 @@
                                     '<a href="' +
                                     data[i].LINK +
                                     '" target="_blank">' +
-                                    '<img style="margin: 0 1em 1em 0;width: '+ ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    '<img style="margin: 0 1em 1em 0; float:left; width: 40% '+ ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
                                     // '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    //<div style="display: block; overflow: auto">' +
+                                    // <img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' + data[i].ID + '.jpg" alt="" />' +
                                     "</a>" +
                                     '<p style="margin:0;">' + data[i].TEXT + '</p>' +
                                     '</div>' + '<br>' + '<center>' +
+
+										'</div>' +
                                     data[i].EVENTABLE +
                                     (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '" target="_blank"> ' + data[i].BUTTON_TEXT + '</a> ') +
 
