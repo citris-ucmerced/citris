@@ -95,16 +95,75 @@
 	margin : auto;
 } */
 
+/* Event Page */
+/* Start */
+.news_hor {
+    font-family: Barlow;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    max-width: 1000px;
+    width: 100%;
+    background-color: #ffffff;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    display: flex;
+}
+
+.news_hor img {
+    width: 50%;
+    float: left;
+    position: relative;
+    height: 100%;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    padding-right: 30px;
+    z-index: 1;
+}
+.news_hor figcaption {
+    padding: 5%;
+    padding-bottom: 73px;
+    width: 90%;
+    background-color: #ffffff;
+}
+
+.news_hor h3 {
+    font-family: "Cabin";
+    text-transform: none;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 3px 0;
+}
+
+.news_hor footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.065);
+    padding: 0 20px;
+    font-size: 13px;
+    line-height: 50px;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.hor_date {
+    float: right;
+    margin-left: 50%;
+}
+
 /* Video */
 .container-video {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
 	padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-  }
+}
   
   /* Then style the iframe to fit in the container div with full height and width */
-  .responsive-iframe {
+.responsive-iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -112,7 +171,7 @@
 	right: 0;
 	width: 100%;
 	height: 100%;
-  }
+}
 
 /* Image Caption */
 .caption {
@@ -121,23 +180,23 @@
 }
 figure {
 	display: table;
-  }
+}
 
-  figcaption {
+figcaption {
 	display: table-caption;
 	caption-side: bottom;
-  }
+}
 
-  figure.wrapped{
+figure.wrapped{
 	float: left;
-  }
-  figcaption.wrapped {
+}
+figcaption.wrapped {
 	padding-left: 10px;
 	font-style: italic;
-  }
-  figure.center{
+}
+figure.center{
 	text-align: center;
-  }
+}
 
 #img-wrapped{
 	float: left;

@@ -233,26 +233,40 @@
             default:
               $("#events").append(
                 $.parseHTML(
-                  '<section class="box features">' +
-                  "<header>" +
-                  "<h2>" +
-                  data[i].TITLE +
-                  "</h2>" +
-                  "</header>" +
-                  '<div style="display: block; overflow: auto">' +
-                  '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' +
-                  data[i].ID +
-                  '.jpg" alt="" />' +
-                  '<p style="margin:0;">' +
-                  data[i].TEXT +
-                  "</p>" +
-                  "</div>" +
-                  (data[i].LINK.toString() === "NO_BUTTON"
-                    ? ""
-                    : "<br>" +
-                    '<center> <a class="button" href="' +
-                    data[i].LINK +
-                    '">'+data[i].BUTTON_TEXT+'</a>&nbsp;&nbsp;') +
+                  '<div>' +
+                    '<figure class="news_hor">' +
+                        '<img src="/images/events/' + data[i].ID + '.jpg" alt="bunny" />' +
+                        '<figcaption>' +
+                            '<h3>' + data[i].TITLE + '</h3>' +
+                            '<p>' + data[i].TEXT + '</p>'+
+                            (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
+                            '<footer>'+
+                                '<div class="hor_date">' + data[i].DATES + '</div>'+
+                            '</footer>'+
+                        '</figcaption>'+
+                    '</figure>'+
+                    '<br>'+
+                  '</div>'
+                  // '<section class="box features">' +
+                  // "<header>" +
+                  // "<h2>" +
+                  // data[i].TITLE +
+                  // "</h2>" +
+                  // "</header>" +
+                  // '<div style="display: block; overflow: auto">' +
+                  // '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' +
+                  // data[i].ID +
+                  // '.jpg" alt="" />' +
+                  // '<p style="margin:0;">' +
+                  // data[i].TEXT +
+                  // "</p>" +
+                  // "</div>" +
+                  // (data[i].LINK.toString() === "NO_BUTTON"
+                  //   ? ""
+                  //   : "<br>" +
+                  //   '<center> <a class="button" href="' +
+                  //   data[i].LINK +
+                  //   '">'+data[i].BUTTON_TEXT+'</a>&nbsp;&nbsp;') +
 
 
                   // '<div class="dropdown">' +
@@ -265,11 +279,11 @@
 
                   // "</div>" +
                   // "</div>" +
-                  "</center>" +
+                  // "</center>" +
                   // <!-- Button code -->
 
 
-                  "</section>"
+                  // "</section>"
                 )
               );
               break;
