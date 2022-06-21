@@ -11,6 +11,11 @@
     <script type="text/javascript" src="assets/js/ics.js"></script>
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
+<style>
+    
+
+
+  </style>
 
 <body class="homepage">
     <div id="page-wrapper">
@@ -37,17 +42,9 @@
                             CITRIS hosts many collaborative events throughout the year, including seminars, research
                             exchanges, and workshops. See upcoming events here
                         </h2>
-
-                    
-                       
-                        
-                        <div id="events"></div>
-
-                    
-
-
                         <br>
-
+                        <div id="events"></div>
+                        <br>
                         <div class="container-video">
                             <iframe class="responsive-iframe" src="
                                 https://outlook.office365.com/owa/calendar/2620b6b926a5447ba347dd886878f55b@ucmerced.edu/3e5d3da3f34f4d8dad88398e0ec54f063701595154329811623/calendar.html
@@ -146,54 +143,68 @@
                         default:
                             $("#events").append(
                                 $.parseHTML(
-                                    '<section class="box features">' +
-                                    '<header>' +
-                                    '<h2 style="color:rgb(0 74 124);font-size:200%;line-height:1.2em;text-transform:capitalize">' +
+                                    '<div>' +
+                                        '<figure class="news_hor">' +
+                                            '<img src="/images/events/' + data[i].ID + '.jpg" alt="bunny" />' +
+                                            '<figcaption>' +
+                                                '<h3>' + data[i].TITLE + '</h3>' +
+                                                '<p>' + data[i].TEXT + '</p>'+
+                                                (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
+                                                '<footer>'+
+                                                    '<div class="hor_date">' + data[i].DATES + '</div>'+
+                                                '</footer>'+
+                                            '</figcaption>'+
+                                        '</figure>'+
+                                        '<br>'+
+                                    '</div>'
+                                    // '<section class="box features">' +
+                                    // '<header>' +
+                                    // '<h2 style="color:rgb(0 74 124);font-size:200%;line-height:1.2em;text-transform:capitalize">' +
                                     
-                                    data[i].TITLE +
-                                    '</h2>' +
-                                    //style color = "Black"<hr data-uw-styling-context="true">'+
-                                    '</header>' +
-                                    '<ul class="meta">' +
-                                    '<li class="icon fa-clock-o">' +
-                                    data[i].DATES +
-                                    "</li>" +
-                                    "</ul>" +
-                                    '<div style="display: block; overflow: auto">' +
-                                    '<a href="' +
-                                    data[i].LINK +
-                                    '" target="_blank">' +
-                                    '<img style="margin: 0 1em 1em 0; float; width: '+ ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
-                                    // '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
-                                    //<div style="display: block; overflow: auto">' +
-                                    // <img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' + data[i].ID + '.jpg" alt="" />' +
-                                    "</a>" +
-                                    '<p style="margin:0;">' + data[i].TEXT + '</p>' +
-                                    '</div>' + '<br>' + '<center>' +
+                                    // data[i].TITLE +
+                                    // '</h2>' +
+                                    // //style color = "Black"<hr data-uw-styling-context="true">'+
+                                    // '</header>' +
+                                    // '<ul class="meta">' +
+                                    // '<li class="icon fa-clock-o">' +
+                                    // data[i].DATES +
+                                    // "</li>" +
+                                    // "</ul>" +
+                                    // '<div style="display: block; overflow: auto">' +
+                                    // '<a href="' +
+                                    // data[i].LINK +
+                                    // '" target="_blank">' +
+                                    // '<img style="margin: 0 1em 1em 0; float; width: '+ ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    // // '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                    // //<div style="display: block; overflow: auto">' +
+                                    // // <img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' + data[i].ID + '.jpg" alt="" />' +
+                                    // "</a>" +
+                                    // '<p style="margin:0;">' + data[i].TEXT + '</p>' +
+                                    // '</div>' + '<br>' + '<center>' +
 
-										'</div>' +
-                                    data[i].EVENTABLE +
-                                    (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '" target="_blank"> ' + data[i].BUTTON_TEXT + '</a> ') +
+									// 	'</div>' +
+                                    // data[i].EVENTABLE +
+                                    // (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '" target="_blank"> ' + data[i].BUTTON_TEXT + '</a> ') +
 
-                                    // '<div class="dropdown">' +
-                                    // `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
-                                    // '<div id="' + data[i].ID + '" class="dropdown-content">' +
-                                    // `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` +
-                                    // '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
-                                    // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
-                                    // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
+                                    // // '<div class="dropdown">' +
+                                    // // `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
+                                    // // '<div id="' + data[i].ID + '" class="dropdown-content">' +
+                                    // // `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` +
+                                    // // '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
+                                    // // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
+                                    // // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
 
-                                    "</div>" +
-                                    "</div>" +
-                                    "</center>" +
-                                    // <!-- Button code -->
-                                    '</section>'
+                                    // "</div>" +
+                                    // "</div>" +
+                                    // "</center>" +
+                                    // // <!-- Button code -->
+                                    // '</section>'
 
                                 ));
 
                             break;
+                        }
                     }
-                }
             });
         });
     </script>
