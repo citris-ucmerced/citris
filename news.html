@@ -32,13 +32,36 @@
                     <div class="12u">
                         <div class="content"></div>
                         <p style="text-align: center;">
-                            To see how CITRIS is shaping the UC Merced campus, as well as California and the world, check out some of CITRIS @ UC Merced's recent news:
+                            To see how CITRIS is shaping the UC Merced campus, as well as California and the world,
+                            check out some of CITRIS @ UC Merced's recent news:
                         </p>
 
                         <article class="box page-content">
                             <div id="recent-news"></div>
                         </article>
-                        <div id="news"></div>
+
+                        <!-- <center><div>
+
+                        <figure class="snip1253">
+                            <div class="image"><img
+                                    src="images/news/flyingbuses.jpg"
+                                    alt="sample52" /></div>
+                            <figcaption>
+                                <h3>Calling UC Merced Interns: Join the CITRIS team and get your start in tech!</h3>
+                                <p>
+                                    CITRIS is hiring students for positions for Fall 2022.
+                                </p>
+                            </figcaption>
+                            <footer>
+                                <div><i</i>June 30, 2022</div>
+
+                            </footer><a href="#"></a>
+                        </figure>
+
+                    </div></center> -->
+
+
+                        <center><div id="news"></div></center>
                     </div>
                 </div>
             </div>
@@ -56,54 +79,68 @@
     <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
-    
+
     <script>
         $(function () {
             $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
             $("#recent-news").load("snippets/recent-news.html");/*Recent News: Controlled by HTML snippet in snippets/recent-news.html*/
-            $.get("/news.csv").then(function(text, status, xhr) {
-          var data = $.csv.toObjects(text);
-          for (var i = 0; i < data.length; i++) {
-            if(data[i].ID.substring(0,2) != "//")
-                switch (data[i].ID) {
-                default:
-                    $("#news").append(
-                    $.parseHTML(
-                        '<article class="box post">' +
-                        "<header>" +
-                        "<h3>" +
-                        '<a href="' +
-                        data[i].LINK +
-                        '" target="_blank">' +
-                        data[i].TITLE +
-                        "</a>" +
-                        "</h3>" +
-                        '<ul class="meta">' +
-                        '<li class="icon fa-clock-o">' +
-                        data[i].DATE +
-                        "</li>" +
-                        "</ul>" +
-                        "</header>" +
-                        '<a href="' +
-                        data[i].LINK +
-                        '" class="image featured" target="_blank"><div style="text-align:center;">' +
-                        '<img style="margin: 0 1em 1em 0;width:' + ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" src="images/news/' +
-                        data[i].ID +
-                        '.jpg" alt="" /></div>' +
-                        "</a>" +
-                        "<p>" +
-                        data[i].DESCRIPTION +
-                        "</p>" +
-                        "</article>"
-                    )
-                    );
-                    break;
+            $.get("/news.csv").then(function (text, status, xhr) {
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].ID.substring(0, 2) != "//")
+                        switch (data[i].ID) {
+                            default:
+                                $("#news").append(
+                                    $.parseHTML(
+
+                                        '<figure class="news">' +
+                                        '<div>' + (((data[i].ID).toString() === '') ? '<img src="images/logo-small.png" alt="" class="news-card__image">' :
+                                        '<img src="images/news/' + data[i].ID + '.jpg" alt="">') + 
+                                        '</div>' +
+                                        '<figcaption>' +
+                                        '<h3>' + data[i].TITLE + '</h3>' +
+                                        '<p>' + data[i].DESCRIPTION + '</p>' +
+                                        '</figcaption>' +
+                                        '<footer>' +
+                                        '<div><i</i>' + data[i].DATE + '</div>' +
+                                        '</footer><a href="' + data[i].LINK + '"></a>' +
+                                        '</figure>'
+
+                                        // '<article class="box post">' +
+                                        // "<header>" +
+                                        // "<h3>" +
+                                        // '<a href="' +
+                                        // data[i].LINK +
+                                        // '" target="_blank">' +
+                                        // data[i].TITLE +
+                                        // "</a>" +
+                                        // "</h3>" +
+                                        // '<ul class="meta">' +
+                                        // '<li class="icon fa-clock-o">' +
+                                        // data[i].DATE +
+                                        // "</li>" +
+                                        // "</ul>" +
+                                        // "</header>" +
+                                        // '<a href="' +
+                                        // data[i].LINK +
+                                        // '" class="image featured" target="_blank"><div style="text-align:center;">' +
+                                        // '<img style="margin: 0 1em 1em 0;width:' + ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) + '%;display:block;margin-left:auto;margin-right:auto;" src="images/news/' +
+                                        // data[i].ID +
+                                        // '.jpg" alt="" /></div>' +
+                                        // "</a>" +
+                                        // "<p>" +
+                                        // data[i].DESCRIPTION +
+                                        // "</p>" +
+                                        // "</article>"
+                                    )
+                                );
+                                break;
+                        }
                 }
-          }
+            });
         });
-    });
     </script>
 </body>
 
