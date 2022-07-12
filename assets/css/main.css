@@ -116,7 +116,7 @@ figure.news {
   color: #fff;
   position: relative;
   overflow: hidden;
-  margin: 10px;
+  margin: 20px;
   min-width: 250px;
   max-width: 310px;
   width: 100%;
@@ -124,7 +124,7 @@ figure.news {
   color: #000000;
   text-align: left;
   font-size: 16px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px rgb(0, 0, 0, 51%);
 }
 .news * {
   -webkit-box-sizing: border-box;
@@ -138,16 +138,21 @@ figure.news {
 }
 .news img {
   max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
   vertical-align: top;
   position: relative;
 }
 .news figcaption {
-  display: block;
-  width: 90%;
-  margin: -40px 15px 0;
-  padding: 15px ;
-  position: relative;
-  background-color: #ffffffd9;
+	display: block;
+    width: 90%;
+    height: 320px;
+    overflow: hidden;
+    margin: -40px 15px 0;
+    padding: 15px;
+    position: absolute;
+    background-color: #ffffffed;
 }
 .news .date {
   background-color: #2980b9;
