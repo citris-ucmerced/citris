@@ -95,7 +95,143 @@
 	margin : auto;
 } */
 
-/* Event Page */
+/* News Page */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.test {
+	margin: 0 !important;
+}
+.mainnews {
+	justify-content: center;
+	display: flex;
+}
+
+figure.news {
+	display: inline-block;
+}
+.news {
+	min-height: 500px;
+    max-height: 500px;
+  font-family: 'Raleway', Arial, sans-serif;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 250px;
+  max-width: 310px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: left;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.news * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.news .image {
+  max-height: 220px;
+  overflow: hidden;
+}
+.news img {
+  max-width: 100%;
+  vertical-align: top;
+  position: relative;
+}
+.news figcaption {
+  display: block;
+  width: 90%;
+  margin: -40px 15px 0;
+  padding: 15px ;
+  position: relative;
+  background-color: #ffffffd9;
+}
+.news .date {
+  background-color: #2980b9;
+  top: 15px;
+  color: #fff;
+  left: 15px;
+  min-height: 48px;
+  min-width: 48px;
+  position: absolute;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.news .date span {
+  display: block;
+  line-height: 24px;
+}
+.news .date .month {
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.news h3,
+.news p {
+  margin: 0;
+  padding: 0;
+}
+.news h3 {
+  min-height: 50px;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.news p {
+  font-size: 0.8em;
+  margin-bottom: 20px;
+  line-height: 1.6em;
+}
+.news footer {
+  padding: 0 25px;
+  background-color: #4D82B7;
+  color: #e6e6e6;
+  font-size: 0.8em;
+  line-height: 30px;
+  text-align: right;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.news footer > div {
+  display: inline-block;
+  margin-left: 10px;
+}
+.news footer i {
+  color: rgba(255, 255, 255, 0.2);
+  margin-right: 5px;
+}
+.news a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+.news:hover img,
+.news.hover img {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.news:hover figcaption,
+.news.hover figcaption {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
 /* Start */
 .news_hor {
     font-family: Barlow;
