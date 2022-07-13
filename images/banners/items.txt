@@ -1,2 +1,2 @@
 agaid-banner;New Artificial Intelligence Institute awarded to UC Merced strengthens agricultural systems research and workforce capabilities;https://citris.ucmerced.edu/news/agaid;
-ucmerced-extension-banner;Welcome to CITRIS at University of California, MERCED;https://citris.ucmerced.edu/about;
+ucmerced-extension-banner;Welcome to CITRIS at University of California, MERCED;#about;
