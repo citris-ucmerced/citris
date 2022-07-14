@@ -230,16 +230,8 @@ figure.news {
   transform: scale(1.05);
 }
 
-
-
-
-
-
-
-
-/* Start */
+/* Events */
 .news_hor {
-    font-family: Barlow;
     position: relative;
     overflow: hidden;
     margin: auto;
@@ -248,7 +240,6 @@ figure.news {
     background-color: #ffffff;
     color: black;
     text-align: left;
-    font-size: 16px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     display: flex;
 }
@@ -263,6 +254,23 @@ figure.news {
     padding-right: 30px;
     z-index: 1;
 }
+.news_hor img[alt]:after {  
+	
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	font-family: 'Helvetica';
+	font-weight: 300;
+	line-height: 2;  
+	text-align: center;
+	content: attr(alt);
+  }
+
+
 .news_hor figcaption {
     padding: 5%;
     padding-bottom: 73px;
@@ -271,9 +279,7 @@ figure.news {
 }
 
 .news_hor h3 {
-    font-family: "Cabin";
     text-transform: none;
-    font-size: 18px;
     font-weight: 600;
     margin: 3px 0;
 }
