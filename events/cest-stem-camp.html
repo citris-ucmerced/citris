@@ -64,8 +64,7 @@
         $.get("../events.csv").then(function (text, status, xhr) {
             var data = $.csv.toObjects(text);
             for (var i = 0; i < data.length; i++) {
-                if(data[i].HTML_ID + ".html" == page){
-                    console.log("worked");
+                if(data[i].HTML_ID == page || data[i].HTML_ID + ".html" == page){
                     $("#events").append(
                         $.parseHTML(
                             '<div>' +
@@ -87,6 +86,7 @@
                             '</div>'
                         )
                     );
+                    break;
                 }
             }
         });
