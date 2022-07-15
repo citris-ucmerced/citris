@@ -39,9 +39,11 @@
                         <div class="content"></div>
                         
                         <h2 style="text-transform:capitalize ">
-                            CITRIS hosts many collaborative events throughout the year, including seminars, research
-                            exchanges, and workshops. See upcoming events here
+                            CITRIS at UC Merced brings innovators together
                         </h2>
+                        <p>
+                            CITRIS convenes collaborative events for community, industry and educational partners and audiences. Virtual and recorded options are often available. Join us for seminars, films, and workshops.
+                        </p>
                         <br>
                         <div id="events"></div>
                         <br>
@@ -145,12 +147,15 @@
                                 $.parseHTML(
                                     '<div>' +
                                     '<figure class="news_hor">' +
-                                        '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
+                                        (((data[i].ID).toString() === '') ? '' :  '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
                                         '<figcaption>' +
-                                            '<h3>' + data[i].TITLE + '</h3>' +
-                                            '<p>' + data[i].TEXT + '</p>'+
-                                            (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
-                                            '<footer>'+
+                                            (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
+                                            '<p>' + data[i].TEXT + '</p>' +
+                                            (((data[i].LOCATION).toString() === '') ? '' :  '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
+                                            (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
+                                            (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
+                                            (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
+                                            '<footer>'+ 
                                                 '<div class="hor_date">' + data[i].DATES + '</div>'+
                                             '</footer>'+
                                         '</figcaption>'+
