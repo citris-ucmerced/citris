@@ -64,6 +64,8 @@
         var page = path.split("/").pop();
         $.get("../events.csv").then(function (text, status, xhr) {
             var data = $.csv.toObjects(text);
+            console.log("path: " + path);
+            console.log("page: " + page);
             console.log(data[0].HTML_ID);
             console.log(data[1].HTML_ID);
             console.log("maybe");
