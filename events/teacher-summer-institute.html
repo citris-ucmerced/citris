@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <meta property="og:image" content="../images/news/flyingbuses" />
+    <script type="text/javascript" src="assets/js/ics.js"></script>
 </head>
 
 <body class="homepage">
@@ -63,6 +64,9 @@
         var page = path.split("/").pop();
         $.get("../events.csv").then(function (text, status, xhr) {
             var data = $.csv.toObjects(text);
+            console.log(data[0].HTML_ID);
+            console.log(data[1].HTML_ID);
+            console.log("maybe");
             for (var i = 0; i < data.length; i++) {
                 if(data[i].HTML_ID + ".html" == page){
                     console.log("worked");
@@ -87,6 +91,7 @@
                             '</div>'
                         )
                     );
+                    break;
                 }
             }
         });
