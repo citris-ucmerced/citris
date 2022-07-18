@@ -81,7 +81,7 @@
                             $("#people").append(
                                 $.parseHTML(
                                     '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">' +
-                                    '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>' +
+                                    (((data[i].LINK).toString() === '') ? '<a href="' + data[i].LINK + '" style="pointer-events: none; text-decoration: none"  target=_blank>' :  '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>') +
                                     '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="">' +
                                     '<center>' +
                                     '<h3 style="margin-top: -20px;">' +
@@ -91,7 +91,6 @@
                                     data[i].TITLE +
                                     '</p>' +
                                     '</center>' +
-                                    '</a>' +
                                     '</div>'
                                 ));
                             break;
