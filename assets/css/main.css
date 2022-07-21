@@ -2983,7 +2983,7 @@ div#FAQ ol ol li{
 				left: 0;
 				position: fixed;
 				top: 0;
-				width: 100%;
+				width: 101%;
 				z-index: 10001;
 				background-color: rgba(21, 38, 23, 0.8);
 				background-image: url("images/overlay.png");
@@ -3006,14 +3006,14 @@ div#FAQ ol ol li{
 					position: absolute;
 					left: 0;
 					top: 0;
-					width: 80px;
+					width: 60px;
 					height: 60px;
 					z-index: 1001;
 				}
 
 					#titleBar .toggle:before {
 						display: inline-block;
-						font-family: FontAwesome;
+						font-family: 'Font Awesome 5 Free';
 						text-decoration: none;
 						font-style: normal;
 						font-weight: normal;
@@ -3022,6 +3022,7 @@ div#FAQ ol ol li{
 						position: absolute;
 						left: 0;
 						top: 0;
+						font-weight: 900;
 						background: #4D82B7;
 						width: 44px;
 						height: 44px;
@@ -3055,7 +3056,7 @@ div#FAQ ol ol li{
 				overflow-y: auto;
 				position: fixed;
 				top: 0;
-				width: 300px;
+				width: 274px;
 				z-index: 10002;
 				background-color: #353c37;
 				background-image: url("images/overlay.png"), -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
