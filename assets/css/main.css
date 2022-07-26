@@ -95,6 +95,14 @@
 	margin : auto;
 } */
 
+/* Valle Hosts */
+.vallehost {
+	display:inline-block;
+	width:33%;
+	padding:20px;
+	vertical-align:top;
+}
+
 /* News Page */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
@@ -2704,6 +2712,21 @@ div#FAQ ol ol li{
 			margin-top: 10%;
 		} */
 
+		/* Events Page */
+			.news_hor {
+				display: grid;
+			}
+
+			.news_hor img {
+				width:100%;
+				padding: 5%;
+			}
+
+			.hor_date {
+				float: right;
+				margin-left: 0%;
+			}
+
 		/* Basic */
 
 			html, body {
@@ -2755,6 +2778,24 @@ div#FAQ ol ol li{
 			}
 			.image img {
 				border-radius: 0px;
+			}
+
+		/* Valle Hosts */
+		.vallehost {
+			display:inline-block;
+			width:100%;
+			padding:20px;
+			vertical-align:top;
+		}
+
+		/* Initiatives Images */
+			.initiatives img{
+				display: block !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+				width: 50% !important;
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
 			}
 
 		/* Button */
