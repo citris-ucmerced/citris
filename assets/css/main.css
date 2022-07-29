@@ -2776,6 +2776,11 @@ div#FAQ ol ol li{
 				width: 101%;
 				margin: 2.5em 0 0.5em 0;
 			}
+			.image.featuredmobile {
+				display: block;
+				width: 101%;
+				margin-bottom: 25px !important;
+			}
 			.image img {
 				border-radius: 0px;
 			}

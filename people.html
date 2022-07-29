@@ -80,9 +80,15 @@
                         default:
                             $("#people").append(
                                 $.parseHTML(
-                                    '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">' +
+                                    ((window.innerWidth < 550) ? 
+                                    '<div style="margin-bottom:25px;display:inline-block;width:50%;height:20em;padding:4px;vertical-align:top;">' :
+                                    '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">') +
                                     (((data[i].LINK).toString() === '') ? '<a href="' + data[i].LINK + '" style="pointer-events: none; text-decoration: none"  target=_blank>' :  '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>') +
-                                    '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="">' +
+                                    '<img class="image featured featuredmobile" src="images/people/' + data[i].ID + '.jpg" alt="">' +
+
+                                    // '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">' +
+                                    // (((data[i].LINK).toString() === '') ? '<a href="' + data[i].LINK + '" style="pointer-events: none; text-decoration: none"  target=_blank>' :  '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>') +
+                                    // '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="">' +
                                     '<center>' +
                                     '<h3 style="margin-top: -20px;">' +
                                     data[i].NAME +
