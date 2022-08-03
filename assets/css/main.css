@@ -2712,6 +2712,25 @@ div#FAQ ol ol li{
 			margin-top: 10%;
 		} */
 
+		/* Footer contact */
+		/* #copyright {
+			display: inline-block !important;
+			background: #e7eae8;
+			padding: 0.75em 2em 0.75em 2em;
+			border-radius: 8px;
+			color: #8b9790;
+		} */
+
+		#copyright .menu {
+			text-align: center;
+			margin: 0;
+		}
+
+		ul.contact {
+			text-align: center;
+			cursor: default;
+		}
+
 		/* Events Page */
 			.news_hor {
 				display: grid;
@@ -3003,7 +3022,7 @@ div#FAQ ol ol li{
 		/* Footer */
 
 			#footer {
-				padding: 4em 20px 2em 20px;
+				padding: 2em 20px 2em 20px;
 			}
 
 				#footer > .row {
