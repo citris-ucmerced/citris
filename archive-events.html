@@ -32,9 +32,11 @@
                     <div class="12u">
                         <div class="content"></div>
 
+                        <h2 style="text-transform:capitalize ">
+                            CITRIS at UC Merced brings innovators together
+                        </h2>
                         <p>
-                            CITRIS hosts many collaborative events throughout the year, including seminars, research
-                            exchanges, and workshops. See past events here:
+                            CITRIS convenes collaborative events for community, industry and educational partners and audiences. Virtual and recorded options are often available. Join us for seminars, films, and workshops.
                         </p>
                         <center><a href="events" class="button">See our upcoming events!</a></center>
                         <br>
@@ -135,25 +137,23 @@
                     } else {
                         $("#events").append(
                             $.parseHTML(
-                                '<section class="box features">' +
-                                '<header>' +
-                                '<h2>' +
-                                data[i].TITLE +
-                                '</h2>' +
-                                '</header>' +
-                                '<ul class="meta">' +
-                                '<li class="icon fa-clock-o">' +
-                                data[i].DATES +
-                                "</li>" +
-                                "</ul>" +
-                                '<div style="display: block; overflow: auto">' +
-                                // '<a href="' +
-                                // data[i].LINK +
-                                // '" target="_blank">' +
-                                '<img style="margin: 0 1em 1em 0;width: 75%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
-                                // '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
-                                // "</a>" +
-                                '<p style="margin:0;">' + data[i].TEXT + '</p>' +
+                                '<div>' +
+                                    '<figure class="news_hor">' +
+                                        (((data[i].ID).toString() === '') ? '' :  '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
+                                        '<figcaption>' +
+                                            (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
+                                            '<p>' + data[i].TEXT + '</p>' +
+                                            (((data[i].LOCATION).toString() === '') ? '' :  '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
+                                            (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
+                                            (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
+                                            (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
+                                            '<footer>'+ 
+                                                '<div class="hor_date">' + data[i].DATES + '</div>'+
+                                            '</footer>'+
+                                        '</figcaption>'+
+                                    '</figure>'+
+                                    '<br>'+
+                                '</div>'
 
 
                                 // '</div>' + '<br>' + '<center>' +
@@ -168,11 +168,7 @@
                                 // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
                                 // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
 
-                                "</div>" +
-                                "</div>" +
-                                "</center>" +
-                                // <!-- Button code -->
-                                '</section>'
+
                             ));
                     }
                     if(data[i].ID == 'OLD'){
