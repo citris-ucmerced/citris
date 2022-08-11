@@ -39,9 +39,11 @@
                         <div class="content"></div>
                         
                         <h2 style="text-transform:capitalize ">
-                            CITRIS hosts many collaborative events throughout the year, including seminars, research
-                            exchanges, and workshops. See upcoming events here
+                            CITRIS at UC Merced brings innovators together
                         </h2>
+                        <p>
+                            CITRIS convenes collaborative events for community, industry and educational partners and audiences. Virtual and recorded options are often available. Join us for seminars, films, and workshops.
+                        </p>
                         <br>
                         <div id="events"></div>
                         <br>
@@ -144,61 +146,22 @@
                             $("#events").append(
                                 $.parseHTML(
                                     '<div>' +
-                                        '<figure class="news_hor">' +
-                                            '<img src="/images/events/' + data[i].ID + '.jpg" alt="bunny" />' +
-                                            '<figcaption>' +
-                                                '<h3>' + data[i].TITLE + '</h3>' +
-                                                '<p>' + data[i].TEXT + '</p>'+
-                                                (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
-                                                '<footer>'+
-                                                    '<div class="hor_date">' + data[i].DATES + '</div>'+
-                                                '</footer>'+
-                                            '</figcaption>'+
-                                        '</figure>'+
-                                        '<br>'+
+                                    '<figure class="news_hor">' +
+                                        (((data[i].ID).toString() === '') ? '' :  '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
+                                        '<figcaption>' +
+                                            (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
+                                            '<p>' + data[i].TEXT + '</p>' +
+                                            (((data[i].LOCATION).toString() === '') ? '' :  '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
+                                            (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
+                                            (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
+                                            (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
+                                            '<footer>'+ 
+                                                '<div class="hor_date">' + data[i].DATES + '</div>'+
+                                            '</footer>'+
+                                        '</figcaption>'+
+                                    '</figure>'+
+                                    '<br>'+
                                     '</div>'
-                                    // '<section class="box features">' +
-                                    // '<header>' +
-                                    // '<h2 style="color:rgb(0 74 124);font-size:200%;line-height:1.2em;text-transform:capitalize">' +
-                                    
-                                    // data[i].TITLE +
-                                    // '</h2>' +
-                                    // //style color = "Black"<hr data-uw-styling-context="true">'+
-                                    // '</header>' +
-                                    // '<ul class="meta">' +
-                                    // '<li class="icon fa-clock-o">' +
-                                    // data[i].DATES +
-                                    // "</li>" +
-                                    // "</ul>" +
-                                    // '<div style="display: block; overflow: auto">' +
-                                    // '<a href="' +
-                                    // data[i].LINK +
-                                    // '" target="_blank">' +
-                                    // '<img style="margin: 0 1em 1em 0; float; width: '+ ((data[i].IMAGESIZE === '') ? 100 : data[i].IMAGESIZE) +'%;display:block;margin-left:auto;margin-right:auto;" class="" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
-                                    // // '<img style= "margin: 0 1em 1em 0; float:left; width: 100%;" class="image featured" src="/images/events/' + data[i].ID + '.jpg" alt="" />' +
-                                    // //<div style="display: block; overflow: auto">' +
-                                    // // <img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' + data[i].ID + '.jpg" alt="" />' +
-                                    // "</a>" +
-                                    // '<p style="margin:0;">' + data[i].TEXT + '</p>' +
-                                    // '</div>' + '<br>' + '<center>' +
-
-									// 	'</div>' +
-                                    // data[i].EVENTABLE +
-                                    // (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '" target="_blank"> ' + data[i].BUTTON_TEXT + '</a> ') +
-
-                                    // // '<div class="dropdown">' +
-                                    // // `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
-                                    // // '<div id="' + data[i].ID + '" class="dropdown-content">' +
-                                    // // `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` +
-                                    // // '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
-                                    // // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
-                                    // // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
-
-                                    // "</div>" +
-                                    // "</div>" +
-                                    // "</center>" +
-                                    // // <!-- Button code -->
-                                    // '</section>'
 
                                 ));
 

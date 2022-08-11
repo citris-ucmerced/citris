@@ -4,8 +4,9 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function($) {
 
+(function($) {
+	
 	skel
 		.breakpoints({
 			desktop: '(min-width: 737px)',
@@ -62,7 +63,9 @@
 				$(
 					'<div id="titleBar">' +
 						'<a href="#navPanel" class="toggle"></a>' +
-						'<span class="title">' + $('#logo').html() + '</span>' +
+						(((typeof($('#logo').html())) == 'undefined') ? '<span class="title">Citris</span>' :  '<span class="title">' + $('#logo').html() + '</span>') + 
+						// '<span class="title">' + $('#logo').html() + '</span>' +
+						// '<span class="title">Citris</span>' +
 					'</div>'
 				)
 					.appendTo($body);

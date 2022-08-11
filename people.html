@@ -36,6 +36,15 @@
                                 </header>
                                 <section id="people">
                                     <span class="image featured"><img src="images/about-banner.jpg" alt="" /></span>
+                                    <div style="margin-top:5em">
+                                        <hr>
+                                        <a style="text-decoration: none;" href="https://www.ucmerced.edu/content/joshua-viers"><img class="image feature featuredmobile" style="float:left; margin: 0 15px 0 0 !important; width:25%" src="images/people/josh-viers.jpg" alt="">
+                                        <h2 style="color: #6b7770; margin-bottom: 0.25em;">Joshua Viers, PHD</h2>
+                                        <p style="margin-bottom: 0.5em;">Director</p>
+                                        </a>
+                                        <p>Dr. Joshua (Josh) Viers became the Director of Center for Information Technology Research in the Interest of Society (CITRIS) at UC Merced after joining the CITRIS leadership team in August 2013. Dr. Viers is a Professor of Water Resources Management in the School of Engineering at UC Merced where he also serves as the Associate Dean for Research. Josh has led UC Merced's efforts to build an Experimental Smart Farm, develop a joint industry-university consortium on ag-food-tech research, and convene several universities in developing water accounting methods to secure a climate-resilient water future. He teaches environmental engineering with a focus on water resources management, geospatial analytics, ecosystem restoration, and sustainability. </p>
+                                        
+                                    </div>
                                 </section>
                             </article>
                         </div>
@@ -80,9 +89,15 @@
                         default:
                             $("#people").append(
                                 $.parseHTML(
-                                    '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">' +
-                                    '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>' +
-                                    '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="">' +
+                                    ((window.innerWidth < 550) ? 
+                                    '<div style="margin-bottom:25px;display:inline-block;width:50%;height:20em;padding:4px;vertical-align:top;">' :
+                                    '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">') +
+                                    (((data[i].LINK).toString() === '') ? '<a href="' + data[i].LINK + '" style="pointer-events: none; text-decoration: none"  target=_blank>' :  '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>') +
+                                    '<img class="image featured featuredmobile" src="images/people/' + data[i].ID + '.jpg" alt="">' +
+
+                                    // '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">' +
+                                    // (((data[i].LINK).toString() === '') ? '<a href="' + data[i].LINK + '" style="pointer-events: none; text-decoration: none"  target=_blank>' :  '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>') +
+                                    // '<img class="image featured" src="images/people/' + data[i].ID + '.jpg" alt="">' +
                                     '<center>' +
                                     '<h3 style="margin-top: -20px;">' +
                                     data[i].NAME +
@@ -91,7 +106,6 @@
                                     data[i].TITLE +
                                     '</p>' +
                                     '</center>' +
-                                    '</a>' +
                                     '</div>'
                                 ));
                             break;
