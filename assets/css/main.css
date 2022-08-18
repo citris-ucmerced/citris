@@ -88,12 +88,68 @@
 	.container {
 		width: 960px;
 	}
-/* Initiatives */
-/* #initiatives
+	/* Initiatives */
+@media screen and (min-width: 937px) {	
+	.containerbrowser{
+		justify-content: center; 
+		display: block;
+	}
+	.initimg img{
+		width: 90% !important;
+	}
+	.desc{
+		text-align: center;
+		font-weight: normal;
+		width: 100%;
+		margin: 0px;
+		visibility:hidden;
+		/* color: white */
+	}
+	.initimg:hover .desc {
+		visibility:visible;
+	}
+	.initimg:hover img{
+		width:100% !important;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+	}
+	div.initimg img {max-width:100%;}
+	div.initimg{
+		padding: 8px;
+		box-sizing: border-box;
+		padding-top: 37px;
+		/* background: #4D82B7; */
+		line-height: 0px;
+		height: auto;
+		float: left;
+		text-align: center;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+		/* border-radius: 60px; */
+	}	
+	div.initimg:hover{line-height:30px;font-size:16px;}
+	div.initimg img
+	{
+		display: inline-block;
+		margin: 3px;
+	}
 
-{
-	margin : auto;
-} */
+	@keyframes bgfade
+	{
+	0%   {opacity:0;}
+	100% {opacity:1;}
+	}
+
+	@-webkit-keyframes bgfade
+	{
+	0%   {opacity:0;}
+	100% {opacity:1;}
+	}
+}
 
 /* Valle Hosts */
 .vallehost {
