@@ -203,15 +203,15 @@
 	animation: 11s slideshow-hero-mobile -3s infinite;
 }
 .slideshow--hero .slide1 {
-	background-image: url("../../images/banners/banner.jpg");
+	/* background-image: url("../../images/banners/banner.jpg"); */
 	animation: 20s slides-set-1 -0.1s infinite;
 }
 .slideshow--hero .slide2 {
-	background-image: url("../../images/banners/Beginnings_Jan4_morning-1.jpg");
+	/* background-image: url("../../images/banners/Beginnings_Jan4_morning-1.jpg"); */
 	animation: 20s slides-set-2 -0.1s infinite;
 }
 .slideshow--hero .slide3 {
-	background-image: url("../../images/banners/SREbanner.jpg");
+	/* background-image: url("../../images/banners/SREbanner.jpg"); */
 	animation: 20s slides-set-3 -0.1s infinite;
 }
 @media (min-width: 600px) {
@@ -255,15 +255,15 @@
 	animation: 14s slideshow-contrast -5s infinite;
 }
 .slideshow--contrast .slide1 {
-	background-image: linear-gradient(to bottom, #4d82b75b 0, #4d82b794 100%), url("../../images/banners/banner.jpg");
+	/* background-image: linear-gradient(to bottom, #4d82b75b 0, #4d82b794 100%), url("../../images/banners/banner.jpg"); */
 	animation: 20s slides-set-1 -0.2s infinite;
 }
 .slideshow--contrast .slide2 {
-	background-image: linear-gradient(to bottom, #4d82b75b 0, #4d82b794 100%), url("../../images/banners/Beginnings_Jan4_morning-1.jpg");
+	/* background-image: linear-gradient(to bottom, #4d82b75b 0, #4d82b794 100%), url("../../images/banners/Beginnings_Jan4_morning-1.jpg"); */
 	animation: 20s slides-set-2 -0.2s infinite;
 }
 .slideshow--contrast .slide3 {
-	background-image: linear-gradient(to bottom, #4d82b75b 0, #4d82b794 100%), url("../../images/banners/SREbanner.jpg");
+	/* background-image: linear-gradient(to bottom, #4d82b75b 0, #4d82b794 100%), url("../../images/banners/SREbanner.jpg"); */
 	animation: 20s slides-set-3 -0.2s infinite;
 }
 .slideshow--contrast--after {
