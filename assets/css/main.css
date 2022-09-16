@@ -1010,17 +1010,18 @@ figure.news {
 	position: relative;
     overflow: hidden;
     margin: auto;
-    width: 50%;
+    width: 84%;
     padding-top: 30%;
+	height: 600px;
 }
   
   /* Then style the iframe to fit in the container div with full height and width */
 .responsive-iframe {
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
 	width: 100%;
 	height: 100%;
 }
