@@ -70,7 +70,10 @@
     <!-- Copyright -->
     <div id="copyright">
         <ul class="menu">
-            <li>&copy; CITRIS 2019</li>
+            <li>&copy; CITRIS <span id=year></li>
+                <script>
+                    document.getElementById("year").innerHTML = new Date().getFullYear();
+                </script>
             <li><a href="mailto:citris@ucmerced.edu">Contact Us</a></li>
         </ul>
     </div>
