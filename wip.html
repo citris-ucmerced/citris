@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CITRIS and the Banatao Institute at UC Merced</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="icon" href="images/favicon.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://citris.ucmerced.edu/wip" />
+        <meta property="og:title" content="CITRIS Workforce Innovation Program" />
+        <meta property="og:description" content="The CITRIS Workforce Innovation Program helps UC students pursue world-changing research and accelerate their careers." />
+        <meta property="og:site-name" content="CITRIS" />
+    </head>
+    
+    <body class="homepage">
+        <div id="page-wrapper">
+            <header id="header">
+                <div class="logo container">
+                    <div>
+                        <h1 id="logo">Workforce Innovation Program</h1>
+                    </div>
+                </div>
+            </header>
+
+            <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+            <nav id="nav"></nav>
+
+            <!-- Banner -->
+            <span class="image featured">
+                <img src="https://citris-uc.org/wp-content/uploads/2022/01/workforce-innovation-banner-2023-1540x238px.png"
+            </span>
+
+            <!-- Main -->
+            <div id="main-wrapper">
+                <div id="main" class="container">
+                    <div class="row">
+                        <div class="12u">
+                            <div class="content">
+                                <article class="box page-content">
+                                    <section>
+                                        
+                                    </section>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+            <div id="footer"></div>
+        
+        </div>
+        
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/skel-viewport.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+        <script>
+            $(function () {
+                $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+                $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+                $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+            });
+        </script>
+        
+    </body>
+</html>
