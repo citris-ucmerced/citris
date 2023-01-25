@@ -572,6 +572,7 @@
           if (data[i].ID.substring(0, 2) != "//")
             switch (data[i].ID) {
               default:
+                var url = new URL(data[i].LINK);
                 $("#news").append(
                   $.parseHTML(
                     '<figure class="news">' +
@@ -579,7 +580,7 @@
                       '<img src="images/news/' + data[i].ID + '.jpg" alt="">') +
                     '</div>' +
                     '<figcaption>' +
-                    '<h3>' + data[i].TITLE + '</h3>' +
+                    '<h3>' + data[i].TITLE + (url.hostname == "citris.ucmerced.edu"? "":" &#10697") + '</h3>' +
                     '<p>' + data[i].DESCRIPTION + '</p>' +
                     '</figcaption>' +
                     '<footer>' +
