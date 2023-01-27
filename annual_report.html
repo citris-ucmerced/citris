@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CITRIS and the Banatao Institute @ UC Merced</title>
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script type="text/javascript" src="assets/js/ics.js"></script>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+<style>
+
+</style>
+<body class="homepage">
+    <div id="page-wrapper">
+
+        <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+    <nav id="nav"></nav>
+
+        <header id="header">
+            <div class="logo container">
+            
+                <div>
+                    <h1 id="logo">Annual Report</h1>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    
+    
+
+    <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+    <div id="footer"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.csv.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/skel-viewport.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+
+        // Calendar
+        function toggleDropdown(ID) {
+            document.getElementById(ID).classList.toggle("show");
+        }
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches(".dropbtn")) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                    }
+                }
+            }
+        };
+
+        function generateICSFile(title, description) {
+            let calEntry = icsFormatter();
+
+            let event = {
+                title,
+                description,
+                location: "University of California, Merced"
+            }
+
+            var begin = Date.now();
+            var end = new Date(begin + 30 * 60000);
+
+            calEntry.addEvent(
+                event.title,
+                event.description,
+                event.location,
+                begin,
+                end
+            );
+            console.log(event);
+            calEntry.download((event.title).toString());
+        }
+
+        $(function () {
+            $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+            $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+            only_recent_events = true;
+            finished_recent_events = false;
+    
+
+            $.get("events.csv").then(function (text, status, xhr) {
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
+                    // if (data[i].DATA > Date.now()){move to old}
+                    if (only_recent_events && finished_recent_events) break;
+                    switch (data[i].ID) {
+                        case "OLD":
+                            finished_recent_events = true;
+                            break;
+                        default:
+                            $("#events").append(
+                                $.parseHTML(
+                                    '<div>' +
+                                    '<figure class="news_hor">' +
+                                        (((data[i].ID).toString() === '') ? '' :  '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
+                                        '<figcaption>' +
+                                            (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
+                                            '<p>' + data[i].TEXT + '</p>' +
+                                            (((data[i].LOCATION).toString() === '') ? '' :  '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
+                                            (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
+                                            (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
+                                            (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
+                                            '<footer>'+ 
+                                                '<div class="hor_date">' + data[i].DATES + '</div>'+
+                                            '</footer>'+
+                                        '</figcaption>'+
+                                    '</figure>'+
+                                    '<br>'+
+                                    '</div>'
+
+                                ));
+
+                            break;
+                        }
+                    }
+            });
+        });
+    </script>
+</body>
+</html>
