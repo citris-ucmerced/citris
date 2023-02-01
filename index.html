@@ -464,6 +464,7 @@
   <script src="assets/js/util.js"></script>
   <script src="assets/js/slider.js"></script>
   <script src="assets/js/slideshow.js"></script>
+  <script src="assets/js/event-populator.js"></script>
   <!--[if lte IE 8
       ]><script src="assets/js/ie/respond.min.js"></script
     ><![endif]-->
@@ -529,42 +530,9 @@
         "snippets/footer.html"
       ); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
 
-      only_recent_events = true;
-      finished_recent_events = false;
-      $.get("events.csv").then(function (text, status, xhr) {
-        var data = $.csv.toObjects(text);
-        for (var i = 0; i < data.length; i++) {
-          if (only_recent_events && finished_recent_events) break;
-          switch (data[i].ID) {
-            case "OLD":
-              finished_recent_events = true;
-              break;
-            default:
-              $("#events").append(
-                $.parseHTML(
-                  '<div>' +
-                  '<figure class="news_hor">' +
-                      (((data[i].ID).toString() === '') ? '' :  '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
-                      '<figcaption>' +
-                          (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
-                          '<p>' + data[i].TEXT + '</p>' +
-                          (((data[i].LOCATION).toString() === '') ? '' :  '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
-                          (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
-                          (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
-                          (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
-                          '<footer>'+ 
-                              '<div class="hor_date">' + data[i].DATES + '</div>'+
-                          '</footer>'+
-                      '</figcaption>'+
-                  '</figure>'+
-                  '<br>'+
-                  '</div>'
+      //events populated by event-populator.js
+      populateEvents($("#events"), true);
 
-              ));
-              break;
-          }
-        }
-      });
       $.get("/news.csv").then(function (text, status, xhr) {
         var data = $.csv.toObjects(text);
         // for (var i = 0; i < data.length; i++) {
