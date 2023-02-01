@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <script type="text/javascript" src="assets/js/ics.js"></script>
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    
+    <script src="assets/js/event-populator.js"></script>
 </head>
 
 <body class="homepage">
@@ -128,54 +130,9 @@
             $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-            old_events = false;
-            $.get("events.csv").then(function (text, status, xhr) {
-                var data = $.csv.toObjects(text);
-                for (var i = 0; i < data.length; i++) {
-                    if (!old_events) {
 
-                    } else {
-                        $("#events").append(
-                            $.parseHTML(
-                                '<div>' +
-                                    '<figure class="news_hor">' +
-                                        (((data[i].ID).toString() === '') ? '' :  '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
-                                        '<figcaption>' +
-                                            (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
-                                            '<p>' + data[i].TEXT + '</p>' +
-                                            (((data[i].LOCATION).toString() === '') ? '' :  '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
-                                            (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
-                                            (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
-                                            (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
-                                            '<footer>'+ 
-                                                '<div class="hor_date">' + data[i].DATES + '</div>'+
-                                            '</footer>'+
-                                        '</figcaption>'+
-                                    '</figure>'+
-                                    '<br>'+
-                                '</div>'
-
-
-                                // '</div>' + '<br>' + '<center>' +
-                                // data[i].EVENTABLE +
-                                // (((data[i].LINK).toString() === 'NO_BUTTON') ? '' : '<center> <a class="button" href="' + data[i].LINK + '" target="_blank"> ' + data[i].BUTTON_TEXT + '</a> ') +
-
-                                // '<div class="dropdown">' +
-                                // `<button onclick="toggleDropdown('${data[i].ID}')" class="dropbtn"> <i class="fa fa-calendar-o" aria-hidden="true"></i> Add to Calendar</button>` +
-                                // '<div id="' + data[i].ID + '" class="dropdown-content">' +
-                                // `<a href="http://www.google.com/calendar/render?action=TEMPLATE&text=${data[i].TITLE}&dates=${data[i].DATES}&details=${data[i].TEXT}&location=${data[i].LOCATION}">` +
-                                // '<i class="fa fa-google" aria-hidden="true"></i> Google</a>' +
-                                // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}','${data[i].LOCATION}')"><i class="fa fa-apple" aria-hidden="true"></i> iCalendar</a>` +
-                                // `<a onclick="generateICSFile('${data[i].TITLE}', '${data[i].TEXT}')"> <i class="fa fa-windows" aria-hidden="true"></i> Outlook</a` +
-
-
-                            ));
-                    }
-                    if(data[i].ID == 'OLD'){
-                        old_events = true;
-                    }
-                }
-            });
+            //events populated by event-populator.js
+            populateEvents($("#events"), false);
         });
     </script>
 </body>
