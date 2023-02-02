@@ -799,6 +799,7 @@
 	vertical-align:top;
 }
 
+
 /* News Page */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
@@ -3927,3 +3928,26 @@ div#FAQ ol ol li{
 			}
 
 	}
+
+/* Annual Report */
+
+.annual_reports {
+	all:revert;
+
+}
+
+.annual_reports li{
+	text-align: center;
+}
+
+.annual_reports img{
+	border-style: solid;
+	border-width: 3px;
+	border-color:black;
+	width:40%;
+	margin-bottom:3.2rem;
+}
+
+.annual_reports img:hover{
+	transform: scale(1.05);
+}
