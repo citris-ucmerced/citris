@@ -799,6 +799,7 @@
 	vertical-align:top;
 }
 
+
 /* News Page */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
@@ -935,7 +936,7 @@ figure.news {
 }
 
 /* Events */
-.news_hor {
+.event {
     position: relative;
     overflow: hidden;
     margin: auto;
@@ -948,7 +949,50 @@ figure.news {
     display: flex;
 }
 
-.news_hor img {
+.event h3 {
+    text-transform: none;
+    font-weight: 600;
+    margin: 3px 0;
+}
+
+.event footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.065);
+    padding: 0 20px;
+    font-size: 13px;
+    line-height: 50px;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.event_date {
+    float: right;
+    margin-left: 50%;
+}
+
+/* horiz */
+.event_horiz{
+	flex-direction: column;
+}
+
+.event_horiz img {
+    width: 100%;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.event_horiz figcaption {
+    padding: 5%;
+    padding-bottom: 73px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* vert */
+
+.event_vert img {
     width: 50%;
     float: left;
     position: relative;
@@ -958,7 +1002,8 @@ figure.news {
     padding-right: 30px;
     z-index: 1;
 }
-.news_hor img[alt]:after {  
+
+.event_vert img[alt]:after {  
 	
 	display: block;
 	position: absolute;
@@ -972,37 +1017,14 @@ figure.news {
 	line-height: 2;  
 	text-align: center;
 	content: attr(alt);
-  }
+}
 
 
-.news_hor figcaption {
+.event_vert figcaption {
     padding: 5%;
     padding-bottom: 73px;
     width: 100%;
     background-color: #ffffff;
-}
-
-.news_hor h3 {
-    text-transform: none;
-    font-weight: 600;
-    margin: 3px 0;
-}
-
-.news_hor footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.065);
-    padding: 0 20px;
-    font-size: 13px;
-    line-height: 50px;
-    text-align: left;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-.hor_date {
-    float: right;
-    margin-left: 50%;
 }
 
 /* Video */
@@ -3429,12 +3451,12 @@ div#FAQ ol ol li{
 			cursor: default;
 		}
 
-		/* Events Page */
-			.news_hor {
+		/* Events */
+			.event_vert {
 				display: grid;
 			}
 
-			.news_hor img {
+			.event_vert img {
 				width:100%;
 				padding: 5%;
 			}
@@ -3927,3 +3949,26 @@ div#FAQ ol ol li{
 			}
 
 	}
+
+/* Annual Report */
+
+.annual_reports {
+	all:revert;
+
+}
+
+.annual_reports li{
+	text-align: center;
+}
+
+.annual_reports img{
+	border-style: solid;
+	border-width: 3px;
+	border-color:black;
+	width:40%;
+	margin-bottom:3.2rem;
+}
+
+.annual_reports img:hover{
+	transform: scale(1.05);
+}
