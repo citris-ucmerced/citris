@@ -115,7 +115,13 @@
 		-o-transition: all 0.5s ease;
 		transition: all 0.5s ease;
 	}
-	div.initimg img {max-width:100%;}
+	div.initimg img {
+		display: inline-block;
+		max-width:100%;
+	}
+	div.initimg img.image.featured{
+		margin: 2em auto; 
+	}
 	div.initimg{
 		padding: 8px;
 		box-sizing: border-box;
@@ -132,11 +138,6 @@
 		/* border-radius: 60px; */
 	}	
 	div.initimg:hover{line-height:30px;font-size:16px;}
-	div.initimg img
-	{
-		display: inline-block;
-		margin: 3px;
-	}
 
 	@keyframes bgfade
 	{
@@ -3538,8 +3539,6 @@ div#FAQ ol ol li{
 				margin-left: auto !important;
 				margin-right: auto !important;
 				width: 50% !important;
-				margin-top: 0 !important;
-				margin-bottom: 0 !important;
 			}
 
 		/* Button */
