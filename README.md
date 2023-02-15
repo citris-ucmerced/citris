@@ -25,5 +25,5 @@ When in doubt, base any sizes off of pre-existing images to ensure consistency.
 # Acknowledgements 
 
 Website created by Brian Hungerman, Web Developer at CITRIS. <br>
-Website maintained by Shivneel Chand, Web Developer Intern at CITRIS. <br>
+Website maintained by [Alonso Ortiz](https://github.com/alonso-ov) & [David Choi](https://github.com/dyc-github), Web Developer Interns at CITRIS. <br>
 Website template by HTML5UP.
