@@ -1,0 +1,13 @@
+.search-wrapper {
+    text-align: center;
+    border-radius: 1.5rem;
+}
+
+#search {
+    padding:0 0.5rem 0 0.5rem;
+    margin:1.5rem;
+    border-radius: 0.75rem;
+    width: 40%;
+    max-width: 40%;
+    box-shadow: 0 0 20px rgb(0, 0, 0, 21%);
+}

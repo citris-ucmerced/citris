@@ -804,6 +804,11 @@
 /* News Page */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+.news-cards-container {
+	text-align: center;
+}
+
 .test {
 	margin: 0 !important;
 }
