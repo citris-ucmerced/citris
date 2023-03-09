@@ -1,0 +1,15 @@
+.poster-container {
+    position: relative;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .poster-container img {
+    min-width: 40%;
+    max-width: 40%;
+  }
+
+ul {
+    all: revert;
+}
