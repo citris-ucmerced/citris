@@ -1,6 +1,6 @@
 
 async function populateEvents(eventsContainer, onlyRecentEvent) {
-  var text = await $.get("events.csv");    
+  var text = await $.get("events.csv");
   var data = $.csv.toObjects(text);
   for (var i = 0; i < data.length; i++) {
     if(data[i].ID.toString() === "OLD"){
@@ -15,7 +15,7 @@ async function populateEvents(eventsContainer, onlyRecentEvent) {
       if (img !== null) {
         isVert = img.height > img.width;
       }
-        
+
       var event = $.parseHTML(
         '<div>' +
         '<figure class="event '  +  ((isVert) ? 'event_vert' : 'event_horiz') +'">' +
@@ -26,7 +26,7 @@ async function populateEvents(eventsContainer, onlyRecentEvent) {
                 (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
                 (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
                 (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
-                '<footer>'+ 
+                '<footer>'+
                     '<div class="event_date">' + data[i].DATES + '</div>'+
                 '</footer>'+
             '</figcaption>'+
@@ -36,10 +36,10 @@ async function populateEvents(eventsContainer, onlyRecentEvent) {
       );
 
       if(img !== null){
-        $(event).children("figure").prepend(img); 
+        $(event).children("figure").prepend(img);
       }
       eventsContainer.append(event);
-    } 
+    }
   }
 }
 
@@ -51,7 +51,7 @@ function loadImage(eventData){
     }
     else{
       var img = new Image();
-      img.src = '/images/events/' + eventData.ID + '.jpg';
+      img.src = '../images/events/' + eventData.ID + '.jpg';
       img.onload = () => resolve(img);
       img.onerror = reject;
     }
