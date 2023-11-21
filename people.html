@@ -38,12 +38,32 @@
                                     <span class="image featured"><img src="images/about-banner.jpg" alt="" /></span>
                                     <div style="margin-top:5em">
                                         <hr>
-                                        <a style="text-decoration: none;" href="https://www.ucmerced.edu/content/joshua-viers"><img class="image feature featuredmobile" style="float:left; margin: 0 15px 0 0 !important; width:25%" src="images/people/josh-viers.jpg" alt="">
-                                        <h2 style="color: #6b7770; margin-bottom: 0.25em;">Joshua Viers, PHD</h2>
-                                        <p style="margin-bottom: 0.5em;">Director</p>
+                                        <a style="text-decoration: none;"
+                                            href="https://www.ucmerced.edu/content/erin-hestir"><img
+                                                class="image feature featuredmobile"
+                                                style="float:left; margin: 0 15px 0 0 !important; width:30%"
+                                                src="images/people/erin-hestir.jpg" alt="">
+                                            <h2 style="color: #6b7770; margin-bottom: 0.25em;">Erin Hestir, PHD</h2>
+                                            <p style="margin-bottom: 0.5em;">Director</p>
                                         </a>
-                                        <p>Dr. Joshua (Josh) Viers became the Director of Center for Information Technology Research in the Interest of Society (CITRIS) at UC Merced after joining the CITRIS leadership team in August 2013. Dr. Viers is a Professor of Water Resources Management in the School of Engineering at UC Merced where he also serves as the Associate Dean for Research. Josh has led UC Merced's efforts to build an Experimental Smart Farm, develop a joint industry-university consortium on ag-food-tech research, and convene several universities in developing water accounting methods to secure a climate-resilient water future. He teaches environmental engineering with a focus on water resources management, geospatial analytics, ecosystem restoration, and sustainability. </p>
-                                        
+                                        <p>
+                                            Dr. Erin Hestir assumed the role of Director for the Center for Information
+                                            Technology Research in the Interest of Society (CITRIS) & the Banatao
+                                            Institute at UC Merced in August 2023. Formerly Associate Director of the
+                                            institute, she emphasizes interdisciplinary research for societal benefit.
+                                            As Associate Director, Hestir institutionalized the Valle! Get your start in
+                                            tech! education program and brought remote sensing programming to
+                                            undergraduate students in the Central Valley. She is an Associate Professor
+                                            for Civil and Environmental Engineering and a faculty member in the
+                                            Environmental Systems Graduate Group. Through her lab, Earth Observation and
+                                            Remote Sensing, Hestir's leadership extends to pioneering geomatics and
+                                            sensing solutions for agricultural and environmental challenges. Her
+                                            impactful work includes leading NASA's BioSCape biodiversity campaign and
+                                            transforming agriculture through technology with the NSF Engineering
+                                            Research Center for IoT4Ag. With a Ph.D. in Geography from UC Davis, Hestir
+                                            brings diverse international expertise to her role.
+                                        </p>
+                                        </hr>
                                     </div>
                                 </section>
                             </article>
@@ -89,10 +109,10 @@
                         default:
                             $("#people").append(
                                 $.parseHTML(
-                                    ((window.innerWidth < 550) ? 
-                                    '<div style="margin-bottom:25px;display:inline-block;width:50%;height:20em;padding:4px;vertical-align:top;">' :
-                                    '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">') +
-                                    (((data[i].LINK).toString() === '') ? '<a href="' + data[i].LINK + '" style="pointer-events: none; text-decoration: none"  target=_blank>' :  '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>') +
+                                    ((window.innerWidth < 550) ?
+                                        '<div style="margin-bottom:25px;display:inline-block;width:50%;height:20em;padding:4px;vertical-align:top;">' :
+                                        '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">') +
+                                    (((data[i].LINK).toString() === '') ? '<a href="' + data[i].LINK + '" style="pointer-events: none; text-decoration: none"  target=_blank>' : '<a href="' + data[i].LINK + '" style="text-decoration: none"  target=_blank>') +
                                     '<img class="image featured featuredmobile" src="images/people/' + data[i].ID + '.jpg" alt="">' +
 
                                     // '<div style="display:inline-block;width:20%;height:24em;padding:4px;vertical-align:top;">' +
