@@ -37,8 +37,10 @@
                     <div class="12u">
                         <div class="content">
                             <p>
-                                CITRIS strives to provide undergraduate students with an opportunity for self-directed learning, and professional development
-                                within a higher education institutional context. These activities serve to develop awareness about professional development 
+                                CITRIS strives to provide undergraduate students with an opportunity for self-directed
+                                learning, and professional development
+                                within a higher education institutional context. These activities serve to develop
+                                awareness about professional development
                                 options in order for students to develop career pathways and set goals.
                             </p>
                             <div id="projects"></div>
@@ -55,7 +57,7 @@
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.csv.min.js"></script>
+    <script src="assets/js/jquery.csv.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
@@ -67,60 +69,60 @@
             $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
             $.get("/student-programs.csv").then(function (text, status, xhr) {
-				var data = $.csv.toObjects(text);
-				for (var i = 0; i < data.length; i++) {
-					switch (data[i].AUTHOR_ID) {
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
+                    switch (data[i].AUTHOR_ID) {
                         case "":
-                        $("#projects").append(
-								$.parseHTML(
-									'<section class="box features">' +
-                                        '<header>' +
-                                            '<h2>' +
-                                                data[i].TITLE +
-                                            '</h2>' + 
-                                        '</header>' + 
-                                        '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" />' +
-                                        '<p style="text-align: justify; text-justify: inter-word;">' +
-                                            data[i].TEXT +
-                                        '</p>' +
+                            $("#projects").append(
+                                $.parseHTML(
+                                    '<section class="box features">' +
+                                    '<header>' +
+                                    '<h2>' +
+                                    data[i].TITLE +
+                                    '</h2>' +
+                                    '</header>' +
+                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" />' +
+                                    '<p style="text-align: justify; text-justify: inter-word;">' +
+                                    data[i].TEXT +
+                                    '</p>' +
                                     '</section>'
-								));
+                                ));
                             break;
-						default:
-							$("#projects").append(
-								$.parseHTML(
-									'<section class="box features">' +
-                                        '<header>' +
-                                            '<a href=/'+data[i].LINK+'>'+
-                                            '<h2>' +
-                                                data[i].TITLE +
-                                            '</h2></a>' + 
-                                        '</header>' + 
-                                        '<table>' +
-                                            '<tr>' +
-                                                '<th style="width:74.5%">' +
-                                                    '<a href=/'+data[i].LINK+'>'+
-                                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" /></a>' +
-                                                    '<p style="text-align: justify; text-justify: inter-word;">' +
-                                                        data[i].TEXT +
-                                                    '</p>' +
-                                                '</th>' +
-                                                '<th style="width:25.5%">' +
-                                                    '<img style="float:top" class="image featured" src="images/people/' + data[i].AUTHOR_ID + '.jpg" alt="" />' +
-                                                    '<p style="margin:0;">' +
-                                                        data[i].AUTHOR +
-                                                    '</p>' +
-                                                    '<p>' +
-                                                        data[i].POSITION +
-                                                    '</p>' +
-                                                '</th>' +
-                                            '</tr>' +
-                                        '</table>' +
+                        default:
+                            $("#projects").append(
+                                $.parseHTML(
+                                    '<section class="box features">' +
+                                    '<header>' +
+                                    '<a href=/' + data[i].LINK + '>' +
+                                    '<h2>' +
+                                    data[i].TITLE +
+                                    '</h2></a>' +
+                                    '</header>' +
+                                    '<table>' +
+                                    '<tr>' +
+                                    '<th style="width:74.5%">' +
+                                    '<a href=/' + data[i].LINK + '>' +
+                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" /></a>' +
+                                    '<p style="text-align: justify; text-justify: inter-word;">' +
+                                    data[i].TEXT +
+                                    '</p>' +
+                                    '</th>' +
+                                    '<th style="width:25.5%">' +
+                                    '<img style="float:top" class="image featured" src="images/people/' + data[i].AUTHOR_ID + '.jpg" alt="" />' +
+                                    '<p style="margin:0;">' +
+                                    data[i].AUTHOR +
+                                    '</p>' +
+                                    '<p>' +
+                                    data[i].POSITION +
+                                    '</p>' +
+                                    '</th>' +
+                                    '</tr>' +
+                                    '</table>' +
                                     '</section>'
-								));
-							break;
-					}
-				}
+                                ));
+                            break;
+                    }
+                }
             });
         });
     </script>

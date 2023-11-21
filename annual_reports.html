@@ -14,15 +14,16 @@
 <style>
 
 </style>
+
 <body class="homepage">
     <div id="page-wrapper">
 
         <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
-    <nav id="nav"></nav>
+        <nav id="nav"></nav>
 
         <header id="header">
             <div class="logo container">
-            
+
                 <div>
                     <h1 id="logo">Annual Reports</h1>
                 </div>
@@ -32,33 +33,41 @@
         <div id="main-wrapper">
             <div id="main" class="container">
 
-                <h1 >Overview</h1>
+                <h1>Overview</h1>
                 <p>
-                    In the biennial CITRIS Impact Report, the CITRIS organization showcases research, outreach, education and community partnerships at UC Merced.
+                    In the biennial CITRIS Impact Report, the CITRIS organization showcases research, outreach,
+                    education and community partnerships at UC Merced.
                     <br><br>
-                    The CITRIS UC Merced portfolio covers society's greatest challenges and opportunities for technology to improve, including climate change, robotics, diversity and gender equity in tech, and food and agriculture. In the report, readers will find the benefits of next generation tech inspiration programming, from undergraduates accessing internships to local robotics and computer programming.
+                    The CITRIS UC Merced portfolio covers society's greatest challenges and opportunities for technology
+                    to improve, including climate change, robotics, diversity and gender equity in tech, and food and
+                    agriculture. In the report, readers will find the benefits of next generation tech inspiration
+                    programming, from undergraduates accessing internships to local robotics and computer programming.
                     <br><br>
-                    The CITRIS Impact Report celebrates the work and efforts made by the CITRIS team, especially the researchers and creative undergraduate interns.
+                    The CITRIS Impact Report celebrates the work and efforts made by the CITRIS team, especially the
+                    researchers and creative undergraduate interns.
                 </p>
 
                 <br>
 
                 <div class="annual_reports">
                     <ul>
-                        <li><a href="/pdfs/Impact_Report_2019-2022.pdf"><img src="images/annual_report/Impact_Report_2019-2022_Cover.jpg"></a></li>
-                        <li><a href="/pdfs/Impact_Report_2017-2018.pdf"><img src="images/annual_report/Impact_Report_2017-2018_Cover.jpg"></a></li>
-                        <li><a href="/pdfs/Impact_Report_2014-2016.pdf"><img src="images/annual_report/Impact_Report_2014-2016_Cover.jpg"></a></li>
+                        <li><a href="/pdfs/Impact_Report_2019-2022.pdf"><img
+                                    src="images/annual_report/Impact_Report_2019-2022_Cover.jpg"></a></li>
+                        <li><a href="/pdfs/Impact_Report_2017-2018.pdf"><img
+                                    src="images/annual_report/Impact_Report_2017-2018_Cover.jpg"></a></li>
+                        <li><a href="/pdfs/Impact_Report_2014-2016.pdf"><img
+                                    src="images/annual_report/Impact_Report_2014-2016_Cover.jpg"></a></li>
                     </ul>
                 </div>
 
             </div>
 
-            
+
         </div>
     </div>
 
-    
-    
+
+
 
     <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
     <div id="footer"></div>
@@ -121,7 +130,7 @@
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
             only_recent_events = true;
             finished_recent_events = false;
-    
+
 
             $.get("events.csv").then(function (text, status, xhr) {
                 var data = $.csv.toObjects(text);
@@ -137,30 +146,31 @@
                                 $.parseHTML(
                                     '<div>' +
                                     '<figure class="news_hor">' +
-                                        (((data[i].ID).toString() === '') ? '' :  '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
-                                        '<figcaption>' +
-                                            (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
-                                            '<p>' + data[i].TEXT + '</p>' +
-                                            (((data[i].LOCATION).toString() === '') ? '' :  '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
-                                            (((data[i].EVENTABLE).toString() === '') ? '' :  '<center><p>' + data[i].EVENTABLE + '</p></center>') +
-                                            (((data[i].PDF_ID).toString() === '') ? '' :  '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
-                                            (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' +  data[i].BUTTON_TEXT + '</a></center>') +
-                                            '<footer>'+ 
-                                                '<div class="hor_date">' + data[i].DATES + '</div>'+
-                                            '</footer>'+
-                                        '</figcaption>'+
-                                    '</figure>'+
-                                    '<br>'+
+                                    (((data[i].ID).toString() === '') ? '' : '<img src="/images/events/' + data[i].ID + '.jpg" alt="" />') +
+                                    '<figcaption>' +
+                                    (((data[i].HTML_ID).toString() === '') ? '<h3>' + data[i].TITLE + '</h3>' : '<h3><a href="/events/' + data[i].HTML_ID + '" target="_blank">' + data[i].TITLE + '</a></h3>') +
+                                    '<p>' + data[i].TEXT + '</p>' +
+                                    (((data[i].LOCATION).toString() === '') ? '' : '<p><strong>Location:</strong> ' + data[i].LOCATION + '</p>') +
+                                    (((data[i].EVENTABLE).toString() === '') ? '' : '<center><p>' + data[i].EVENTABLE + '</p></center>') +
+                                    (((data[i].PDF_ID).toString() === '') ? '' : '<center><a href="events/pdfs/' + data[i].PDF_ID + '.pdf" download>Download PDF</a></center>') +
+                                    (((data[i].BUTTON_TEXT).toString() === 'NO_BUTTON') ? '' : ((data[i].BUTTON_TEXT).toString() === '') ? '<center><a class="button" href="' + data[i].LINK + '" target="_blank"> Click Here </a></center>' : '<center><a class="button" href="' + data[i].LINK + '" target="_blank">' + data[i].BUTTON_TEXT + '</a></center>') +
+                                    '<footer>' +
+                                    '<div class="hor_date">' + data[i].DATES + '</div>' +
+                                    '</footer>' +
+                                    '</figcaption>' +
+                                    '</figure>' +
+                                    '<br>' +
                                     '</div>'
 
                                 ));
 
                             break;
-                        }
                     }
+                }
             });
         });
     </script>
 
 </body>
+
 </html>

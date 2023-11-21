@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
+
 <body class="homepage">
     <div id="page-wrapper">
         <header id="header">
@@ -30,16 +31,25 @@
                     <div class="12u">
                         <div class="content">
                             <p>
-                                With our cutting-edge laboratories and renowned faculty experts, CITRIS serves as an incubator for translating new ideas
-                                into working prototypes. The combination-information technology research with state-of-the-art
-                                facilities creating products for the benefit of society-distinguishes us from other interdisciplinary
-                                research centers. Our iterative process has four steps Learn: We are committed to meeting
-                                UC's educational mission and sparking the desire to learn among students and faculty alike.
-                                Build: We offer unparalleled facilities to building prototypes and demonstration models for
-                                projects large and small. Launch: Once a proof of concept has been tested and refined, it
-                                is ready to launch to the broader community of experts, agencies or the interested public.
-                                Connect: The final step is to connect these innovators with the sectors or groups that will
-                                benefit and promote adoption or implementation. 
+                                With our cutting-edge laboratories and renowned faculty experts, CITRIS serves as an
+                                incubator for translating new ideas
+                                into working prototypes. The combination-information technology research with
+                                state-of-the-art
+                                facilities creating products for the benefit of society-distinguishes us from other
+                                interdisciplinary
+                                research centers. Our iterative process has four steps Learn: We are committed to
+                                meeting
+                                UC's educational mission and sparking the desire to learn among students and faculty
+                                alike.
+                                Build: We offer unparalleled facilities to building prototypes and demonstration models
+                                for
+                                projects large and small. Launch: Once a proof of concept has been tested and refined,
+                                it
+                                is ready to launch to the broader community of experts, agencies or the interested
+                                public.
+                                Connect: The final step is to connect these innovators with the sectors or groups that
+                                will
+                                benefit and promote adoption or implementation.
                             </p>
                             <div id="seed-grants"></div>
                         </div>
@@ -55,7 +65,7 @@
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.csv.min.js"></script>
+    <script src="assets/js/jquery.csv.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
@@ -68,29 +78,29 @@
             $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
 
             $.get("/seed-grants.csv").then(function (text, status, xhr) {
-				var data = $.csv.toObjects(text);
-				for (var i = 0; i < data.length; i++) {
-					switch (data[i].ID) {
-						default:
-							$("#seed-grants").append(
-								$.parseHTML(
-									'<section class="box features">' +
-                                        '<header>' +
-                                            '<h2>' +
-                                                data[i].TITLE +
-                                            '</h2>' + 
-                                        '</header>' + 
-                                        '<p> Principal Investigator: <a target=_blank href=https://www.ucmerced.edu/content/' + data[i].AUTHOR_ID+'>'+ data[i].AUTHOR+'</a></p>' +
+                var data = $.csv.toObjects(text);
+                for (var i = 0; i < data.length; i++) {
+                    switch (data[i].ID) {
+                        default:
+                            $("#seed-grants").append(
+                                $.parseHTML(
+                                    '<section class="box features">' +
+                                    '<header>' +
+                                    '<h2>' +
+                                    data[i].TITLE +
+                                    '</h2>' +
+                                    '</header>' +
+                                    '<p> Principal Investigator: <a target=_blank href=https://www.ucmerced.edu/content/' + data[i].AUTHOR_ID + '>' + data[i].AUTHOR + '</a></p>' +
 
-                                        '<div style="display: block; overflow: auto">' +
-                                            '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' + data[i].ID + '.jpg" alt="" />' +
-											'<p style="margin:0;">' + data[i].TEXT + '</p>' +
-										'</div>' +
+                                    '<div style="display: block; overflow: auto">' +
+                                    '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' + data[i].ID + '.jpg" alt="" />' +
+                                    '<p style="margin:0;">' + data[i].TEXT + '</p>' +
+                                    '</div>' +
                                     '</section>'
-								));
-							break;
-					}
-				}
+                                ));
+                            break;
+                    }
+                }
             });
         });
     </script>
