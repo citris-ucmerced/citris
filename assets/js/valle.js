@@ -42,6 +42,7 @@ const myFunction = () => {
   document.getElementById("second").style.display = "none";
   document.getElementById("third").style.display = "none";
   document.getElementById("fourth").style.display = "none";
+  document.getElementById("fifth").style.display = "none";
 };
 
 const myFunction2 = () => {
@@ -49,6 +50,7 @@ const myFunction2 = () => {
   document.getElementById("first").style.display = "none";
   document.getElementById("third").style.display = "none";
   document.getElementById("fourth").style.display = "none";
+  document.getElementById("fifth").style.display = "none";
 };
 
 const myFunction3 = () => {
@@ -56,10 +58,19 @@ const myFunction3 = () => {
   document.getElementById("first").style.display = "none";
   document.getElementById("second").style.display = "none";
   document.getElementById("fourth").style.display = "none";
+  document.getElementById("fifth").style.display = "none";
 };
 const myFunction4 = () => {
   document.getElementById("fourth").style.display = "block";
-  document.getElementById("third").style.display = "none";
   document.getElementById("first").style.display = "none";
   document.getElementById("second").style.display = "none";
+  document.getElementById("third").style.display = "none";
+  document.getElementById("fifth").style.display = "none";
+};
+const myFunction5 = () => {
+  document.getElementById("fifth").style.display = "block";
+  document.getElementById("first").style.display = "none";
+  document.getElementById("second").style.display = "none";
+  document.getElementById("third").style.display = "none";
+  document.getElementById("fourth").style.display = "none";
 };
