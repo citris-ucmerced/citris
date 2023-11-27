@@ -1,65 +1,65 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>CITRIS and the Banatao Institute at UC Merced</title>
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8
+      ]><script src="assets/js/ie/html5shiv.js"></script
+    ><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-</head>
+    <!--[if lte IE 8
+      ]><link rel="stylesheet" href="assets/css/ie8.css"
+    /><![endif]-->
+  </head>
 
-<body class="homepage">
+  <body class="homepage">
     <div id="page-wrapper">
-        <header id="header">
-            <div class="logo container">
-                <div>
-                    <h1 id="logo">Seed Grants</h1>
-                </div>
-            </div>
-        </header>
-
-        <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
-        <nav id="nav"></nav>
-
-        <!-- Main -->
-        <div id="main-wrapper">
-            <div id="main" class="container">
-                <div class="row">
-                    <div class="12u">
-                        <div class="content">
-                            <p>
-                                With our cutting-edge laboratories and renowned faculty experts, CITRIS serves as an
-                                incubator for translating new ideas
-                                into working prototypes. The combination-information technology research with
-                                state-of-the-art
-                                facilities creating products for the benefit of society-distinguishes us from other
-                                interdisciplinary
-                                research centers. Our iterative process has four steps Learn: We are committed to
-                                meeting
-                                UC's educational mission and sparking the desire to learn among students and faculty
-                                alike.
-                                Build: We offer unparalleled facilities to building prototypes and demonstration models
-                                for
-                                projects large and small. Launch: Once a proof of concept has been tested and refined,
-                                it
-                                is ready to launch to the broader community of experts, agencies or the interested
-                                public.
-                                Connect: The final step is to connect these innovators with the sectors or groups that
-                                will
-                                benefit and promote adoption or implementation.
-                            </p>
-                            <div id="seed-grants"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <header id="header">
+        <div class="logo container">
+          <div>
+            <h1 id="logo">Seed Grants</h1>
+          </div>
         </div>
+      </header>
 
-        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
-        <div id="footer"></div>
+      <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+      <nav id="nav"></nav>
+
+      <!-- Main -->
+      <div id="main-wrapper">
+        <div id="main" class="container">
+          <div class="row">
+            <div class="12u">
+              <div class="content">
+                <p>
+                  With our cutting-edge laboratories and renowned faculty
+                  experts, CITRIS serves as an incubator for translating new
+                  ideas into working prototypes. The combination-information
+                  technology research with state-of-the-art facilities creating
+                  products for the benefit of society-distinguishes us from
+                  other interdisciplinary research centers. Our iterative
+                  process has four steps Learn: We are committed to meeting UC's
+                  educational mission and sparking the desire to learn among
+                  students and faculty alike. Build: We offer unparalleled
+                  facilities to building prototypes and demonstration models for
+                  projects large and small. Launch: Once a proof of concept has
+                  been tested and refined, it is ready to launch to the broader
+                  community of experts, agencies or the interested public.
+                  Connect: The final step is to connect these innovators with
+                  the sectors or groups that will benefit and promote adoption
+                  or implementation.
+                </p>
+                <div id="seed-grants"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+      <div id="footer"></div>
     </div>
 
     <!-- Scripts -->
@@ -69,41 +69,56 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <!--[if lte IE 8
+      ]><script src="assets/js/ie/respond.min.js"></script
+    ><![endif]-->
     <script src="assets/js/main.js"></script>
     <script>
-        $(function () {
-            $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
-            $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
-            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+      $(function () {
+        $("#nav").load(
+          "snippets/nav.html"
+        ); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+        $("#navPanel").load(
+          "snippets/nav.html"
+        ); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+        $("#footer").load(
+          "snippets/footer.html"
+        ); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
 
-            $.get("/seed-grants.csv").then(function (text, status, xhr) {
-                var data = $.csv.toObjects(text);
-                for (var i = 0; i < data.length; i++) {
-                    switch (data[i].ID) {
-                        default:
-                            $("#seed-grants").append(
-                                $.parseHTML(
-                                    '<section class="box features">' +
-                                    '<header>' +
-                                    '<h2>' +
-                                    data[i].TITLE +
-                                    '</h2>' +
-                                    '</header>' +
-                                    '<p> Principal Investigator: <a target=_blank href=https://www.ucmerced.edu/content/' + data[i].AUTHOR_ID + '>' + data[i].AUTHOR + '</a></p>' +
-
-                                    '<div style="display: block; overflow: auto">' +
-                                    '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' + data[i].ID + '.jpg" alt="" />' +
-                                    '<p style="margin:0;">' + data[i].TEXT + '</p>' +
-                                    '</div>' +
-                                    '</section>'
-                                ));
-                            break;
-                    }
-                }
-            });
+        $.get("/seed-grants.csv").then(function (text, status, xhr) {
+          var data = $.csv.toObjects(text);
+          for (var i = 0; i < data.length; i++) {
+            switch (data[i].ID) {
+              default:
+                $("#seed-grants").append(
+                  $.parseHTML(
+                    '<section class="box features">' +
+                      "<header>" +
+                      "<h2>" +
+                      data[i].TITLE +
+                      "</h2>" +
+                      "</header>" +
+                      "<p> Principal Investigator: <a target=_blank href=https://www.ucmerced.edu/content/" +
+                      data[i].AUTHOR_ID +
+                      ">" +
+                      data[i].AUTHOR +
+                      "</a></p>" +
+                      '<div style="display: block; overflow: auto">' +
+                      '<img style= "margin: 0 1em 1em 0; float:left; width: 35%;" class="image featured" src="/images/seed-grants/' +
+                      data[i].ID +
+                      '.jpg" alt="" />' +
+                      '<p style="margin:0;">' +
+                      data[i].TEXT +
+                      "</p>" +
+                      "</div>" +
+                      "</section>"
+                  )
+                );
+                break;
+            }
+          }
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>

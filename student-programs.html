@@ -1,57 +1,61 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>CITRIS and the Banatao Institute at UC Merced</title>
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8
+      ]><script src="assets/js/ie/html5shiv.js"></script
+    ><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8
+      ]><link rel="stylesheet" href="assets/css/ie8.css"
+    /><![endif]-->
     <style type="text/css">
-        td,
-        th {
-            vertical-align: top;
-            padding: 2px;
-        }
+      td,
+      th {
+        vertical-align: top;
+        padding: 2px;
+      }
     </style>
-</head>
+  </head>
 
-<body class="homepage">
+  <body class="homepage">
     <div id="page-wrapper">
-        <header id="header">
-            <div class="logo container">
-                <div>
-                    <h1 id="logo">Student Programs</h1>
-                </div>
-            </div>
-        </header>
-
-        <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
-        <nav id="nav"></nav>
-
-        <div id="main-wrapper">
-            <div id="main" class="container">
-                <div class="row">
-                    <div class="12u">
-                        <div class="content">
-                            <p>
-                                CITRIS strives to provide undergraduate students with an opportunity for self-directed
-                                learning, and professional development
-                                within a higher education institutional context. These activities serve to develop
-                                awareness about professional development
-                                options in order for students to develop career pathways and set goals.
-                            </p>
-                            <div id="projects"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <header id="header">
+        <div class="logo container">
+          <div>
+            <h1 id="logo">Student Programs</h1>
+          </div>
         </div>
+      </header>
 
-        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
-        <div id="footer"></div>
+      <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+      <nav id="nav"></nav>
+
+      <div id="main-wrapper">
+        <div id="main" class="container">
+          <div class="row">
+            <div class="12u">
+              <div class="content">
+                <p>
+                  CITRIS strives to provide undergraduate students with an
+                  opportunity for self-directed learning, and professional
+                  development within a higher education institutional context.
+                  These activities serve to develop awareness about professional
+                  development options in order for students to develop career
+                  pathways and set goals.
+                </p>
+                <div id="projects"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+      <div id="footer"></div>
     </div>
 
     <!-- Scripts -->
@@ -61,71 +65,90 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <!--[if lte IE 8
+      ]><script src="assets/js/ie/respond.min.js"></script
+    ><![endif]-->
     <script src="assets/js/main.js"></script>
     <script>
-        $(function () {
-            $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
-            $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
-            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
-            $.get("/student-programs.csv").then(function (text, status, xhr) {
-                var data = $.csv.toObjects(text);
-                for (var i = 0; i < data.length; i++) {
-                    switch (data[i].AUTHOR_ID) {
-                        case "":
-                            $("#projects").append(
-                                $.parseHTML(
-                                    '<section class="box features">' +
-                                    '<header>' +
-                                    '<h2>' +
-                                    data[i].TITLE +
-                                    '</h2>' +
-                                    '</header>' +
-                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" />' +
-                                    '<p style="text-align: justify; text-justify: inter-word;">' +
-                                    data[i].TEXT +
-                                    '</p>' +
-                                    '</section>'
-                                ));
-                            break;
-                        default:
-                            $("#projects").append(
-                                $.parseHTML(
-                                    '<section class="box features">' +
-                                    '<header>' +
-                                    '<a href=/' + data[i].LINK + '>' +
-                                    '<h2>' +
-                                    data[i].TITLE +
-                                    '</h2></a>' +
-                                    '</header>' +
-                                    '<table>' +
-                                    '<tr>' +
-                                    '<th style="width:74.5%">' +
-                                    '<a href=/' + data[i].LINK + '>' +
-                                    '<img class="image featured" src="images/projects/' + data[i].ID + '.jpg" alt="" /></a>' +
-                                    '<p style="text-align: justify; text-justify: inter-word;">' +
-                                    data[i].TEXT +
-                                    '</p>' +
-                                    '</th>' +
-                                    '<th style="width:25.5%">' +
-                                    '<img style="float:top" class="image featured" src="images/people/' + data[i].AUTHOR_ID + '.jpg" alt="" />' +
-                                    '<p style="margin:0;">' +
-                                    data[i].AUTHOR +
-                                    '</p>' +
-                                    '<p>' +
-                                    data[i].POSITION +
-                                    '</p>' +
-                                    '</th>' +
-                                    '</tr>' +
-                                    '</table>' +
-                                    '</section>'
-                                ));
-                            break;
-                    }
-                }
-            });
+      $(function () {
+        $("#nav").load(
+          "snippets/nav.html"
+        ); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+        $("#navPanel").load(
+          "snippets/nav.html"
+        ); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+        $("#footer").load(
+          "snippets/footer.html"
+        ); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+        $.get("/student-programs.csv").then(function (text, status, xhr) {
+          var data = $.csv.toObjects(text);
+          for (var i = 0; i < data.length; i++) {
+            switch (data[i].AUTHOR_ID) {
+              case "":
+                $("#projects").append(
+                  $.parseHTML(
+                    '<section class="box features">' +
+                      "<header>" +
+                      "<h2>" +
+                      data[i].TITLE +
+                      "</h2>" +
+                      "</header>" +
+                      '<img class="image featured" src="images/projects/' +
+                      data[i].ID +
+                      '.jpg" alt="" />' +
+                      '<p style="text-align: justify; text-justify: inter-word;">' +
+                      data[i].TEXT +
+                      "</p>" +
+                      "</section>"
+                  )
+                );
+                break;
+              default:
+                $("#projects").append(
+                  $.parseHTML(
+                    '<section class="box features">' +
+                      "<header>" +
+                      "<a href=/" +
+                      data[i].LINK +
+                      ">" +
+                      "<h2>" +
+                      data[i].TITLE +
+                      "</h2></a>" +
+                      "</header>" +
+                      "<table>" +
+                      "<tr>" +
+                      '<th style="width:74.5%">' +
+                      "<a href=/" +
+                      data[i].LINK +
+                      ">" +
+                      '<img class="image featured" src="images/projects/' +
+                      data[i].ID +
+                      '.jpg" alt="" /></a>' +
+                      '<p style="text-align: justify; text-justify: inter-word;">' +
+                      data[i].TEXT +
+                      "</p>" +
+                      "</th>" +
+                      '<th style="width:25.5%">' +
+                      '<img style="float:top" class="image featured" src="images/people/' +
+                      data[i].AUTHOR_ID +
+                      '.jpg" alt="" />' +
+                      '<p style="margin:0;">' +
+                      data[i].AUTHOR +
+                      "</p>" +
+                      "<p>" +
+                      data[i].POSITION +
+                      "</p>" +
+                      "</th>" +
+                      "</tr>" +
+                      "</table>" +
+                      "</section>"
+                  )
+                );
+                break;
+            }
+          }
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>
