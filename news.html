@@ -1,79 +1,81 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>CITRIS and the Banatao Institute at UC Merced</title>
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8
+      ]><script src="assets/js/ie/html5shiv.js"></script
+    ><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/news.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-</head>
+    <!--[if lte IE 8
+      ]><link rel="stylesheet" href="assets/css/ie8.css"
+    /><![endif]-->
+  </head>
 
-<body class="homepage">
+  <body class="homepage">
     <div id="page-wrapper">
-
-        <!-- Header -->
-        <header id="header">
-            <div class="logo container">
-                <div>
-                    <h1 id="logo">Recent News</h1>
-                </div>
-            </div>
-        </header>
-
-        <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
-        <nav id="nav"></nav>
-
-        <div id="main-wrapper">
-            <div id="main" class="container">
-                <div class="row">
-                    <div class="12u">
-                        <div class="content"></div>
-                        <p style="text-align: center;">
-                            To see how CITRIS is shaping the UC Merced campus, as well as California and the world,
-                            check out some of CITRIS @ UC Merced's recent news:
-                        </p>
-
-                        <div class="search-wrapper">
-                            <label for="search">Search news article</label><br>
-                            <input type="search" id="search" placeholder="Keywords...">
-                        </div>
-
-                        <article class="box page-content">
-                            <div class="news-cards-container"></div>
-                        </article>
-
-                        <!-- news card template -->
-                        <template news-card>
-                            <figure class="news">
-                                <div>
-                                    <img news-card-image>
-                                </div>
-                                <figcaption>
-                                    <h3 news-card-header></h3>
-                                    <p news-card-paragraph></p>
-                                </figcaption>
-                                <footer>
-                                    <div news-card-footer></div>
-                                </footer>
-                                <a news-card-link></a>
-                            </figure>
-                        </template>
-
-                        <center>
-                            <div id="news">
-                            </div>
-                        </center>
-                    </div>
-                </div>
-            </div>
+      <!-- Header -->
+      <header id="header">
+        <div class="logo container">
+          <div>
+            <h1 id="logo">Recent News</h1>
+          </div>
         </div>
+      </header>
 
-        <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
-        <div id="footer"></div>
+      <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+      <nav id="nav"></nav>
+
+      <div id="main-wrapper">
+        <div id="main" class="container">
+          <div class="row">
+            <div class="12u">
+              <div class="content"></div>
+              <p style="text-align: center">
+                To see how CITRIS is shaping the UC Merced campus, as well as
+                California and the world, check out some of CITRIS @ UC Merced's
+                recent news:
+              </p>
+
+              <div class="search-wrapper">
+                <label for="search">Search news article</label><br />
+                <input type="search" id="search" placeholder="Keywords..." />
+              </div>
+
+              <article class="box page-content">
+                <div class="news-cards-container"></div>
+              </article>
+
+              <!-- news card template -->
+              <template news-card>
+                <figure class="news">
+                  <div>
+                    <img news-card-image />
+                  </div>
+                  <figcaption>
+                    <h3 news-card-header></h3>
+                    <p news-card-paragraph></p>
+                  </figcaption>
+                  <footer>
+                    <div news-card-footer></div>
+                  </footer>
+                  <a news-card-link></a>
+                </figure>
+              </template>
+
+              <center>
+                <div id="news"></div>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+      <div id="footer"></div>
     </div>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -82,18 +84,17 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/skel-viewport.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <!--[if lte IE 8
+      ]><script src="assets/js/ie/respond.min.js"></script
+    ><![endif]-->
     <script>
-
-        // Gather navbar, footer, and recent news
-        $("#nav").load("snippets/nav.html") // Navigation
-        $("#navPanel").load("snippets/nav.html") // Navigation
-        $("#footer").load("snippets/footer.html") // Footer
-        $("#recent-news").load("snippets/recent-news.html") // Recent News
-
+      // Gather navbar, footer, and recent news
+      $("#nav").load("snippets/nav.html"); // Navigation
+      $("#navPanel").load("snippets/nav.html"); // Navigation
+      $("#footer").load("snippets/footer.html"); // Footer
+      $("#recent-news").load("snippets/recent-news.html"); // Recent News
     </script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/news.js" defer></script>
-</body>
-
+  </body>
 </html>
