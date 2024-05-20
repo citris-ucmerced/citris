@@ -1,8 +1,7 @@
 ID,NAME,TITLE,Affiliation,,LINK
-HEADER,Leadership & Staff,,,,
-sarah_naumes,Sarah Naumes,Managing Director of SWF,Secure Water Future,,https://www.linkedin.com/in/sarah-naumes-044ba64a/
-nick-santos,Nick Santos,Spatial Applications Developer,,,https://nicksantos.com/
-eleanor-king,Eleanor King,CITRIS Outreach and Education Coordinator,,,
+HEADER,Operations Staff,,,,
+Flores_Tamika,Tamika Flores,VISTA Center Manager,VISTA,,
+Ellie_Feliciano, Ellie Feliciano,VISTA Administrative Assistant,VISTA,,
 kal-li,Kal Li,Administrative Assistant,,,
 HEADER,Affiliated Faculty,,,,
 ahmed_arif,Ahmed Sabbir Arif,"Assistant Professor, School of Engineering",Engineering,,https://www.ucmerced.edu/content/arif-ahmed
@@ -54,9 +53,10 @@ wei-chun-chin,Wei-Chun Chin,"Professor, School of Engineering",Engineering,,http
 yanbao-ma,Yanbao Ma,"Assistant Professor, School of Engineering",Engineering,,https://me.ucmerced.edu/content/yanbao-mar
 yangquan-chen,YangQuan Chen,"Professor, School of Engineering",Engineering,,https://www.ucmerced.edu/content/yangquan-chen
 HEADER,CITRIS UC Merced Student Interns,,,,
-joshua-tapia,Joshua Tapia,CITRIS NexTech and FLY Education Intern,,,
 santiago-ramirez-manzo,Santiago Ramirez Manzo,CITRIS NexTech and FLY Education Intern,,,
+michael_tapia,Michael Tapia,VISTA WebDev Intern,,,
 HEADER,Alumni,,,,
+joshua-tapia,Joshua Tapia,CITRIS NexTech and FLY Education Intern,,,
 aaron-sun,Aaron Son,Community Outreach Coordinator,,,
 adam-crawford,Adam Crawford,CITRIS and Secure Water Future Intern Team Lead,,,https://github.com/AdamJCrawford
 adriana-gomez,Adriana Gomez,UC Sprouts Intern,,,
