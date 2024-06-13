@@ -21,19 +21,19 @@
     </style>
   </head>
 
+  
   <body class="homepage">
     <div id="page-wrapper">
-      <header id="header">
-        <div class="logo container">
-          <div>
-            <h1 id="logo">Student Programs</h1>
-          </div>
-        </div>
-      </header>
-
-      <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
-      <nav id="nav"></nav>
-
+        <header id="header">
+            <div class="logo container">
+                <div>
+                    <h1 id="logo">FLY</h1>
+                </div>
+            </div>
+        </header>
+        
+        <!-- NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+        <nav id="nav"></nav>
       <div id="main-wrapper">
         <div id="main" class="container">
           <div class="row">
@@ -76,6 +76,13 @@
       ]><script src="assets/js/ie/respond.min.js"></script
     ><![endif]-->
     <script src="assets/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#nav").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+            $("#navPanel").load("snippets/nav.html"); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+            $("#footer").load("snippets/footer.html"); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+        });
+    </script>
     
   </body>
 </html>
