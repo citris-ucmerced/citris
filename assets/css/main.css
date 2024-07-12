@@ -3981,3 +3981,64 @@ div#FAQ ol ol li{
 .annual_reports img:hover{
 	transform: scale(1.05);
 }
+
+
+.recent-events, .previous-events {
+    text-align: center;
+}
+
+.recent-events h3 {
+    font-size: 30px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.recent-events h4 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.events-wrapper{
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  max-width: 960px;
+}
+
+
+
+
+.previous-events h3 {
+	font-size: 30px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.previous-events h4 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+
+
+.events-wrapper{
+	box-shadow: 0 4px 8px rgb(0, 0, 0);
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	max-width: 960px;
+}
+
+.previous-events ul {
+    list-style-type: disc;
+    margin-left: 80px;
+	text-align: left;
+}
+
+
+
+
