@@ -3989,7 +3989,7 @@ div#FAQ ol ol li{
 
 .recent-events h3 {
     font-size: 30px;
-    text-decoration: underline;
+
     font-weight: bold;
 }
 
@@ -4001,7 +4001,7 @@ div#FAQ ol ol li{
 
 
 .events-wrapper{
-  box-shadow: 0 4px 8px rgb(0, 0, 0);
+	box-shadow: 0 2px 4px rgb(0, 0, 0.1);
   margin: 20px auto;
   padding: 20px;
   background-color: #ffffff;
@@ -4014,7 +4014,7 @@ div#FAQ ol ol li{
 
 .previous-events h3 {
 	font-size: 30px;
-	text-decoration: underline;
+
 	font-weight: bold;
 }
 
@@ -4026,7 +4026,7 @@ div#FAQ ol ol li{
 
 
 .events-wrapper{
-	box-shadow: 0 4px 8px rgb(0, 0, 0);
+	box-shadow: 0 2px 4px rgb(0, 0, 0.1);
 	margin: 20px auto;
 	padding: 20px;
 	background-color: #ffffff;
