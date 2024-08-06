@@ -1,5 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <title>CITRIS and the Banatao Institute at UC Merced</title>
+    <link rel="icon" href="../images/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8
+      ]><script src="assets/js/ie/html5shiv.js"></script
+><![endif]-->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <!--[if lte IE 8
+      ]><link rel="stylesheet" href="assets/css/ie8.css"
+/><![endif]-->
+    <meta property="og:image" content="../images/news/progBot.jpg" />
+    <style>
+        .image-row {
+            display: flex;
+        }
+        .image-container {
+            flex: 1;
+            padding: 10px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+        .image-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body class="homepage">
+<div id="page-wrapper">
+    <header id="header">
+        <div class="logo container">
+            <div>
+                <h1 id="logo">NEWS</h1>
+            </div>
+        </div>
+    </header>
+
+    <!--NAVIGATION: Controlled by HTML snippet in snippets/nav.html -->
+    <nav id="nav"></nav>
+
+    <!-- Main -->
+    <div id="main-wrapper">
+        <div id="main" class="container">
+            <div class="row">
+                <div class="12u">
+                    <div class="content">
+                        <article class="box page-content">
+                            <header>
+                                <h2>
+                                    CITRIS Visits Boys & Girls Club of Merced County <br /><br />
+                                </h2>
+                                <p>July 23 - 25, 2024</p>
+                            </header>
+                            <p></p>
+                            <p>By: Hanna Bartram and Alex Sanchez, UC Merced</p>
+
+                            <span class="image featured">
+                    <img
+                            src="../images/news/buildingBot.jpg"
+                            alt=""
+                    />
+                  </span>
+
+                            <br />
+                            <section>
+                                <p>
+                                    This summer, the Boys and Girls Club of Merced County was filled with energy and enthusiasm as CITRIS education interns introduced local youth to the exciting world of robotics and drones. Over the course of three days, students engaged in hands-on activities that ignited their passion for engineering and technology through programs called NexTech Robotics and FLY CITRIS. Under the guidance of CITRIS’ education interns, four engineering undergraduates at UC Merced, Boys and Girls Club students built a series of VEX robots. The students, ranging from 5th to 8th grade, eagerly assembled the bots, learning the intricacies of robotics and teamwork. After constructing their robots, they participated in friendly competitions, putting their creations to the test in various challenges designed to enhance their problem-solving and engineering skills.
+                                </p>
+                                <div class="image-row">
+                                    <div class="image-container">
+                                        <img src="../images/news/progBot.jpg" alt="" style="height: 350px; border-radius: 20px;" />
+                                    </div>
+                                    <div class="image-container">
+                                        <img src="../images/news/botcomp.jpg" alt="" style="height: 350px; border-radius: 20px" />
+                                    </div>
+                                </div>
 
 
-<p> hello world </p>
+                                <p>
+                                    Next, the UC Merced CITRIS interns introduced the basics of coding, and the young participants quickly picked up on programming fundamentals. They programmed their robots to complete specific tasks, from navigating mazes to performing precise movements, and even simulated agricultural tasks such as planting seeds, watering crops, and harvesting. These activities reinforced their understanding of logic and sequence while demonstrating the practical applications of robotics in agriculture.
+                                </p>
+                                <p>
+
+                                </p>
+                                <!-- <br /> <br />  -->
+                                <div class="image-center">
+                                    <img src="../images/news/santiDrone.jpg" alt="" style="height: 350px; border-radius: 20px"/>
+                                </div>
+                                <br />
+                                <p>
+                                    On their last day, the Boys and Girls Club students had the chance to fly drones and navigate obstacles, while learning about how drones can be used in agriculture. These hands-on activities are a fun way to infuse learning into summertime and get K-12 students excited about STEM so they can see themselves as future scientists and engineers. These summer programs were made possible in part by a partnership with the <a href = "https://iot4ag.us/" target = "__blank"> Internet of Things for Precision Agriculture (IOT4Ag)</a>, an NSF Engineering Research Center.
+                                </p>
+                                <!--
+                                <div class="image-row">
+                                    <div class="image-container">
+                                        <img src="../images/news/Group photo first group fly 28.jpg" alt="" style="height: 450px;" />
+                                    </div>
+                                    <div class="image-container">
+                                        <img src="../images/news/Group photo second group fly plainsburg.jpg" alt="" style="height: 450px;"/>
+                                    </div>
+
+                                </div>
+                                -->
+                            </section>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER: Controlled by HTML snippet in snippets/footer.html-->
+    <div id="footer"></div>
+</div>
+
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.dropotron.min.js"></script>
+<script src="../assets/js/skel.min.js"></script>
+<script src="../assets/js/skel-viewport.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<!--[if lte IE 8
+      ]><script src="assets/js/ie/respond.min.js"></script
+><![endif]-->
+<script src="../assets/js/main.js"></script>
+<script>
+    $(function () {
+        $("#nav").load(
+            "../snippets/nav.html"
+        ); /*NAVIGATION: Controlled by HTML snippet in snippets/nav.html*/
+        $("#navPanel").load(
+            "../snippets/nav.html"
+        ); /*Navigation: Controlled by HTML snippet in snippets/nav.html*/
+        $("#footer").load(
+            "../snippets/footer.html"
+        ); /*FOOTER: Controlled by HTML snippet in snippets/footer.html*/
+    });
+</script>
+</body>
+</html>
