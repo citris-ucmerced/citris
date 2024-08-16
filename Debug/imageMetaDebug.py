@@ -14,7 +14,7 @@ def has_gps_info(exif):
     return False
 
 
-directory = '../images/people'
+directory = '../images/downOnTheFarm'
 
 for filename in os.listdir(directory):
     if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
