@@ -2189,6 +2189,7 @@ div#FAQ ol ol li{
 			transition: none !important;
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
+
 			-ms-animation: none !important;
 			animation: none !important;
 		}
