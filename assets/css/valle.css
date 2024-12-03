@@ -114,7 +114,7 @@
   }
   
 
-  .b1, .b2, .b3 .b4 .b5{
+  .b1, .b2, .b3 .b4 .b5, .b6{
     justify-content: center;
     display: inline-flex;
   }
@@ -131,7 +131,7 @@
     height: auto;
   }
   
-  #first, #second, #third, #fourth {
+  #first, #second, #third, #fourth, #fifth{
     display: none;
   }
   

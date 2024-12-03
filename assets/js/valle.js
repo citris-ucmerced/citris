@@ -74,3 +74,12 @@ const myFunction5 = () => {
   document.getElementById("third").style.display = "none";
   document.getElementById("fourth").style.display = "none";
 };
+
+const myFunction6 = () => {
+  document.getElementById("sixth").style.display = "block";
+  document.getElementById("fifth").style.display = "none";
+  document.getElementById("first").style.display = "none";
+  document.getElementById("second").style.display = "none";
+  document.getElementById("third").style.display = "none";
+  document.getElementById("fourth").style.display = "none";
+}
