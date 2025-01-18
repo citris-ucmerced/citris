@@ -1,0 +1,36 @@
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+ignore = [
+    "E501", 
+    "N999", 
+    "E402", 
+    "S311", 
+    "ASYNC109",
+    "S101",
+    
+    # These are recommended by Ruff if the formatter is to be used: https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "W191",
+    "E111",
+    "E114",
+    "E117",
+    "D206",
+    "D300",
+    "Q000",
+    "Q001",
+    "Q002",
+    "Q003",
+    "COM812",
+    "COM819",
+    "ISC001",
+    "ISC002"
+    ]
+select = ["E", "F", "N", "ASYNC", "S", "ERA", "I"]
+fixable = ["ALL"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff.format]
+docstring-code-format = true

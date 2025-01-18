@@ -7,3 +7,6 @@
 .venv
 venv/
 venv.bak/
+
+# Ruff cache
+.ruff
