@@ -1,5 +1,6 @@
 import csv
 import datetime
+import re
 from pathlib import Path
 from typing import Any, Optional
 from urllib.parse import unquote
@@ -18,8 +19,9 @@ class NewsEntry(msgspec.Struct):
     id: str
     title: str
     link: str
-    date: datetime.datetime
+    date: datetime.date
     description: str
+    authors: Optional[str] = None
     content: Optional[str] = None
     imagesize: Optional[str] = None
 
@@ -48,7 +50,7 @@ class Extractor:
             with open(self._csv_file, "r") as f:
                 self._db: list[NewsEntry] = [
                     NewsEntry(
-                        date=parse(entry["DATE"]),
+                        date=parse(entry["DATE"]).date(),
                         **{k.lower(): v for k, v in entry.items() if not k == "DATE"},
                     )
                     for entry in csv.DictReader(f, delimiter=",")
@@ -59,12 +61,29 @@ class Extractor:
 
     def _bulk_inject(self, no_newline: bool = False) -> list[NewsEntry]:
         for entry in self._db:
+            if not entry.id:
+                entry.id = self.extract_link_to_id(entry)
+
+            entry.authors = self.extract_authors(entry)
             entry.content = (
                 self.extract_html(entry).replace("\n", "")
                 if no_newline
                 else self.extract_html(entry)
             )
         return self._db
+
+    def extract_link_to_id(self, entry: NewsEntry) -> str:
+        """Takes a NewsEntry instance, grabs the link,
+        and makes a new lowercased ID
+
+        Args:
+            entry (NewsEntry): NewsEntry instance
+
+        Returns:
+            str: The new lowercased ID
+        """
+        url = URL(unquote(entry.link)).with_suffix("")
+        return url.parts[-1].lower()
 
     def extract_html(self, entry: NewsEntry, section_only: bool = True) -> str:
         """Parses and extracts HTML news files and outputs the text of the file.
@@ -114,6 +133,38 @@ class Extractor:
                 "Cannot find HTML file. Is the proposed file path correct?"
             )
 
+    def extract_authors(self, entry: NewsEntry) -> str:
+        """Extract authors from news entry
+
+        Args:
+            entry (NewsEntry): NewsEntry instance
+
+        Raises:
+            FileNotFoundError: If the file cannot be found locally
+
+        Returns:
+            str: Known authors
+        """
+        parsed_links = unquote(entry.link)
+        news_link = (
+            URL(parsed_links).with_suffix(".html")
+            if not URL(parsed_links).suffix
+            else URL(parsed_links)
+        )
+
+        proposed_file = self.root.joinpath(*news_link.parts[1:])
+        try:
+            with open(proposed_file, "r") as f:
+                soup = BeautifulSoup(f.read(), "lxml")
+                return "".join(
+                    tag.get_text()
+                    for tag in soup.find_all("p", string=re.compile(r"^[B|b]y:.*"))
+                )
+        except FileNotFoundError:
+            raise FileNotFoundError(
+                "Cannot find HTML file. Is the proposed file path correct?"
+            )
+
     def to_json(self) -> bytes:
         """Takes the extracted and converted entries and output as a JSON-valid output
 
@@ -130,16 +181,14 @@ class Extractor:
         """
         with self.console.status("[bold white]Writing..."):
             self._bulk_inject(no_newline)
-
             with open(self.output, mode="w", newline="") as f:
                 writer = csv.DictWriter(f, self._db[0].get_keys())
                 writer.writeheader()
                 for entry in self._db:
                     writer.writerow(entry.to_dict())
-
-            self.console.print("[white]Done!")
+                self.console.print("[white]Done!")
 
 
 if __name__ == "__main__":
     extractor = Extractor(ROOT, OUTPUT)
-    extractor.write(no_newline=True)
+    extractor.write(no_newline=False)
