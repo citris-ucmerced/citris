@@ -10,3 +10,5 @@ venv.bak/
 
 # Ruff cache
 .ruff
+
+node_modules/

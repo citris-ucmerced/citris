@@ -1,7 +1,7 @@
-const newsCardTemplate = document.querySelector("[news-card]")
-const newsCardContainer = document.querySelector(".news-cards-container")
+const newsCardTemplate = document.querySelector('[news-card]')
+const newsCardContainer = document.querySelector('.news-cards-container')
 
-let cards = []
+const cards = []
 
 /*
     @brief:
@@ -12,49 +12,50 @@ let cards = []
     @params: 
         none
 */
-$(function () {
-    
-    // read csv file
-    $.get("/news.csv").then((text) => {
-        
-        // convert text into a manageable variable
-        var data = $.csv.toObjects(text);
+$(() => {
+  // read csv file
+  $.get('/news.csv').then((text) => {
+    // convert text into a manageable variable
+    const data = $.csv.toObjects(text)
 
-        for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
+      // main component that is based off template in news.html
+      const card = newsCardTemplate.content.cloneNode(true).children[0]
 
-            // main component that is based off template in news.html
-            const card = newsCardTemplate.content.cloneNode(true).children[0]
-            
-            // additional elements in card (note we are calling card here)
-            const image = card.querySelector("[news-card-image]")
-            const header = card.querySelector("[news-card-header]")
-            const paragraph = card.querySelector("[news-card-paragraph]")
-            const footer = card.querySelector("[news-card-footer]")
-            const link = card.querySelector("[news-card-link]")
+      // additional elements in card (note we are calling card here)
+      const image = card.querySelector('[news-card-image]')
+      const header = card.querySelector('[news-card-header]')
+      const paragraph = card.querySelector('[news-card-paragraph]')
+      const footer = card.querySelector('[news-card-footer]')
+      const link = card.querySelector('[news-card-link]')
 
-            // handler for null images
-            if (data[i].ID.toString() === '')
-            {
-                image.src = "images/favicon.png"
-                image.classList.add("news-card__image")
-            } else {
-                image.src = "images/news/" + data[i].ID + ".jpg"
-            }
-            image.alt = ""
+      // handler for null images
+      if (data[i].ID.toString() === '') {
+        image.src = 'images/favicon.png'
+        image.classList.add('news-card__image')
+      } else {
+        image.src = `images/news/${data[i].ID}.jpg`
+      }
+      image.alt = ''
 
-            // transfer current row content onto card
-            header.textContent = data[i].TITLE
-            paragraph.textContent = data[i].DESCRIPTION
-            footer.textContent = data[i].DATE
-            link.href = data[i].LINK
+      // transfer current row content onto card
+      header.textContent = data[i].TITLE
+      paragraph.textContent = data[i].DESCRIPTION
+      footer.textContent = data[i].DATE
+      link.href = data[i].LINK
 
-            // add card to DOM
-            newsCardContainer.append(card)
+      // add card to DOM
+      newsCardContainer.append(card)
 
-            // store card for searchability purposes
-            cards.push({header: data[i].TITLE, paragraph: data[i].DESCRIPTION, date: data[i].DATE, element: card})
-        }
-    })
+      // store card for searchability purposes
+      cards.push({
+        header: data[i].TITLE,
+        paragraph: data[i].DESCRIPTION,
+        date: data[i].DATE,
+        element: card,
+      })
+    }
+  })
 })
 
 /*
@@ -67,22 +68,21 @@ $(function () {
     @params:
         {event} e
 */
-$("#search").on("input", (e) => {
+$('#search').on('input', (e) => {
+  const value = e.target.value.toLowerCase()
 
-    const value = e.target.value.toLowerCase()
+  cards.forEach((card) => {
+    const isVisible =
+      card.header.toLowerCase().includes(value) ||
+      card.paragraph.toLowerCase().includes(value) ||
+      card.date.toLowerCase().includes(value)
 
-    cards.forEach((card) => {
-        const isVisible = 
-            card.header.toLowerCase().includes(value) ||
-            card.paragraph.toLowerCase().includes(value) ||
-            card.date.toLowerCase().includes(value)
-        
-        if(isVisible) {
-            // show
-            card.element.style.display = "inline-block"
-        } else {
-            // hide
-            card.element.style.display = "none"
-        }
-    })
+    if (isVisible) {
+      // show
+      card.element.style.display = 'inline-block'
+    } else {
+      // hide
+      card.element.style.display = 'none'
+    }
+  })
 })

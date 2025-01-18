@@ -1,0 +1,16 @@
+{
+  "name": "citris",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "check": "biome check --write --no-errors-on-unmatched --error-on-warnings .",
+    "postinstall": "lefthook install"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "lefthook": "^1.10.8"
+  },
+  "volta": {
+    "node": "22.13.0"
+  }
+}

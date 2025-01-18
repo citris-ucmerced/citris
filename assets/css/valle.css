@@ -1,152 +1,156 @@
+.main {
+  display: grid;
+  place-content: center;
+  width: auto;
+  height: auto;
+  margin-bottom: 4em;
+}
 
-  
-  .main {
-    display: grid;
-    place-content: center;
-    width: auto;
-    height: auto;
-    margin-bottom: 4em;
-  }
-  
-  .slideshow {
-    position: relative;
-  }
-  
-  .slide {
-    position: relative;
-    display: none;
-  }
-  
-  .slide-number {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 1;
-    font-size: 1.6rem;
-    text-shadow: 2px 2px 4px #000000;
-    color: white;
-  }
-  
-  .slide-image {
-    position: relative;
-    display: flex;
-    width: 100%;
-    max-width: 1000px;
-  }
-  
-  .slide-image img {
-    width: 100%;
-  }
-  
-  .slide-image figcaption {
-    position: absolute;
-    right: 0;
-    bottom: 8px;
-    left: 0;
-    margin: 0 auto;
-    text-align: center;
-    color: white;
-  }
-  
-  .slide.is-active {
-    display: block;
-  }
-  
-  .controls {
-    position: absolute;
-    top: calc(50% - 50px);
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .controls button {
-    width: 75px;
-    padding: 16px;
-    border: none;
-    font-size: 1.8rem;
-    color: white;
-    background-color: #4d82b769;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .controls button:hover {
-    background-color: #4d82b7;
-  }
-  
-  .dots-container {
-    height: 20px;
-    margin-top: 16px;
-    text-align: center;
-  }
-  
-  .dot {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    padding: 4px;
-    margin: 0 4px;
-    background-color: #bbb;
-    border-radius: 50%;
-    transition: 0.6s ease;
-    cursor: pointer;
-  }
-  
-  .dot.is-active,
-  .dot:hover {
-    background-color: #717171;
-  }
-  
-  .fadevalle {
-    animation-name: fade;
-    animation-duration: 0.4s;
-  }
-  
-  @keyframes fade {
-    from {
-      opacity: 0.4;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
+.slideshow {
+  position: relative;
+}
 
-  .b1, .b2, .b3 .b4 .b5, .b6{
-    justify-content: center;
-    display: inline-flex;
-  }
-  
-  .pastimg .content {
-    border: 3px solid blue;
-    width: 80%;
-    height: auto;
-  }
-  
-  .pastimg img {
-    border: 5px solid black;
-    width: 80%;
-    height: auto;
-  }
-  
-  #first, #second, #third, #fourth, #fifth{
-    display: none;
-  }
-  
-  .pastimg button {
-    outline: none;
-  }
+.slide {
+  position: relative;
+  display: none;
+}
 
-  .poster-container {
-    position: relative;
-    text-align: center !important;
-    display: flex;
-    justify-content: center;
-  }
+.slide-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  font-size: 1.6rem;
+  text-shadow: 2px 2px 4px #000000;
+  color: white;
+}
 
-  .poster-container img {
-    min-width: 40%;
-    max-width: 40%;
+.slide-image {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.slide-image img {
+  width: 100%;
+}
+
+.slide-image figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.slide.is-active {
+  display: block;
+}
+
+.controls {
+  position: absolute;
+  top: calc(50% - 50px);
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+}
+
+.controls button {
+  width: 75px;
+  padding: 16px;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  background-color: #4d82b769;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #4d82b7;
+}
+
+.dots-container {
+  height: 20px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 4px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  transition: 0.6s ease;
+  cursor: pointer;
+}
+
+.dot.is-active,
+.dot:hover {
+  background-color: #717171;
+}
+
+.fadevalle {
+  animation-name: fade;
+  animation-duration: 0.4s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
   }
+  to {
+    opacity: 1;
+  }
+}
+
+.b1,
+.b2,
+.b3 .b4 .b5,
+.b6 {
+  justify-content: center;
+  display: inline-flex;
+}
+
+.pastimg .content {
+  border: 3px solid blue;
+  width: 80%;
+  height: auto;
+}
+
+.pastimg img {
+  border: 5px solid black;
+  width: 80%;
+  height: auto;
+}
+
+#first,
+#second,
+#third,
+#fourth,
+#fifth {
+  display: none;
+}
+
+.pastimg button {
+  outline: none;
+}
+
+.poster-container {
+  position: relative;
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+}
+
+.poster-container img {
+  min-width: 40%;
+  max-width: 40%;
+}
