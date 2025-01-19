@@ -51,10 +51,6 @@ class NewsImage(msgspec.Struct, frozen=True):
     link: str
 
 
-class DownloadNewsImage(msgspec.Struct, frozen=True):
-    link: URL
-
-
 class NewsFile(msgspec.Struct):
     id: str
     link: str
