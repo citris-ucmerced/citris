@@ -1,15 +1,29 @@
+import asyncio
 import csv
+import os
 import re
+import time
+from functools import wraps
+from itertools import chain
 from pathlib import Path
 from typing import Annotated, Any, Optional
 from urllib.parse import unquote
 
+import aiohttp
+import humanize
 import msgspec
 import typer
+from aiofile import async_open
 from bs4 import BeautifulSoup
 from rich.console import Console
 from rich.tree import Tree
 from yarl import URL
+
+if os.name == "nt":
+    from winloop import run
+else:
+    from uvloop import run
+
 
 ROOT = Path(__file__).parents[1]
 
@@ -19,11 +33,26 @@ __help_description__ = (
 )
 
 
+def coro(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        return run(f(*args, **kwargs))
+
+    return wrapper
+
+
+### Structs
+
+
 # Frozen to prevent adjustments, an also makes it slightly faster
 # https://jcristharif.com/msgspec/structs.html#frozen-instances
 class NewsImage(msgspec.Struct, frozen=True):
     local: Optional[Path]
     link: str
+
+
+class DownloadNewsImage(msgspec.Struct, frozen=True):
+    link: URL
 
 
 class NewsFile(msgspec.Struct):
@@ -33,6 +62,21 @@ class NewsFile(msgspec.Struct):
 
     def to_dict(self) -> dict[str, Any]:
         return {f: getattr(self, f) for f in self.__struct_fields__}
+
+
+### Utility
+
+
+class CatchTime:
+    def __enter__(self):
+        self.start = time.perf_counter()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.time = time.perf_counter() - self.start
+
+
+### Main extractor
 
 
 class ImageExtractor:
@@ -49,6 +93,8 @@ class ImageExtractor:
         # We are guaranteed to have multiple. If's it just one, then it just a dict
         self._db: dict[str, NewsFile] = {}
         self._load_from_file()
+
+    ### Setup logic
 
     def _enc_hook(self, obj: Any) -> Any:
         if isinstance(obj, Path):
@@ -75,11 +121,15 @@ class ImageExtractor:
         except FileNotFoundError:
             self._db = {}
 
+    ### Injection methods
+
     def _bulk_inject(self) -> dict[str, NewsFile]:
         for _, entry in self._db.items():
             entry.images = self.extract_images(entry)
 
         return self._db
+
+    ### Public helper methods
 
     def extract_images(self, entry: NewsFile) -> Optional[list[NewsImage]]:
         """Extracts all images from a NewsFile intance
@@ -125,7 +175,7 @@ class ImageExtractor:
                             )
                         )
                     elif self.link_regex.match(entity):
-                        raw_images.append((None, entity))
+                        raw_images.append((None, str(URL(entity).with_query(None))))
                     else:
                         raw_images.append(
                             (Path(entity).resolve(), (str(url.with_path(entity))))
@@ -183,6 +233,18 @@ class ImageExtractor:
 
         self.console.print(tree)
 
+    def all(self) -> dict[str, NewsFile]:
+        """Returns all entries within DB
+
+        Returns:
+            dict[str, NewsFile]: DB full of NewsFile instances
+        """
+        self._bulk_inject()
+        return self._db
+
+
+### CLI logic
+
 
 class ImageExtractorTyper(typer.Typer):
     def __init__(self, *args, **kwargs):
@@ -194,6 +256,8 @@ class ImageExtractorTyper(typer.Typer):
 
 
 app = ImageExtractorTyper()
+
+### Commands and utilities
 
 
 @app.command()
@@ -231,7 +295,63 @@ def json(
 
     app.console.print_json(app.extractor.to_json())
 
-# todo: Add bulk upload command
+
+async def download(
+    url: URL, *, path: Path, session: aiohttp.ClientSession, chunk_size: int = 32768
+):
+    async with session.get(url) as response:
+        async with async_open(path, "wb+") as afp:
+            async for data in response.content.iter_chunked(chunk_size):
+                await afp.write(data)
+
+
+@app.command(name="mass-download")
+@coro
+async def mass_download(
+    output: Annotated[
+        Optional[Path],
+        typer.Option(
+            "--output",
+            help="Folder output for images. MUST be a path",
+            path_type=str,
+            is_flag=True,
+        ),
+    ] = None,
+):
+    if not output:
+        output = Path(__file__).parent / "news-images"
+
+        if not output.exists():
+            output.mkdir()
+    else:
+        if not output.is_dir():
+            raise ValueError("Output is not a path!")
+
+    total_images = 0
+    images = {
+        news_id: [images.link for images in chain(entry.images)]
+        for news_id, entry in app.extractor.all().items()
+        if entry.images
+    }
+
+    # This is not good, but there is really nothing I can do... - Noelle
+    with app.console.status("[bold white]Downloading..."):
+        async with aiohttp.ClientSession() as session:
+            with CatchTime() as timer:
+                async with asyncio.TaskGroup() as group:
+                    for image_link in chain.from_iterable(
+                        image for image in images.values()
+                    ):
+                        total_images += 1
+                        image_url = URL(image_link)
+                        filename = image_url.parts[-1]
+                        group.create_task(
+                            download(image_url, path=output / filename, session=session)
+                        )
+        app.console.print(
+            f"[white]Done! Downloaded {total_images} images and took {humanize.naturaldelta(timer.time, minimum_unit='milliseconds')}"
+        )
+
 
 if __name__ == "__main__":
     app()
