@@ -1,3 +1,14 @@
+# This complete CLI script is designed to extract images from news files, display, store, and download them all.
+# Make sure to create an virtualenv ("python3 -m venv .venv"), activate it, and install all of the requirements. ("pip install -r debug/requirements.txt")
+# This script heavily depends on external libraries, and also depend heavily on C/Cython based libraries (e.g., aiohttp, aiofile, aiohttp, and msgspec).
+# Run "python debug/news_image_extractor.py --help" to get started with usage.
+#
+# ---TECHNICAL DETAILS---
+# Downloading all images are done on a single thread and process, but are launched concurrently.
+# In short, all files are downloaded asynchronously using Python's asyncio with performance improvements from uvloop (winloop is used for windows platforms).
+# The actual information obtained is from "news.csv" in the root directory, and only links that start with citris.ucmerced.edu are selected for extraction.
+# Effectively, this means that all news pots linking to external sites are not counted towards content extraction.
+
 import asyncio
 import csv
 import os
@@ -24,13 +35,12 @@ if os.name == "nt":
 else:
     from uvloop import run
 
-
-ROOT = Path(__file__).parents[1]
-
 __title__ = "News Image Extractor"
 __help_description__ = (
     "Extractor for displaying, downloading, and bulk-uploading images"
 )
+
+ROOT = Path(__file__).parents[1]
 
 
 def coro(f):
