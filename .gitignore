@@ -10,6 +10,7 @@ venv.bak/
 
 # Ruff cache
 .ruff
+.ruff_cache
 
 # Debug news images (for uploading)
 debug/news-images/**
