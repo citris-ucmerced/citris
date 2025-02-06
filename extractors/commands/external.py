@@ -11,6 +11,8 @@ from yarl import URL
 
 from core import ROOT, ExtractorTyper
 
+__description__ = "Commands to extract and write external news entries"
+
 
 class ExternalNewsEntry(msgspec.Struct):
     id: str
@@ -120,6 +122,7 @@ def json(
         ),
     ] = None,
 ):
+    """Write or display JSON-formatted extracted data"""
     if output:
         extractor.to_json(output)
         app.console.print("Done!")
@@ -139,6 +142,10 @@ def write(
         ),
     ] = ROOT / "debug" / "external-news-exporter.csv",
 ):
+    """Write the extracted data into a CSV file"""
+    if output.suffix != ".csv":
+        raise ValueError("Requested output MUST be a .csv file")
+
     with app.console.status("[bold white]Writing..."):
         extractor.write(output)
         app.console.print(f"[white]Done! Wrote {len(extractor.all())} entries.")

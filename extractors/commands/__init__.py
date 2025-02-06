@@ -8,4 +8,8 @@ command_modules = [module.name for module in iter_modules(__path__, f"{__package
 
 for command in command_modules:
     module = importlib.import_module(command)
-    app_commands.add_typer(module.app, name=module.__name__)
+    app_commands.add_typer(
+        module.app,
+        name="".join(module.__name__.split(".")[1:]),
+        help=module.__description__,
+    )  # type: ignore

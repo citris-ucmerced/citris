@@ -10,3 +10,7 @@ rich>=13.9.4,<14
 aiofile>=3.9.0,<4
 typer-slim>=0.15.0,<1
 humanize>=4.11.0,<5
+
+Pillow>=11.1.0,<12
+defusedxml>=0.7.1,<1
+olefile>=0.47,<1

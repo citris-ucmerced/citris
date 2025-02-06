@@ -14,7 +14,7 @@ from yarl import URL
 
 from core import ROOT, ExtractorTyper
 
-OUTPUT = Path(__file__).parent / "news-wp-exporter.csv"
+__description__ = "Commands to perform operations on internal news"
 
 
 class InternalNewsEntry(msgspec.Struct):
@@ -35,9 +35,8 @@ class InternalNewsEntry(msgspec.Struct):
 
 
 class InternalExtractor:
-    def __init__(self, root: Path, output: Path):
+    def __init__(self, root: Path):
         self.root = root
-        self.output = output
         self.console = Console()
         self._csv_file = self.root / "news.csv"
         self._encoder = msgspec.json.Encoder()
@@ -197,7 +196,7 @@ class InternalExtractor:
 
         with self.console.status("[bold white]Writing..."):
             self._bulk_inject(no_newline)
-            with open(self.output, mode="w", newline="") as f:
+            with open(output, mode="w", newline="") as f:
                 writer = csv.DictWriter(f, self._entries[0].get_keys())
                 writer.writeheader()
                 for entry in self._entries:
@@ -215,7 +214,7 @@ class InternalExtractor:
 
 
 app = ExtractorTyper()
-extractor = InternalExtractor(ROOT, OUTPUT)
+extractor = InternalExtractor(ROOT)
 
 
 @app.command(name="json")
@@ -236,6 +235,7 @@ def json(
         ),
     ] = False,
 ):
+    """Write or display JSON-formatted extracted data"""
     if output:
         extractor.to_json(output, no_newline=newline)
         app.console.print("Done!")
@@ -253,7 +253,7 @@ def write(
             path_type=str,
             is_flag=True,
         ),
-    ] = ROOT / "debug" / "external-news-exporter.csv",
+    ] = ROOT / "debug" / "internal-news-exporter.csv",
     newline: Annotated[
         bool,
         typer.Option(
@@ -261,6 +261,10 @@ def write(
         ),
     ] = False,
 ):
+    """Write the extracted data into a CSV file"""
+    if output.suffix != ".csv":
+        raise ValueError("Requested output MUST be a .csv file")
+
     with app.console.status("[bold white]Writing..."):
         extractor.write(output, no_newline=newline)
         app.console.print(f"[white]Done! Wrote {len(extractor.all())} entries.")
