@@ -1,0 +1,5 @@
+-r requirements.txt
+
+lefthook>=1.10.10,<2
+pyright[nodejs]>=1.1.393,<2
+ruff>=0.9.4,<1

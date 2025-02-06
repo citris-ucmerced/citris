@@ -13,3 +13,4 @@ venv.bak/
 
 # Debug news images (for uploading)
 debug/news-images/**
+__pycache__

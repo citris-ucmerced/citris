@@ -1,5 +1,3 @@
-# Complete CLI program for extracting information from all news posts
-
 import csv
 import datetime
 from pathlib import Path
@@ -11,10 +9,7 @@ from dateutil.parser import parse
 from rich.console import Console
 from yarl import URL
 
-__title__ = "News Extractor"
-__help_description__ = "Extractor for both internal and external news posts"
-
-ROOT = Path(__file__).parents[1]
+from core import ROOT, ExtractorTyper
 
 
 class ExternalNewsEntry(msgspec.Struct):
@@ -109,19 +104,11 @@ class ExternalExtractor:
                 writer.writerow(entry.to_dict())
 
 
-class ImageExtractorTyper(typer.Typer):
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            help=__help_description__, add_completion=False, *args, **kwargs
-        )
-        self.console = Console()
-        self.external_extractor = ExternalExtractor(ROOT)
+app = ExtractorTyper()
+extractor = ExternalExtractor(ROOT)
 
 
-app = ImageExtractorTyper()
-
-
-@app.command(name="external-json")
+@app.command(name="json")
 def json(
     output: Annotated[
         Optional[Path],
@@ -134,13 +121,13 @@ def json(
     ] = None,
 ):
     if output:
-        app.external_extractor.to_json(output)
+        extractor.to_json(output)
         app.console.print("Done!")
         return
-    app.console.print_json(app.external_extractor.to_json().decode())
+    app.console.print_json(extractor.to_json().decode())
 
 
-@app.command(name="external-write")
+@app.command(name="write")
 def write(
     output: Annotated[
         Path,
@@ -153,11 +140,5 @@ def write(
     ] = ROOT / "debug" / "external-news-exporter.csv",
 ):
     with app.console.status("[bold white]Writing..."):
-        app.external_extractor.write(output)
-        app.console.print(
-            f"[white]Done! Wrote {len(app.external_extractor.all())} entries."
-        )
-
-
-if __name__ == "__main__":
-    app()
+        extractor.write(output)
+        app.console.print(f"[white]Done! Wrote {len(extractor.all())} entries.")

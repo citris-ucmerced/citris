@@ -30,17 +30,12 @@ from rich.console import Console
 from rich.tree import Tree
 from yarl import URL
 
+from core import ROOT, ExtractorTyper
+
 if os.name == "nt":
     from winloop import run
 else:
     from uvloop import run
-
-__title__ = "News Image Extractor"
-__help_description__ = (
-    "Extractor for displaying, downloading, and bulk-uploading images"
-)
-
-ROOT = Path(__file__).parents[1]
 
 
 def coro(f):
@@ -252,23 +247,10 @@ class ImageExtractor:
 ### CLI logic
 
 
-class ImageExtractorTyper(typer.Typer):
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            help=__help_description__, add_completion=False, *args, **kwargs
-        )
-        self.console = Console()
-        self.extractor = ImageExtractor(ROOT)
-
-
-app = ImageExtractorTyper()
+app = ExtractorTyper()
+extractor = ImageExtractor(ROOT)
 
 ### Commands and utilities
-
-
-@app.command()
-def main():
-    pass
 
 
 @app.command(name="show")
@@ -278,7 +260,7 @@ def show(
     ] = False,
 ) -> None:
     """Shows the extracted content in a tree format"""
-    app.extractor.display(local)
+    extractor.display(local)
 
 
 @app.command(name="json")
@@ -295,11 +277,11 @@ def json(
 ):
     """Outputs extracted content to JSON."""
     if output:
-        app.extractor.to_json(output)
+        extractor.to_json(output)
         app.console.print("Done!")
         return
 
-    app.console.print_json(app.extractor.to_json())
+    app.console.print_json(extractor.to_json())
 
 
 async def download(
@@ -336,7 +318,7 @@ async def mass_download(
     total_images = 0
     images = {
         news_id: [images.link for images in chain(entry.images)]
-        for news_id, entry in app.extractor.all().items()
+        for news_id, entry in extractor.all().items()
         if entry.images
     }
 
@@ -357,7 +339,3 @@ async def mass_download(
         app.console.print(
             f"[white]Done! Downloaded {total_images} images and took {humanize.naturaldelta(timer.time, minimum_unit='milliseconds')}"
         )
-
-
-if __name__ == "__main__":
-    app()

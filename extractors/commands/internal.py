@@ -2,20 +2,22 @@ import csv
 import datetime
 import re
 from pathlib import Path
-from typing import Any, Optional
+from typing import Annotated, Any, Optional
 from urllib.parse import unquote
 
 import msgspec
+import typer
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
 from rich.console import Console
 from yarl import URL
 
-ROOT = Path(__file__).parents[1]
+from core import ROOT, ExtractorTyper
+
 OUTPUT = Path(__file__).parent / "news-wp-exporter.csv"
 
 
-class NewsEntry(msgspec.Struct):
+class InternalNewsEntry(msgspec.Struct):
     id: str
     title: str
     link: str
@@ -32,7 +34,7 @@ class NewsEntry(msgspec.Struct):
         return [f for f in self.__struct_fields__]
 
 
-class Extractor:
+class InternalExtractor:
     def __init__(self, root: Path, output: Path):
         self.root = root
         self.output = output
@@ -42,14 +44,14 @@ class Extractor:
 
         # This is a list as we have multiple rows within our csv file.
         # We are guaranteed to have multiple. If's it just one, then it just a dict
-        self._db: list[NewsEntry] = []
+        self._entries: list[InternalNewsEntry] = []
         self._load_from_file()
 
     def _load_from_file(self) -> None:
         try:
             with open(self._csv_file, "r") as f:
-                self._db: list[NewsEntry] = [
-                    NewsEntry(
+                self._entries: list[InternalNewsEntry] = [
+                    InternalNewsEntry(
                         date=parse(entry["DATE"]).date(),
                         **{k.lower(): v for k, v in entry.items() if not k == "DATE"},
                     )
@@ -57,10 +59,10 @@ class Extractor:
                     if entry["LINK"].startswith("https://citris.ucmerced.edu/news")
                 ]
         except FileNotFoundError:
-            self._db = []
+            self._entries = []
 
-    def _bulk_inject(self, no_newline: bool = False) -> list[NewsEntry]:
-        for entry in self._db:
+    def _bulk_inject(self, no_newline: bool = False) -> list[InternalNewsEntry]:
+        for entry in self._entries:
             if not entry.id:
                 entry.id = self.extract_link_to_id(entry)
 
@@ -70,14 +72,14 @@ class Extractor:
                 if no_newline
                 else self.extract_html(entry)
             )
-        return self._db
+        return self._entries
 
-    def extract_link_to_id(self, entry: NewsEntry) -> str:
-        """Takes a NewsEntry instance, grabs the link,
+    def extract_link_to_id(self, entry: InternalNewsEntry) -> str:
+        """Takes a InternalNewsEntry instance, grabs the link,
         and makes a new lowercased ID
 
         Args:
-            entry (NewsEntry): NewsEntry instance
+            entry (InternalNewsEntry): InternalNewsEntry instance
 
         Returns:
             str: The new lowercased ID
@@ -85,11 +87,11 @@ class Extractor:
         url = URL(unquote(entry.link)).with_suffix("")
         return url.parts[-1].lower()
 
-    def extract_html(self, entry: NewsEntry, section_only: bool = True) -> str:
+    def extract_html(self, entry: InternalNewsEntry, section_only: bool = True) -> str:
         """Parses and extracts HTML news files and outputs the text of the file.
 
         Args:
-            entry (NewsEntry): NewsEntry instance
+            entry (InternalNewsEntry): InternalNewsEntry instance
             section_only (bool, optional): Whether to only parse the content between <section> tags. Defaults to True.
 
         Raises:
@@ -133,11 +135,11 @@ class Extractor:
                 "Cannot find HTML file. Is the proposed file path correct?"
             )
 
-    def extract_authors(self, entry: NewsEntry) -> str:
+    def extract_authors(self, entry: InternalNewsEntry) -> str:
         """Extract authors from news entry
 
         Args:
-            entry (NewsEntry): NewsEntry instance
+            entry (InternalNewsEntry): InternalNewsEntry instance
 
         Raises:
             FileNotFoundError: If the file cannot be found locally
@@ -165,30 +167,100 @@ class Extractor:
                 "Cannot find HTML file. Is the proposed file path correct?"
             )
 
-    def to_json(self) -> bytes:
-        """Takes the extracted and converted entries and output as a JSON-valid output
+    def to_json(
+        self, output: Optional[Path] = None, *, no_newline: bool = False
+    ) -> bytes:
+        """Writes/outputs entries in JSON format
+
+        Args:
+            output (Path): Output path
 
         Returns:
-            bytes: JSON-encoded data
+            bytes: Returns the encoded entries in JSON format
         """
-        return self._encoder.encode(self._db)
+        self._bulk_inject(no_newline)
+        encoded = self._encoder.encode(self._entries)
+        if output:
+            output.write_bytes(encoded)
+        return encoded
 
-    def write(self, no_newline: bool = False) -> None:
+    def write(self, output: Path, *, no_newline: bool = False) -> None:
         """Public entrypoint to start extracting, parsing, and writing the content to the CSV file defined.
 
         Args:
             no_newline: Whether to strip all `\n` characters out from parsed HTML content. Defaults to False
         """
+        if not output.suffix == ".csv":
+            raise ValueError(
+                "MUST be a CSV file! If you are looking for use JSON, use the json command"
+            )
+
         with self.console.status("[bold white]Writing..."):
             self._bulk_inject(no_newline)
             with open(self.output, mode="w", newline="") as f:
-                writer = csv.DictWriter(f, self._db[0].get_keys())
+                writer = csv.DictWriter(f, self._entries[0].get_keys())
                 writer.writeheader()
-                for entry in self._db:
+                for entry in self._entries:
                     writer.writerow(entry.to_dict())
                 self.console.print("[white]Done!")
 
+    def all(self) -> list[InternalNewsEntry]:
+        """Returns all entries within the extractor
 
-if __name__ == "__main__":
-    extractor = Extractor(ROOT, OUTPUT)
-    extractor.write(no_newline=False)
+        Returns:
+            list[InternalNewsEntry]: List of all internal news entries
+        """
+        self._bulk_inject()
+        return self._entries
+
+
+app = ExtractorTyper()
+extractor = InternalExtractor(ROOT, OUTPUT)
+
+
+@app.command(name="json")
+def json(
+    output: Annotated[
+        Optional[Path],
+        typer.Option(
+            "--output",
+            help="Outputs the JSON data to a file. No output means that it's piped to stdout",
+            path_type=str,
+            is_flag=True,
+        ),
+    ] = None,
+    newline: Annotated[
+        bool,
+        typer.Option(
+            "--newline", help="Whether to include \\n characters or not", is_flag=True
+        ),
+    ] = False,
+):
+    if output:
+        extractor.to_json(output, no_newline=newline)
+        app.console.print("Done!")
+        return
+    app.console.print_json(extractor.to_json().decode())
+
+
+@app.command(name="write")
+def write(
+    output: Annotated[
+        Path,
+        typer.Option(
+            "--output",
+            help="CSV output",
+            path_type=str,
+            is_flag=True,
+        ),
+    ] = ROOT / "debug" / "external-news-exporter.csv",
+    newline: Annotated[
+        bool,
+        typer.Option(
+            "--newline", help="Whether to include \\n characters or not", is_flag=True
+        ),
+    ] = False,
+):
+    with app.console.status("[bold white]Writing..."):
+        extractor.write(output, no_newline=newline)
+        app.console.print(f"[white]Done! Wrote {len(extractor.all())} entries.")
