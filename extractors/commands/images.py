@@ -1,8 +1,3 @@
-# This complete CLI script is designed to extract images from news files, display, store, and download them all.
-# Make sure to create an virtualenv ("python3 -m venv .venv"), activate it, and install all of the requirements. ("pip install -r debug/requirements.txt")
-# This script heavily depends on external libraries, and also depend heavily on C/Cython based libraries (e.g., aiohttp, aiofile, yarl, lxml, and msgspec).
-# Run "python debug/news_image_extractor.py --help" to get started with usage.
-#
 # ---TECHNICAL DETAILS---
 # Downloading all images are done on a single thread and process, but are launched concurrently.
 # In short, all files are downloaded asynchronously using Python's asyncio with performance improvements from uvloop (winloop is used for windows platforms).
@@ -30,17 +25,16 @@ from rich.console import Console
 from rich.tree import Tree
 from yarl import URL
 
+from core import ROOT, ExtractorTyper
+
 if os.name == "nt":
     from winloop import run
 else:
     from uvloop import run
 
-__title__ = "News Image Extractor"
-__help_description__ = (
-    "Extractor for displaying, downloading, and bulk-uploading images"
+__description__ = (
+    "Commands for finding associated images within news entries and other operations"
 )
-
-ROOT = Path(__file__).parents[1]
 
 
 def coro(f):
@@ -252,23 +246,10 @@ class ImageExtractor:
 ### CLI logic
 
 
-class ImageExtractorTyper(typer.Typer):
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            help=__help_description__, add_completion=False, *args, **kwargs
-        )
-        self.console = Console()
-        self.extractor = ImageExtractor(ROOT)
-
-
-app = ImageExtractorTyper()
+app = ExtractorTyper()
+extractor = ImageExtractor(ROOT)
 
 ### Commands and utilities
-
-
-@app.command()
-def main():
-    pass
 
 
 @app.command(name="show")
@@ -278,7 +259,7 @@ def show(
     ] = False,
 ) -> None:
     """Shows the extracted content in a tree format"""
-    app.extractor.display(local)
+    extractor.display(local)
 
 
 @app.command(name="json")
@@ -295,11 +276,11 @@ def json(
 ):
     """Outputs extracted content to JSON."""
     if output:
-        app.extractor.to_json(output)
+        extractor.to_json(output)
         app.console.print("Done!")
         return
 
-    app.console.print_json(app.extractor.to_json())
+    app.console.print_json(extractor.to_json())
 
 
 async def download(
@@ -324,6 +305,7 @@ async def mass_download(
         ),
     ] = None,
 ):
+    """Attempts to download all of the images extracted and found within news entries"""
     if not output:
         output = Path(__file__).parent / "news-images"
 
@@ -336,7 +318,7 @@ async def mass_download(
     total_images = 0
     images = {
         news_id: [images.link for images in chain(entry.images)]
-        for news_id, entry in app.extractor.all().items()
+        for news_id, entry in extractor.all().items()
         if entry.images
     }
 
@@ -357,7 +339,3 @@ async def mass_download(
         app.console.print(
             f"[white]Done! Downloaded {total_images} images and took {humanize.naturaldelta(timer.time, minimum_unit='milliseconds')}"
         )
-
-
-if __name__ == "__main__":
-    app()
