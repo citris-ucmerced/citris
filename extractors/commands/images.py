@@ -13,7 +13,7 @@ from functools import wraps
 from itertools import chain
 from pathlib import Path
 from typing import Annotated, Any, Optional
-from urllib.parse import unquote
+from urllib.parse import quote, unquote
 
 import aiohttp
 import humanize
@@ -111,8 +111,8 @@ class ImageExtractor:
         try:
             with open(self._csv_file, "r") as f:
                 self._db: dict[str, NewsFile] = {
-                    extract_link_to_id(entry["ID"], entry["LINK"]): NewsFile(
-                        id=extract_link_to_id(entry["ID"], entry["LINK"]),
+                    entry["ID"]: NewsFile(
+                        id=entry["ID"],
                         link=entry["LINK"],
                     )
                     for entry in csv.DictReader(f, delimiter=",")
@@ -233,6 +233,25 @@ class ImageExtractor:
 
         self.console.print(tree)
 
+    def featured_display(self, empty: bool) -> None:
+        """Finds the ID, and provides image informationm including file names and links."""
+
+        def _handle_blanks(id: str) -> str:
+            if len(id) == 0:
+                return "/images/favicon.png"
+            return f"/images/news/{id}.jpg"
+
+        url = URL.build(scheme="https", host="citris.ucmerced.edu", path="")
+        tree = Tree("[bold white]Featured Images Tree (All External + Local)")
+
+        for file, entry in self._db.items():
+            empty_file = "[gray]EMPTY" if not entry.id and not file else f"[gray]{file}"
+            file_tree = tree.add(empty_file)
+            image = quote(_handle_blanks(entry.id))
+            file_tree.add(str(url.with_path(image)))
+            file_tree.add(f"IMAGE: {''.join(image.split('/')[-1])}")
+        self.console.print(tree)
+
     def all(self) -> dict[str, NewsFile]:
         """Returns all entries within DB
 
@@ -260,6 +279,16 @@ def show(
 ) -> None:
     """Shows the extracted content in a tree format"""
     extractor.display(local)
+
+
+@app.command(name="featured")
+def featured(
+    empty: Annotated[
+        bool, typer.Option("--empty", help="Shows only empty featured images")
+    ] = False,
+) -> None:
+    """Displays information about the featured images for all posts (if possible)"""
+    extractor.featured_display(empty)
 
 
 @app.command(name="json")
