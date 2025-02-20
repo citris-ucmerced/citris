@@ -22,6 +22,7 @@ if os.name == "nt":
     from winloop import run
 else:
     from uvloop import run
+
 __description__ = "Commands to extract and write external news entries"
 
 
@@ -88,71 +89,66 @@ class ExternalExtractor:
                         },
                     )
                     for entry in csv.DictReader(f, delimiter=",")
-                    if not entry["LINK"].startswith("https://citris.ucmerced.edu/news")
+                    if not entry["LINK"].startswith(
+                        (
+                            "https://citris.ucmerced.edu/news",
+                            "https://catpaws.ucmerced.edu",
+                            "https://theleaflet.org",
+                        )
+                    )
                 ]
         except FileNotFoundError:
             self._entries = []
 
-    def all(self) -> list[ExternalNewsEntry]:
-        return self._entries
+    def to_markdown(
+        self, output: Optional[Path] = None, *, reverse: bool = True
+    ) -> str:
+        """Writes/outputs entries in Markdown format
 
-    def display(self, reverse: bool = False) -> None:
-        tree = Tree("[bold white] Display with order_by sort")
+        Args:
+            output (Path): Output path
+            reverse (bool): Whether to sort asc/desc. Desc is reverse. Defaults to True.
 
-        self._entries.sort(key=lambda x: x.date, reverse=reverse)
+        Returns:
+            str: Returns the encoded entries in Markdown format.
+        """
 
-        for entry in self._entries:
-            # Strip all unesscary queries
-            parsed_link = URL(entry.link).with_query(None)
-
-            # Both of these straight up contain invalid URLs, so I'm not going to bother including them in the first place
-            if (
-                parsed_link.host == "catpaws.ucmerced.edu"
-                or parsed_link.host == "theleaflet.org"
-            ):
-                continue
-            file_tree = tree.add(entry.title)
-
-            file_tree.add(f"DATE: {entry.date}")
-
-            file_tree.add(f"EXTERNAL LINK: {parsed_link}")
-
-        self.console.print(tree)
-
-    def display_markdown(self, reverse: bool = True) -> None:
-        self._entries.sort(key=lambda x: x.date, reverse=reverse)
-        output_path = Path(__file__).parents[2] / "debug" / "external-news-info.md"
-
-        if not output_path.exists():
-            output_path.touch()
-
+        if reverse:
+            self._entries.sort(key=lambda x: x.date, reverse=reverse)
         flat_entries = [
             f"- [ ] {entry.title}\n\t- DATE: {entry.date}\n\t- LINK: {entry.link}\n\t- IMAGE_LINK: {entry.image_link}"
             for entry in self._entries
         ]
+        encoded = "\n".join(entry for entry in flat_entries)
 
-        output_path.write_text("\n".join(entry for entry in flat_entries))
-        self.console.print("[bold white]Done.")
+        if output:
+            output.write_text(encoded)
+        return encoded
 
-    def to_json(self, output: Optional[Path] = None) -> bytes:
+    def to_json(self, output: Optional[Path] = None, *, reverse: bool = True) -> bytes:
         """Writes/outputs entries in JSON format
 
         Args:
             output (Path): Output path
+            reverse (bool): Whether to sort asc/desc. Desc is reverse. Defaults to True.
 
         Returns:
             bytes: Returns the encoded entries in JSON format
         """
+        if reverse:
+            self._entries.sort(key=lambda x: x.date, reverse=reverse)
+
         encoded = self._encoder.encode(self._entries)
         if output:
             output.write_bytes(encoded)
         return encoded
 
-    def write(self, output: Path, reverse: bool = True) -> None:
+    def write(self, output: Path, *, reverse: bool = True) -> None:
         """Public entrypoint to start writing all information down
 
         Args:
             output (Path): Output path. MUST be a csv fie
+            reverse (bool): Whether to sort asc/desc. Desc is reverse. Defaults to True.
 
         Raises:
             ValueError: The file extension is not a CSV
@@ -161,18 +157,36 @@ class ExternalExtractor:
             raise ValueError(
                 "MUST be a CSV file! If you are looking for use JSON, use the json command"
             )
-
-        self._entries.sort(key=lambda x: x.date, reverse=reverse)
+        if reverse:
+            self._entries.sort(key=lambda x: x.date, reverse=reverse)
 
         with open(output, mode="w") as f:
             writer = csv.DictWriter(f, self._entries[0].get_keys())
             writer.writeheader()
             for entry in self._entries:
-                possible_link = URL(entry.link)
-
-                if possible_link.host in ("catpaws.ucmerced.edu", "theleaflet.org"):
-                    continue
                 writer.writerow(entry.to_dict())
+
+    def display(self, *, reverse: bool = True) -> None:
+        """Display extracted and sorted content via a tree-based format
+
+        Args:
+            reverse (bool): Whether to sort asc/desc. Defaults to True
+        """
+        tree = Tree("[bold white] Display with order_by sorted")
+        if reverse:
+            self._entries.sort(key=lambda x: x.date, reverse=reverse)
+
+        for entry in self._entries:
+            file_tree = tree.add(entry.title)
+            file_tree.add(f"DATE: {entry.date}")
+            file_tree.add(f"EXTERNAL LINK: {URL(entry.link).with_query(None)}")
+            file_tree.add(f"THUMBNAIL LINK: {entry.image_link}")
+
+        self.console.print(tree)
+
+    def all(self) -> list[ExternalNewsEntry]:
+        """Provides all of the entries in a public manner"""
+        return self._entries
 
 
 app = ExtractorTyper()
@@ -190,13 +204,46 @@ def json(
             is_flag=True,
         ),
     ] = None,
+    order_by: Annotated[
+        OrderByChoices,
+        typer.Option("--order-by", help="Order by asc/desc", is_flag=True),
+    ] = OrderByChoices.desc,
 ):
     """Write or display JSON-formatted extracted data"""
+    reverse_sort = True if order_by == "desc" else False
+
     if output:
-        extractor.to_json(output)
+        extractor.to_json(output, reverse=reverse_sort)
         app.console.print("Done!")
         return
-    app.console.print_json(extractor.to_json().decode())
+    app.console.print_json(extractor.to_json(reverse=reverse_sort).decode())
+
+
+@app.command(name="markdown")
+def markdown(
+    output: Annotated[
+        Optional[Path],
+        typer.Option(
+            "--output",
+            help="Outputs the JSON data to a file. No output means that it's piped to stdout",
+            path_type=str,
+            is_flag=True,
+        ),
+    ] = None,
+    order_by: Annotated[
+        OrderByChoices,
+        typer.Option("--order-by", help="Order by asc/desc", is_flag=True),
+    ] = OrderByChoices.desc,
+):
+    """Write or display Markdown formatted extracted data"""
+    reverse_sort = True if order_by == "desc" else False
+    if output:
+        extractor.to_markdown(output, reverse=reverse_sort)
+        app.console.print("Done!")
+
+        return
+
+    app.console.print(extractor.to_markdown(reverse=reverse_sort))
 
 
 @app.command(name="write")
@@ -210,13 +257,19 @@ def write(
             is_flag=True,
         ),
     ] = ROOT / "debug" / "external-news-exporter.csv",
+    order_by: Annotated[
+        OrderByChoices,
+        typer.Option("--order-by", help="Order by asc/desc", is_flag=True),
+    ] = OrderByChoices.desc,
 ):
     """Write the extracted data into a CSV file"""
+    reverse_sort = True if order_by == "desc" else False
+
     if output.suffix != ".csv":
         raise ValueError("Requested output MUST be a .csv file")
 
     with app.console.status("[bold white]Writing..."):
-        extractor.write(output)
+        extractor.write(output, reverse=reverse_sort)
         app.console.print(f"[white]Done! Wrote {len(extractor.all()) - 2} entries.")
 
 
@@ -226,17 +279,11 @@ def display(
         OrderByChoices,
         typer.Option("--order-by", help="Order by asc/desc", is_flag=True),
     ] = OrderByChoices.desc,
-    markdown: Annotated[
-        bool, typer.Option("--markdown", help="display markdown instead", is_flag=True)
-    ] = False,
 ) -> None:
+    """Display extracted entries in a tree-like format or markdown in lists"""
     reverse_sort = True if order_by == "desc" else False
 
-    if markdown:
-        extractor.display_markdown()
-        return
-
-    extractor.display(reverse_sort)
+    extractor.display(reverse=reverse_sort)
 
 
 async def download(
@@ -261,6 +308,7 @@ async def mass_thumbnail_extraction(
         ),
     ] = None,
 ):
+    """Mass-download external news thumbnails"""
     if not output:
         output = Path(__file__).parents[2] / "debug" / "external-thumbnails"
 
