@@ -1,0 +1,138 @@
+- [ ]  Highlights from UC Merced's Latest ¡Valle! Workshop  
+	- DATE: 2024-11-19
+- [ ]  Fly CITRIS and Nextech at Boys & Girls Club of Merced County
+	- DATE: 2024-07-23
+- [ ]  FLY CITRIS AT PLAINSBURG ELEMENTARY
+	- DATE: 2024-05-28
+- [ ] FLY CITRIS TAKES FLIGHT AT UC MERCED'S EXPANDING YOUR HORIZONS CONFERENCE
+	- DATE: 2024-03-22
+- [ ] USDA Scholarship for UC Merced students. OPEN TO ALL MAJORS
+	- DATE: 2023-03-20
+- [ ] 2023 EDGE in tech symposium
+	- DATE: 2023-03-02
+- [ ] Modeling Your Future
+	- DATE: 2022-11-05
+- [ ] CITRIS hosts California Farm Bureau President
+	- DATE: 2022-10-26
+- [ ] Lisa Yeo comments on ag tech information and protecting users in CCST Panel
+	- DATE: 2022-10-18
+- [ ] LEDE: Agriculture's Next Big Step in Preserving the Planet
+	- DATE: 2022-10-12
+- [ ] UC Merced and CITRIS Key Collaborators on $65.1M Federal Grant
+	- DATE: 2022-09-02
+- [ ] News Update
+	- DATE: 2022-08-23
+- [ ] School of Engineering - News Update
+	- DATE: 2022-07-15
+- [ ] Calling UC Merced Interns: Join the CITRIS team and get your start in tech!
+	- DATE: 2022-06-30
+- [ ] CITRIS Researchers Lay Groundwork to Bring Flying Buses to California Skies
+	- DATE: 2022-04-14
+- [ ] UC Merced’s Mobile Maker Lab Brings Education to Community Fair
+	- DATE: 2022-04-01
+- [ ] Last Year’s Drought Cost Ag Industry More Than $1 Billion, Thousands of Jobs, New Analysis Shows
+	- DATE: 2022-02-24
+- [ ] Building is Believing
+	- DATE: 2022-02-14
+- [ ] Faculty Report IDs Top Climate Challenges Facing Valley
+	- DATE: 2022-01-20
+- [ ] Meet the 2022 EDGE in Tech Athena Awards winners
+	- DATE: 2022-01-14
+- [ ] CITRIS announces winners of first-ever student aviation prize
+	- DATE: 2022-01-13
+- [ ] 13 cross-campus projects selected for 2021 Seed Awards
+	- DATE: 2021-12-10
+- [ ] USDA Grant Supports Diverse Ag-related Learning and Training for Students
+	- DATE: 2021-11-18
+- [ ] RESEARCHERS TO STUDY, REPORT ON IMPACTS OF DROUGHT ON AGRICULTURE AND COMMUNITIES
+	- DATE: 2021-11-16
+- [ ] A View of AgTech Progress: The advancements within the AgTech field with Distinguished Professor Martin Kenney and Professor Anne Visser
+	- DATE: 2021-11-02
+- [ ] LANDSAT-9 LAUNCH LIVE
+	- DATE: 2021-10-27
+- [ ] Join Our Student Intern Team for Fall 2021!
+	- DATE: 2021-10-26
+- [ ] CITRIS HIRING Academic Coordinator II
+	- DATE: 2021-10-12
+- [ ] UC Merced Leads Innovative Effort to Secure Water for Agriculture and Ecosystems
+	- DATE: 2021-10-06
+- [ ] New Job Posting: CITRIS Grant Development Officer
+	- DATE: 2021-09-29
+- [ ] USDA-funded Internship Program Introduced New Bobcats to Agriculture Research
+	- DATE: 2021-09-20
+- [ ] New Artificial Intelligence Institute awarded to UC Merced strengthens agricultural systems research and workforce capabilities
+	- DATE: 2021-07-29
+- [ ] The CITRIS Foundry Incubator Fall 2021 Application is now OPEN!
+	- DATE: 2021-06-16
+- [ ] NASA's FINESST selects CITRIS-affiliated researcher Brittany Lopez Barreto
+	- DATE: 2021-06-11
+- [ ] Down on the Farm: Drought Edition
+	- DATE: 2021-05-24
+- [ ] HESTIR TURNS NASA TECHNOLOGY TOWARD EARTH’S BIODIVERSITY
+	- DATE: 2021-04-29
+- [ ] Bernacchi Publishes Guide to Sequoia & Kings Canyon National Parks
+	- DATE: 2021-03-30
+- [ ] Professor Josué Medellín-Azuara Published in Proceedings of National Academy of Science
+	- DATE: 2021-03-30
+- [ ] Solar Panels Over Canals Can Save Money, Energy and Water, Study Shows
+	- DATE: 2021-03-18
+- [ ] Teenie Matlock receives Athena Award at CITRIS Women in Technology Symposium
+	- DATE: 2021-03-12
+- [ ] The future of infrastructure presented in CITRIS Research Exchange Sam Markolf brings new approaches to sustainability and resiliency in joining UCM faculty
+	- DATE: 2021-03-12
+- [ ] UC Merced faculty advise state’s energy and water efficiency program
+	- DATE: 2021-02-26
+- [ ] Recent CITRIS Research Exchange Spreads the Word of a new Program that Hopes to Change the Central Valley for the Better
+	- DATE: 2021-02-26
+- [ ] Tech research at UC Merced grows under Faculty Success Initiative Fellowship
+	- DATE: 2021-02-03
+- [ ] MATLOCK EARNS PRESTIGIOUS ATHENA AWARD FOR ACADEMIC LEADERSHIP
+	- DATE: 2021-01-27
+- [ ] Registration is now open for the 2021 Women in Tech Symposium
+	- DATE: 2021-01-22
+- [ ] 2021 Women in Tech Initiative Athena Award Winners Announced
+	- DATE: 2021-01-20
+- [ ] PRESTIGIOUS BIENNIAL GRANT PROGRAM INCLUDES FUNDING FOR AG-LABOR AND WILDFIRE RESEARCH
+	- DATE: 2021-01-14
+- [ ] UC Merced professors collaborate on three CITRIS grants to solve big problems in the Valley
+	- DATE: 2020-12-04
+- [ ] UC Merced Achieves Carbon Neutrality Two Years Ahead of Schedule
+	- DATE: 2020-12-03
+- [ ] CITRIS Celebrates 20 Years of Impact and Innovation, Looks to the Decades Ahead
+	- DATE: 2020-12-03
+- [ ] &iexcl;Valle!
+	- DATE: 2020-12-03
+- [ ] New UC ANR Water webinar covers disadvantaged communities
+	- DATE: 2020-11-20
+- [ ] COVID-19 online conference goes beyond social distancing
+	- DATE: 2020-11-18
+- [ ] NEW PRECISION AG PROJECT WOULD HELP FARMERS MEASURE PLANT MOISTURE
+	- DATE: 2020-11-02
+- [ ] FORK IN THE ROAD VIDEO FEATURES PROF. COLLEEN NAUGHTON
+	- DATE: 2020-10-13
+- [ ] AI IS FOR THE BIRDS IN A NEW COMPUTER SCIENCE PROJECT
+	- DATE: 2020-09-30
+- [ ] UC MERCED BRINGS NSF ‘COMPUTER SCIENCE FOR ALL’ PROGRAM TO MERCED SCHOOLS
+	- DATE: 2020-09-21
+- [ ] ACTIVATE Bringing Telehealth Services to Vulnerable Merced County Residents
+	- DATE: 2020-09-16
+- [ ] Public Conference Presents COVID-19 From Different Angles
+	- DATE: 2020-09-16
+- [ ] ACTIVATE Will Bring Telehealth Services To Vulnerable, At-Risk Residents of California’s Central Valley
+	- DATE: 2020-09-10
+- [ ] Kurtz Leads Project to Efficiently Store Renewable Energy
+	- DATE: 2020-08-20
+- [ ] Whirlwind Tour Introduces Filipino Students to Functional Entrepreneurship
+	- DATE: 2020-06-17
+- [ ] VIERS AWARDED GRANT FOR ASSESSING THE BENEFITS OF SATELLITES FOR WATER QUALITY
+	- DATE: 2020-06-15
+- [ ] UC Merced creating several tools to combat COVID-19
+	- DATE: 2020-06-03
+- [ ] UC Merced Researchers Developing Rapid COVID Solutions with Technology
+	- DATE: 2020-05-21
+- [ ] UC Merced earns USDA-NIFA FOR AG-FOOD-TECH RESEARCH AND EXTENSION EXPERIENCES FOR UNDERGRADUATES
+	- DATE: 2020-05-18
+- [ ] Congratulations! Class of 2020
+	- DATE: 2020-05-15
+- [ ] Earth Day Talk Focuses on Ag Land and Water Regulations, Solutions
+	- DATE: 2020-04-17

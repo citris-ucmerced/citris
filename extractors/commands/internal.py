@@ -10,6 +10,7 @@ import typer
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
 from rich.console import Console
+from rich.tree import Tree
 from yarl import URL
 
 from core import ROOT, ExtractorTyper
@@ -200,8 +201,61 @@ class InternalExtractor:
                 writer = csv.DictWriter(f, self._entries[0].get_keys())
                 writer.writeheader()
                 for entry in self._entries:
+                    possible_link = URL(entry.link)
+
+                    if possible_link.host in (
+                        "catpaws.ucmerced.edu",
+                        "theleaftlet.org",
+                    ):
+                        continue
+
                     writer.writerow(entry.to_dict())
                 self.console.print("[white]Done!")
+
+    def display(
+        self, desc: bool, dump: Optional[bool], markdown: Optional[bool] = None
+    ) -> None:
+        self._bulk_inject()
+        tree = Tree("[bold white]Display by date (desc)")
+
+        self._entries.sort(key=lambda x: x.date, reverse=desc)
+
+        if dump:
+            output_path = (
+                Path(__file__).parents[2] / "debug" / "internal-news-dates.json"
+            )
+            if not output_path.exists():
+                output_path.touch()
+            output_path.write_bytes(
+                msgspec.json.format(
+                    self._encoder.encode(
+                        {entry.title: {"date": entry.date} for entry in self._entries}
+                    ),
+                    indent=4,
+                )
+            )
+            self.console.print("[bold white]Done")
+            return
+
+        if markdown:
+            output_path = Path(__file__).parents[2] / "debug" / "internal-news-dates.md"
+
+            if not output_path.exists():
+                output_path.touch()
+
+            flat_entries = [
+                f"- [ ] {entry.title}\n\t- DATE: {entry.date}"
+                for entry in self._entries
+            ]
+            output_path.write_text("\n".join(entry for entry in flat_entries))
+            self.console.print("[bold white]Done")
+            return
+        for entry in self._entries:
+            file_tree = tree.add(entry.title)
+
+            file_tree.add(f"DATE: {entry.date}")
+
+        self.console.print(tree)
 
     def all(self) -> list[InternalNewsEntry]:
         """Returns all entries within the extractor
@@ -268,3 +322,22 @@ def write(
     with app.console.status("[bold white]Writing..."):
         extractor.write(output, no_newline=newline)
         app.console.print(f"[white]Done! Wrote {len(extractor.all())} entries.")
+
+
+@app.command(name="display")
+def display(
+    desc: Annotated[
+        bool, typer.Option("--desc", help="Sort by desc", is_flag=True)
+    ] = False,
+    dump: Annotated[
+        Optional[bool], typer.Option("--dump", help="dump into json", is_flag=True)
+    ] = None,
+    markdown: Annotated[
+        Optional[bool], typer.Option("--markdown", help="No", is_flag=True)
+    ] = None,
+) -> None:
+    if markdown:
+        extractor.display(desc, dump, True)
+        return
+
+    extractor.display(desc, dump)

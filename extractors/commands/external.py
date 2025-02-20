@@ -1,17 +1,41 @@
+import asyncio
 import csv
 import datetime
+import os
+from enum import StrEnum
+from functools import wraps
 from pathlib import Path
 from typing import Annotated, Any, Optional
 
+import aiohttp
 import msgspec
 import typer
+from aiofile import async_open
 from dateutil.parser import parse
 from rich.console import Console
+from rich.tree import Tree
 from yarl import URL
 
 from core import ROOT, ExtractorTyper
 
+if os.name == "nt":
+    from winloop import run
+else:
+    from uvloop import run
 __description__ = "Commands to extract and write external news entries"
+
+
+def coro(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        return run(f(*args, **kwargs))
+
+    return wrapper
+
+
+class OrderByChoices(StrEnum):
+    asc = "asc"
+    desc = "desc"
 
 
 class ExternalNewsEntry(msgspec.Struct):
@@ -33,6 +57,7 @@ class ExternalExtractor:
     def __init__(self, root: Path):
         self.root = root
         self.console = Console()
+
         self._csv_file = self.root / "news.csv"
         self._encoder = msgspec.json.Encoder(enc_hook=self._enc_hook)
         self._entries: list[ExternalNewsEntry] = []
@@ -71,6 +96,44 @@ class ExternalExtractor:
     def all(self) -> list[ExternalNewsEntry]:
         return self._entries
 
+    def display(self, reverse: bool = False) -> None:
+        tree = Tree("[bold white] Display with order_by sort")
+
+        self._entries.sort(key=lambda x: x.date, reverse=reverse)
+
+        for entry in self._entries:
+            # Strip all unesscary queries
+            parsed_link = URL(entry.link).with_query(None)
+
+            # Both of these straight up contain invalid URLs, so I'm not going to bother including them in the first place
+            if (
+                parsed_link.host == "catpaws.ucmerced.edu"
+                or parsed_link.host == "theleaflet.org"
+            ):
+                continue
+            file_tree = tree.add(entry.title)
+
+            file_tree.add(f"DATE: {entry.date}")
+
+            file_tree.add(f"EXTERNAL LINK: {parsed_link}")
+
+        self.console.print(tree)
+
+    def display_markdown(self, reverse: bool = True) -> None:
+        self._entries.sort(key=lambda x: x.date, reverse=reverse)
+        output_path = Path(__file__).parents[2] / "debug" / "external-news-info.md"
+
+        if not output_path.exists():
+            output_path.touch()
+
+        flat_entries = [
+            f"- [ ] {entry.title}\n\t- DATE: {entry.date}\n\t- LINK: {entry.link}\n\t- IMAGE_LINK: {entry.image_link}"
+            for entry in self._entries
+        ]
+
+        output_path.write_text("\n".join(entry for entry in flat_entries))
+        self.console.print("[bold white]Done.")
+
     def to_json(self, output: Optional[Path] = None) -> bytes:
         """Writes/outputs entries in JSON format
 
@@ -85,7 +148,7 @@ class ExternalExtractor:
             output.write_bytes(encoded)
         return encoded
 
-    def write(self, output: Path) -> None:
+    def write(self, output: Path, reverse: bool = True) -> None:
         """Public entrypoint to start writing all information down
 
         Args:
@@ -99,10 +162,16 @@ class ExternalExtractor:
                 "MUST be a CSV file! If you are looking for use JSON, use the json command"
             )
 
+        self._entries.sort(key=lambda x: x.date, reverse=reverse)
+
         with open(output, mode="w") as f:
             writer = csv.DictWriter(f, self._entries[0].get_keys())
             writer.writeheader()
             for entry in self._entries:
+                possible_link = URL(entry.link)
+
+                if possible_link.host in ("catpaws.ucmerced.edu", "theleaflet.org"):
+                    continue
                 writer.writerow(entry.to_dict())
 
 
@@ -148,4 +217,71 @@ def write(
 
     with app.console.status("[bold white]Writing..."):
         extractor.write(output)
-        app.console.print(f"[white]Done! Wrote {len(extractor.all())} entries.")
+        app.console.print(f"[white]Done! Wrote {len(extractor.all()) - 2} entries.")
+
+
+@app.command(name="display")
+def display(
+    order_by: Annotated[
+        OrderByChoices,
+        typer.Option("--order-by", help="Order by asc/desc", is_flag=True),
+    ] = OrderByChoices.desc,
+    markdown: Annotated[
+        bool, typer.Option("--markdown", help="display markdown instead", is_flag=True)
+    ] = False,
+) -> None:
+    reverse_sort = True if order_by == "desc" else False
+
+    if markdown:
+        extractor.display_markdown()
+        return
+
+    extractor.display(reverse_sort)
+
+
+async def download(
+    url: URL, *, path: Path, session: aiohttp.ClientSession, chunk_size: int = 32768
+):
+    async with session.get(url) as response:
+        async with async_open(path, "wb+") as afp:
+            async for data in response.content.iter_chunked(chunk_size):
+                await afp.write(data)
+
+
+@app.command(name="thumbnail-extract")
+@coro
+async def mass_thumbnail_extraction(
+    output: Annotated[
+        Optional[Path],
+        typer.Option(
+            "--output",
+            help="Folder output for images. MUST be a path",
+            path_type=str,
+            is_flag=True,
+        ),
+    ] = None,
+):
+    if not output:
+        output = Path(__file__).parents[2] / "debug" / "external-thumbnails"
+
+        if not output.exists():
+            output.mkdir()
+
+    else:
+        if not output.is_dir():
+            raise ValueError("Output is NOT a path!")
+
+    total = 0
+    thumbnails = [entry.image_link for entry in extractor.all() if entry.image_link]
+
+    with app.console.status("[bold white]Downloading..."):
+        async with aiohttp.ClientSession() as session:
+            async with asyncio.TaskGroup() as group:
+                for image in thumbnails:
+                    total += 1
+                    filename = image.parts[-1]
+                    group.create_task(
+                        download(image, path=output / filename, session=session)
+                    )
+
+    app.console.print(f"[white]Done! Downloaded {total}")

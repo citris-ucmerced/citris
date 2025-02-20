@@ -1,0 +1,136 @@
+- [ ] Multinational Research Project Shows How Life on Earth can be Measured from Space
+	- DATE: 2025-02-04
+	- LINK: https://news.ucmerced.edu/news/2025/multinational-research-project-shows-how-life-earth-can-be-measured-space
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/MultiResearch.jpg
+- [ ] Sensor Provides Cheap, Smart Way to Monitor How Much Water Crops Need
+	- DATE: 2025-01-28
+	- LINK: https://news.ucmerced.edu/news/2025/sensor-provides-cheap-smart-way-monitor-how-much-water-crops-need
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/Sensor-Cheap-Crops.jpg
+- [ ] Professor Reza Ehsani receives 2024 CITRIS Innovation Fellowship and AIC Award
+	- DATE: 2024-12-18
+	- LINK: https://citris-uc.org/citris-announces-recipients-of-inaugural-innovation-fellowship-and-aic-awards/
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/prof24citrisaward.jpg
+- [ ] A Major Step Forward for UC Merced's Agricultural Experiment Station
+	- DATE: 2024-11-24
+	- LINK: https://news.ucmerced.edu/news/2024/major-step-forward-uc-merceds-agricultural-experiment-station?fbclid=PAZXh0bgNhZW0CMTEAAaYTZV37OcMF5zVz6YJ6LHVvT1GOvLa3kv42cef_tSuzTiD82V3P6t-UuuM_aem_JAX98pL_ZiPAjMbibGoOnA
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/AgPic.jpg
+- [ ] Drone Research Experts Discuss Future at UC Santa Cruz
+	- DATE: 2024-10-07
+	- LINK: https://news.ucsc.edu/2024/10/drone-event.html
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/UCDrones.jpg
+- [ ] International partnership advances water quality monitoring
+	- DATE: 2024-07-19
+	- LINK: https://citris-uc.org/citris-global-partnership-delivers-advanced-water-quality-monitoring/
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/ProfHester.jpg
+- [ ] Picking up vibrations: Shijia Pan makes ambient surfaces smarter
+	- DATE: 2024-04-05
+	- LINK: https://citris-uc.org/picking-up-vibrations-shijia-pan-makes-ambient-surfaces-smarter/
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/picking-vibrations-cover.jpg
+- [ ] Charting a Course to Tech Success: Insights from UC Merced's ¡Valle! Event
+	- DATE: 2024-04-04
+	- LINK: https://news.ucmerced.edu/news/2024/charting-course-tech-success-insights-uc-merceds-%C2%A1valle-event
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/course-to-success-valle.jpg
+- [ ] Spotlight on Health Tech for Social Good at Hack Merced IX
+	- DATE: 2024-04-01
+	- LINK: https://news.ucmerced.edu/news/2024/spotlight-health-tech-social-good-hack-merced-ix
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/hack-merced-ix-health.jpg
+- [ ] Can AI Increase Air Traffic Safety
+	- DATE: 2024-01-31
+	- LINK: https://news.ucmerced.edu/news/2024/can-ai-increase-air-traffic-safety
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/ai-air-traffic-safety.jpg
+- [ ] Drones Donated to UC Merced by Start-Up SeekOps Will Monitor Environmental Conditions
+	- DATE: 2023-04-13
+	- LINK: https://news.ucmerced.edu/news/2023/drones-donated-uc-merced-start-seekops-will-monitor-environmental-conditions
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/drones_donated_13_4_2023.jpg
+- [ ] The Complexities of Combating Cyberbullying and Harassment
+	- DATE: 2023-01-21
+	- LINK: https://resoundinglyhuman.com/episodes/the-complexities-of-combatting-cyberbullying-and-harassment/
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/lisa-yeo.jpg
+- [ ] Week of Storms Tests California's Approach to Taming Nature
+	- DATE: 2023-01-05
+	- LINK: https://www.nytimes.com/2023/01/05/climate/california-floods-drought-preparedness.html
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/california-floods-drought-preparedness.jpg
+- [ ] UC Merced Gains Prestigious UC Agricultural Experiment Station Designation
+	- DATE: 2022-11-16
+	- LINK: https://news.ucmerced.edu/news/2022/uc-merced-gains-prestigious-uc-agricultural-experiment-station-designation
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/experiment_station.jpg
+- [ ] Fresno-Merced Future of Food Innovation coalition receives $65.1 M from US government
+	- DATE: 2022-09-12
+	- LINK: https://citris-uc.org/fresno-merced-future-of-food-innovation-coalition-receives-65m-from-us-government/
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/f3_hero.jpg
+- [ ] Ricardo de Castro's CITRIS Research Exchange Seminar
+	- DATE: 2022-08-31
+	- LINK: https://citris-uc.org/event/citris-research-exchange-ricardo-de-castro-on-sustainable-agtech/
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/Castro_news.jpg
+- [ ] CITRIS Research Exchange: Fall 2022 Speakers
+	- DATE: 2022-08-31
+	- LINK: https://citris-uc.org/news-events/citris-research-exchange/?mc_cid=49bcf91e0b&mc_eid=9540515cc2
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/CITRIS_Research_Exchange.jpg
+- [ ] CITRIS Seed Funding 2022 Request for Proposals
+	- DATE: 2022-08-15
+	- LINK: https://mailchi.mp/citris-uc/2022-seed-funding-call-for-proposals
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/citrisfundingnewsimg.jpg
+- [ ] Drought and California’s Agriculture
+	- DATE: 2022-04-14
+	- LINK: https://www.ppic.org/publication/policy-brief-drought-and-californias-agriculture/?utm_source=ppic&utm_medium=email&utm_campaign=epub
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/drought2.jpg
+- [ ] Secure Water Future Featured as UC Research Helping Meet the Challenges of the Climate Crisis
+	- DATE: 2022-04-06
+	- LINK: https://universityofcalifornia.edu/news/how-uc-research-helping-california-meet-challenges-climate-crisis
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/susie-climate-1.jpg
+- [ ] Dr. Josh Viers Speaks with Insight’s Vicki Gonzalez
+	- DATE: 2022-01-01
+	- LINK: https://www.capradio.org/news/insight/2022/01/25/scusd-equity-officers-san-joaquin-valley-climate-change-b-street-theatre-co-founder-retires/
+	- IMAGE_LINK: None
+- [ ] Join our team and earn your PhD!
+	- DATE: 2021-11-17
+	- LINK: http://securewaterfuture.net/news/phd-recruitment
+	- IMAGE_LINK: None
+- [ ] UC Merced Oxygen Fund
+	- DATE: 2021-11-02
+	- LINK: https://innovate.ucmerced.edu/oxygen
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/oxygen1.jpg
+- [ ] Stark Assesses Safety of Flying Car Study with Caltrans
+	- DATE: 2021-10-13
+	- LINK: https://news.ucmerced.edu/content/stark-assesses-safety-flying-car-study-caltrans
+	- IMAGE_LINK: None
+- [ ] ¡Valle! 2022 is Currently accepting applications
+	- DATE: 2021-09-30
+	- LINK: https://citris.ucmerced.edu/valle
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/Valle-2022.jpg
+- [ ] CITRIS Aviation Prize
+	- DATE: 2021-08-19
+	- LINK: https://citris-uc.org/labs-programs/aviation-and-uav-facilities/citris-aviation-prize-2021
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/Aviation.jpg
+- [ ] ENERGY-WATER BENEFITS STUDY FEATURED IN LA Times
+	- DATE: 2021-04-22
+	- LINK: https://www.latimes.com/environment/newsletter/2021-04-22/solar-power-water-canals-california-climate-change-boiling-point
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/solar-canal-cropped.jpg
+- [ ] First-Year and Transfer Students Can Dig into Research this Summer with Paid USDA Internships
+	- DATE: 2021-04-05
+	- LINK: https://citris.ucmerced.edu/facts
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/facts-banner.jpg
+- [ ] The 5th Annual Women in Tech Symposium Sheds Light on the Ag-Tech Field and Inclusivity
+	- DATE: 2021-03-31
+	- LINK: https://theleaflet.org/home-1/women-in-tech?rq=5th
+	- IMAGE_LINK: None
+- [ ] CITRIS LOOKING TO FILL NexTech Coordinator position
+	- DATE: 2020-12-01
+	- LINK: https://catpaws.ucmerced.edu/n/student/position.jsf?positionId=9656
+	- IMAGE_LINK: None
+- [ ] UC Merced Center for the Humanities report shows partnership with CITRIS
+	- DATE: 2020-06-30
+	- LINK: https://issuu.com/cfhatucmerced/docs/cfhannual_report19-20finalcl
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/humanities-logo.jpg
+- [ ] Innovate to Grow Awards 10 Winners from Virtual Expo
+	- DATE: 2020-05-28
+	- LINK: https://innovatetogrow.ucmerced.edu/news/2020/innovate-grow-awards-10-winners-virtual-expo
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/i2g-hero2.jpg
+- [ ] Innovate to Grow Goes Virtual
+	- DATE: 2020-05-15
+	- LINK: https://news.ucmerced.edu/news/2020/innovate-grow-goes-virtual
+	- IMAGE_LINK: https://citris.ucmerced.edu/images/news/i2g-hero2.jpg
+- [ ] UC MERCED PART OF CITRIS’S COVID-19 RAPID RESPONSE GRANTS
+	- DATE: 2020-05-14
+	- LINK: https://news.ucmerced.edu/news/2020/uc-merced-part-citris%E2%80%99s-covid-19-rapid-response-grants
+	- IMAGE_LINK: None

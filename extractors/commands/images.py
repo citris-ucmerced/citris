@@ -57,6 +57,7 @@ class NewsImage(msgspec.Struct, frozen=True):
 
 class NewsFile(msgspec.Struct):
     id: str
+    title: str
     link: str
     images: Optional[list[NewsImage]] = None
 
@@ -113,6 +114,7 @@ class ImageExtractor:
                 self._db: dict[str, NewsFile] = {
                     entry["ID"]: NewsFile(
                         id=entry["ID"],
+                        title=entry["TITLE"],
                         link=entry["LINK"],
                     )
                     for entry in csv.DictReader(f, delimiter=",")
@@ -233,7 +235,7 @@ class ImageExtractor:
 
         self.console.print(tree)
 
-    def featured_display(self, empty: bool) -> None:
+    def featured_display(self) -> None:
         """Finds the ID, and provides image informationm including file names and links."""
 
         def _handle_blanks(id: str) -> str:
@@ -245,11 +247,20 @@ class ImageExtractor:
         tree = Tree("[bold white]Featured Images Tree (All External + Local)")
 
         for file, entry in self._db.items():
-            empty_file = "[gray]EMPTY" if not entry.id and not file else f"[gray]{file}"
+            empty_file = (
+                f"[gray]EMPTY - {entry.title}"
+                if not entry.id and not file
+                else f"[gray]{file}"
+            )
             file_tree = tree.add(empty_file)
+
+            if entry.id and file:
+                file_tree.add(f"TITLE: {entry.title}")
+
             image = quote(_handle_blanks(entry.id))
-            file_tree.add(str(url.with_path(image)))
+            file_tree.add(f"LINK: {str(url.with_path(image))}")
             file_tree.add(f"IMAGE: {''.join(image.split('/')[-1])}")
+
         self.console.print(tree)
 
     def all(self) -> dict[str, NewsFile]:
@@ -282,13 +293,9 @@ def show(
 
 
 @app.command(name="featured")
-def featured(
-    empty: Annotated[
-        bool, typer.Option("--empty", help="Shows only empty featured images")
-    ] = False,
-) -> None:
+def featured() -> None:
     """Displays information about the featured images for all posts (if possible)"""
-    extractor.featured_display(empty)
+    extractor.featured_display()
 
 
 @app.command(name="json")
