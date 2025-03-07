@@ -1,12 +1,16 @@
 import csv
 from pathlib import Path
-from typing import Any, Optional
+from typing import Annotated, Any, Optional
 
 import msgspec
+import typer
 from rich.console import Console
+from rich.tree import Tree
 from yarl import URL
 
-ROOT = Path(__file__).parents[2]
+from core import ROOT, ExtractorTyper
+
+__description__ = "Commands to extract and write information from the Peoples page"
 
 
 class Entry(msgspec.Struct, frozen=True):
@@ -24,15 +28,9 @@ class Entry(msgspec.Struct, frozen=True):
         return {f: getattr(self, f) for f in self.__struct_fields__}
 
 
-class Header(msgspec.Struct, frozen=True):
-    id: str
-    name: str
-
-
 class PeopleExtractor:
-    def __init__(self, root: Path, *, exclude_header: bool = False):
+    def __init__(self, root: Path):
         self.root = root
-        self.exclude_header = exclude_header
         self.console = Console()
 
         self._csv_file = self.root / "people.csv"
@@ -72,6 +70,14 @@ class PeopleExtractor:
             self._entries = []
 
     def to_json(self, output: Optional[Path] = None):
+        """Writes/outputs entries in JSON format
+
+        Args:
+            output (Path): Output path. Defaults to None, which will pipe to stdout
+
+        Returns:
+            bytes: Returns the encoded entries in JSON format
+        """
         encoded = self._encoder.encode(self._entries)
         if output:
             output.write_bytes(encoded)
@@ -79,6 +85,14 @@ class PeopleExtractor:
         return encoded
 
     def to_csv(self, output: Path):
+        """Public entrypoint to start writing all information down
+
+        Args:
+            output (Path): Output path. MUST be a csv fie
+
+        Raises:
+            ValueError: The file extension is not a CSV
+        """
         if not output.suffix == ".csv":
             raise ValueError("MUST be a CSV file!")
 
@@ -89,6 +103,70 @@ class PeopleExtractor:
             for entry in self._entries:
                 writer.writerow(entry.to_dict())
 
+    def display(self) -> None:
+        """Display extracted and sorted content via a tree-based format"""
+        tree = Tree("[bold white]CITRIS @ UC Merced People")
+        for entry in self._entries:
+            file_tree = tree.add(entry.name)
+            file_tree.add(f"TITLE: {entry.title}")
+            file_tree.add(f"AFFILIATION: {entry.affiliation or None}")
+            file_tree.add(f"EXTERNAL LINK: {entry.link or None}")
+            file_tree.add(f"IMAGE URL: {entry.image}")
 
-extractor = PeopleExtractor(ROOT, exclude_header=True)
-extractor.to_csv(ROOT / "debug" / "people-data.csv")
+        self.console.print(tree)
+
+    def all(self) -> list[Entry]:
+        """Provides all of the entries in a public manner"""
+        return self._entries
+
+
+app = ExtractorTyper()
+extractor = PeopleExtractor(ROOT)
+
+
+@app.command(name="json")
+def json(
+    output: Annotated[
+        Optional[Path],
+        typer.Option(
+            "--output",
+            help="Outputs the JSON data to a file. No output means that it's piped to stdout",
+            path_type=str,
+            is_flag=True,
+        ),
+    ] = None,
+):
+    """Write or display JSON-formatted extracted data"""
+    if output:
+        extractor.to_json(output)
+        app.console.print("Done!")
+        return
+    app.console.print_json(extractor.to_json().decode())
+
+
+@app.command(name="write")
+def write(
+    output: Annotated[
+        Path,
+        typer.Option(
+            "--output",
+            help="CSV output",
+            path_type=str,
+            is_flag=True,
+        ),
+    ] = ROOT / "debug" / "citris-people.csv",
+):
+    """Write the extracted data into a CSV file"""
+
+    if output.suffix != ".csv":
+        raise ValueError("Requested output MUST be a .csv file")
+
+    with app.console.status("[bold white]Writing..."):
+        extractor.to_csv(output)
+        app.console.print(f"[white]Done! Wrote {len(extractor.all())} entries.")
+
+
+@app.command(name="display")
+def display() -> None:
+    """Display extracted entries in a tree-like format or markdown in lists"""
+    extractor.display()
